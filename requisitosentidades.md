@@ -5,7 +5,7 @@ RF2.1
   dentro del sistema a partir de su nombre y tipo.
   
     - E: RD2.1,
-	- M: RD2.2,
+    - M: RD2.2,
     - S: ninguno.
 
 RF2.2
@@ -14,9 +14,9 @@ RF2.2
   y un producto cultural por el cual lo recibe.
   
     - E: RD2.3,
-	- M: RD2.4,
-	- S: RD2.10.
-	
+    - M: RD2.4,
+    - S: RD2.10.
+    
   Debe cumplirse la restricción semántica especificada en RS2.1.
 
 RF2.3
@@ -24,8 +24,8 @@ RF2.3
   creadora, esta función muestra el nombre, tipo, productos culturales
   creados y premios asociados a esas creaciones, si los hubiere.
 
-	- E: RD2.1;
-	- M: RD2.2, RD2.4, [productos culturales];
+    - E: RD2.1;
+    - M: RD2.2, RD2.4, [productos culturales];
     - S: RD2.2, RD2.4, [productos culturales].
 
 RF2.4
@@ -35,25 +35,25 @@ RF2.4
   
     - E: RD2.5,
     - M: RD2.6,
-	- S: ninguna.
+    - S: ninguna.
 
 RF2.5
 : Consultar un género por nombre: dado el nombre de un género,
   esta función muestra su nombre, identificador, supergénero,
   subgéneros asociados y productos culturales asociados a ese género.
 
-	- E: RD2.8;
+    - E: RD2.8;
     - M: RD2.5, [productos];
-	- S: RD2.5, [productos].
-	
+    - S: RD2.5, [productos].
+    
 RF2.6
 : Consultar un género por identificador: dado el identificador de un género,
   esta función muestra su nombre, identificador, supergénero,
   subgéneros asociados y productos culturales asociados a ese género.
 
-	- E: RD2.9;
+    - E: RD2.9;
     - M: RD2.5, [productos];
-	- S: RD2.5, [productos].
+    - S: RD2.5, [productos].
 
 
 ## Requisitos de datos
@@ -66,36 +66,36 @@ RD2.1
 RD2.2
 : Los datos de una entidad creadora almacenada:
     - *nombre*, una cadena de hasta 80 caracteres no vacía; y
-	- *tipo*, una cadena de hasta 80 caracteres no vacía.
+    - *tipo*, una cadena de hasta 80 caracteres no vacía.
 
 RD2.3
 : Los datos de un premio concedido a una entidad por un producto:
     - *nombre del premio*, una cadena de hasta 100 caracteres no vacía;
-	- *nombre de entidad creadora*, una cadena de hasta 80 caracteres no vacía; y
-	- *nombre del producto cultural*, una cadena de hasta 80 caracteres no vacía.
+    - *nombre de entidad creadora*, una cadena de hasta 80 caracteres no vacía; y
+    - *nombre del producto cultural*, una cadena de hasta 80 caracteres no vacía.
 
 RD2.4
 : Los datos almacenados de un premio concedido a una entidad por un
   producto:
     - *nombre del premio*, una cadena de hasta 100 caracteres no vacía;
-	- *nombre de entidad creadora*, una cadena de hasta 80 caracteres no vacía; y
-	- *nombre del producto cultural*, una cadena de hasta 80 caracteres no vacía.
+    - *nombre de entidad creadora*, una cadena de hasta 80 caracteres no vacía; y
+    - *nombre del producto cultural*, una cadena de hasta 80 caracteres no vacía.
 
 RD2.5
 : Los datos de un género:
     - *nombre*, una cadena de hasta 80 caracteres no vacía;
     - *identificador*, una cadena de hasta 60 caracteres no vacía; y
-	- *supergénero*, una cadena, quizá vacía, de hasta 80 caracteres.
+    - *supergénero*, una cadena, quizá vacía, de hasta 80 caracteres.
 
 RD2.6
 : Los datos de un género almacenado:
     - *nombre*, una cadena de hasta 80 caracteres no vacía;
     - *identificador*, una cadena de hasta 60 caracteres no vacía; y
-	- *supergénero*, una cadena, quizá vacía, de hasta 80 caracteres.
+    - *supergénero*, una cadena, quizá vacía, de hasta 80 caracteres.
 
 RD2.7
 : Los datos de consulta de una entidad creadora:
-	- *nombre*, una cadena de hasta 80 caracteres no vacía.
+    - *nombre*, una cadena de hasta 80 caracteres no vacía.
 
 RD2.8
 : Los datos de consulta de un género por nombre:

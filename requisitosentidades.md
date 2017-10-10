@@ -16,7 +16,7 @@ RF2.2
     - E: RD2.3,
     - M: RD2.4,
     - S: RD2.10.
-    
+  
   Debe cumplirse la restricción semántica especificada en RS2.1.
 
 RF2.3
@@ -36,6 +36,8 @@ RF2.4
     - E: RD2.5,
     - M: RD2.6,
     - S: ninguna.
+
+  Debe cumplirse la restricción semántica RS2.2.
 
 RF2.5
 : Consultar un género por nombre: dado el nombre de un género,
@@ -110,8 +112,12 @@ RD2.10
   un producto cultural se ha añadido correctamente:
     - *mensaje*, una cadena no vacía.
 
-## Requisitos semánticos
+## Restricciones semánticas
 
 RS2.1
 : La entidad creadora debe estar presente en la lista de entidades
   creadoras del producto cultural.
+
+RS2.2
+: Un género no podrá ser su propio supergénero.
+

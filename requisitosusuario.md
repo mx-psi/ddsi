@@ -1,4 +1,4 @@
-# Requisitos usuario
+# Requisitos del subsistema de usuarios
 
 ## Requisitos funcionales
 

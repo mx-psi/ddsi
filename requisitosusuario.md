@@ -36,7 +36,7 @@ RF-3.5. Notificar de productos interesantes
     - S: RD-3.7
 
 RF-3.6. Log in de usuario
-: identificación del usuario en el sistema necesaria para acceder a los requisitos funcionales RF-3.2, RF-3.3, RF-3.4 y RF-3.5.
+: identificación del usuario en el sistema necesaria para acceder a los requisitos funcionales RF-3.2, RF-3.3, RF-3.4, RF-3.5, RF-3.7 y RF-3.8.
 
     - E: RD-3.8
     - A/M:

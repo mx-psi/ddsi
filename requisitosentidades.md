@@ -1,124 +1,122 @@
 ## Requisitos funcionales
 
-RF2.1
-: Añadir una entidad creadora: esta función registra una entidad creadora
-  dentro del sistema a partir de su nombre y tipo.
+RF-2.1. Añadir una entidad creadora
+: Esta función registra una entidad creadora dentro del sistema a
+  partir de su nombre y tipo.
   
-    - E: RD2.1,
-    - M: RD2.2,
+    - E: RD-2.1,
+    - M: RD-2.2,
     - S: ninguno.
 
-RF2.2
-: Registrar un premio asociado a la creación de una entidad creadora:
-  esta función añade un premio dada una entidad creadora que lo recibe
+RF-2.2. Registrar un premio asociado a la creación de una entidad creadora
+: Esta función añade un premio dada una entidad creadora que lo recibe
   y un producto cultural por el cual lo recibe.
   
-    - E: RD2.3,
-    - M: RD2.4,
-    - S: RD2.10.
+    - E: RD-2.3,
+    - M: RD-2.4,
+    - S: RD-2.10.
   
   Debe cumplirse la restricción semántica especificada en RS2.1.
 
-RF2.3
-: Consultar una entidad creadora: dado el nombre de una entidad
-  creadora, esta función muestra el nombre, tipo, productos culturales
-  creados y premios asociados a esas creaciones, si los hubiere.
+RF-2.3. Consultar una entidad creadora
+: Dado el nombre de una entidad creadora, esta función muestra el
+  nombre, tipo, productos culturales creados y premios asociados a
+  esas creaciones, si los hubiere.
 
-    - E: RD2.1;
-    - M: RD2.2, RD2.4, [productos culturales];
-    - S: RD2.2, RD2.4, [productos culturales].
+    - E: RD-2.1;
+    - M: RD-2.2, RD-2.4, [productos culturales];
+    - S: RD-2.2, RD-2.4, [productos culturales].
 
-RF2.4
-: Añadir un género: esta función registra un género en el sistema a
-  partir de un nombre, un identificador, y, opcionalmente, un
-  supergénero al que pertenece como subgénero.
+RF-2.4. Añadir un género
+: Esta función registra un género en el sistema a partir de un nombre,
+  un identificador, y, opcionalmente, un supergénero al que pertenece
+  como subgénero.
   
-    - E: RD2.5,
-    - M: RD2.6,
+    - E: RD-2.5,
+    - M: RD-2.6,
     - S: ninguna.
 
   Debe cumplirse la restricción semántica RS2.2.
 
-RF2.5
-: Consultar un género por nombre: dado el nombre de un género,
-  esta función muestra su nombre, identificador, supergénero,
-  subgéneros asociados y productos culturales asociados a ese género.
+RF-2.5. Consultar un género por nombre
+: Dado el nombre de un género, esta función muestra su nombre,
+  identificador, supergénero, subgéneros asociados y productos
+  culturales asociados a ese género.
 
-    - E: RD2.8;
-    - M: RD2.5, [productos];
-    - S: RD2.5, [productos].
+    - E: RD-2.8;
+    - M: RD-2.5, [productos];
+    - S: RD-2.5, [productos].
     
-RF2.6
-: Consultar un género por identificador: dado el identificador de un género,
-  esta función muestra su nombre, identificador, supergénero,
-  subgéneros asociados y productos culturales asociados a ese género.
+RF-2.6. Consultar un género por identificador
+: Dado el identificador de un género, esta función muestra su nombre,
+  identificador, supergénero, subgéneros asociados y productos
+  culturales asociados a ese género.
 
-    - E: RD2.9;
-    - M: RD2.5, [productos];
-    - S: RD2.5, [productos].
+    - E: RD-2.9;
+    - M: RD-2.5, [productos];
+    - S: RD-2.5, [productos].
 
 
 ## Requisitos de datos
 
-RD2.1
-: Los datos de una entidad creadora:
+RD-2.1. Los datos de una entidad creadora
+:
 
     - *nombre*, una cadena de hasta 80 caracteres no vacía; y
     - *tipo*, una cadena de hasta 80 caracteres no vacía.
 
-RD2.2
-: Los datos de una entidad creadora almacenada:
+RD-2.2. Los datos de una entidad creadora almacenada
+:
 
     - *nombre*, una cadena de hasta 80 caracteres no vacía; y
     - *tipo*, una cadena de hasta 80 caracteres no vacía.
 
-RD2.3
-: Los datos de un premio concedido a una entidad por un producto:
+RD-2.3. Los datos de un premio concedido a una entidad por un producto
+:
 
     - *nombre del premio*, una cadena de hasta 100 caracteres no vacía;
     - *nombre de entidad creadora*, una cadena de hasta 80 caracteres no vacía; y
     - *nombre del producto cultural*, una cadena de hasta 80 caracteres no vacía.
 
-RD2.4
-: Los datos almacenados de un premio concedido a una entidad por un
-  producto:
+RD-2.4. Los datos almacenados de un premio concedido a una entidad por un producto
+:
   
     - *nombre del premio*, una cadena de hasta 100 caracteres no vacía;
     - *nombre de entidad creadora*, una cadena de hasta 80 caracteres no vacía; y
     - *nombre del producto cultural*, una cadena de hasta 80 caracteres no vacía.
 
-RD2.5
-: Los datos de un género:
+RD-2.5. Los datos de un género
+:
 
     - *nombre*, una cadena de hasta 80 caracteres no vacía;
     - *identificador*, una cadena de hasta 60 caracteres no vacía; y
     - *supergénero*, una cadena, quizá vacía, de hasta 80 caracteres.
 
-RD2.6
-: Los datos de un género almacenado:
+RD-2.6. Los datos de un género almacenado
+:
 
     - *nombre*, una cadena de hasta 80 caracteres no vacía;
     - *identificador*, una cadena de hasta 60 caracteres no vacía; y
     - *supergénero*, una cadena, quizá vacía, de hasta 80 caracteres.
 
-RD2.7
-: Los datos de consulta de una entidad creadora:
+RD-2.7. Los datos de consulta de una entidad creadora
+:
 
     - *nombre*, una cadena de hasta 80 caracteres no vacía.
 
-RD2.8
-: Los datos de consulta de un género por nombre:
+RD-2.8. Los datos de consulta de un género por nombre
+:
 
     - *nombre*, una cadena de hasta 80 caracteres no vacía.
 
-RD2.9
-: Los datos de consulta de un género por identificador:
+RD-2.9. Los datos de consulta de un género por identificador
+:
 
     - *identificador*, una cadena de hasta 60 caracteres no vacía.
 
-RD2.10
+RD-2.10. Mensaje de confirmación de registro de premio
 : Mensaje que indica que un premio asociado a una entidad creadora por
-  un producto cultural se ha añadido correctamente:
+  un producto cultural se ha añadido correctamente
   
     - *mensaje*, una cadena no vacía.
 

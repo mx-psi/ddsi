@@ -1,11 +1,4 @@
----
-title: Descripción del sistema
-author: ["Pablo Baeyens", "José Manuel Muñoz", "Mario Román", "Víctor Manuel Cerrato"]
-date: DDSI
-lang: es
-fontsize: 12pt
-geometry: margin=1.4in
----
+# Descripción del problema
 
 El sistema consiste en la implementación de una web que registre valoraciones de productos culturales así como datos que permitan su clasificación y la obtención de recomendaciones a los usuarios. Consta de 4 subsistemas que implementan funcionalidades complementarias: 
 

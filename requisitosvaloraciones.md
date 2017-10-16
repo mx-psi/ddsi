@@ -5,7 +5,7 @@ title: Requisitos del subsistema de valoraciones
 # Requisitos funcionales
 
 RF-4.1. Escribir valoración
-: Un usuario valora un producto cultural.
+: Un usuario valora un producto cultural. Con restricción RS-4.1
 
 - E: RD-4.1
 - M: RD-4.2
@@ -25,13 +25,13 @@ RF-4.3. Consultar valoración
 - S: RD-4.6
 
 RF-4.4. Puntuar una valoración
-: Permite que el usuario indique si una valoración es útil.
+: Permite que el usuario indique si una valoración es útil. Con restricción RS-4.2
 
 - E: RD-4.7
 - M: RD-4.8
 
 RF-4.5. Reportar valoración inapropiada
-: Un usuario reporta una valoración que considere inapropiada.
+: Un usuario reporta una valoración que considere inapropiada. Con restricción RS-4.3
 
 - E: RD-4.9
 - M: RD-4.10
@@ -48,7 +48,7 @@ RD-4.1. Nueva valoración
 - Reseña
 
 RD-4.2. Valoración
-: Almacenada en el sistema. Consta de:
+: Almacenada en el sistema (con restricción RS-4.1). Consta de:
 
 - Producto cultural
 - Usuario
@@ -65,7 +65,6 @@ RD-4.4. Resumen de valoraciones
 
 - Puntuación media
 - Histograma
- <!-- TODO: podría haber más datos relevantes o incluso datos más relevantes -->
 
 RD-4.5. Valoración
 : Pedida por el usuario, se describe por:
@@ -89,7 +88,7 @@ RD-4.7. Puntuación de valoración
 - Útil/no útil
 
 RD-4. Puntuación de valoración
-: Se describe por:
+: Con restricción RS-4.8. Se describe por:
 
 - Valoración
 - Usuario que efectuó la valoración
@@ -102,7 +101,7 @@ RD-4.9. Valoración
 - Usuario denunciante
 
 RD-4.10. Denuncia de valoración
-: Se compone de:
+: Con restricción RS-4.10. Se compone de:
 
 - Valoración
 - Usuario denunciante

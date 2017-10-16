@@ -14,7 +14,7 @@ El sistema consiste en la implementación de una web que registre valoraciones d
 - usuarios y
 - valoraciones.
 
-Los **productos culturales** constan de un nombre, ediciones o versiones, otros productos culturales asociados y una serie de géneros o categorías a las que pertenece. Cada edición, versión o instancia consta de fecha de publicación, identificador y un conjunto de entidades creadoras asociadas. El subsistema encargado de los mismos debe permitir:
+Los **productos culturales** constan de un nombre, fecha de publicación, identificador, productos culturales padre, otros productos culturales asociados, una serie de géneros a las que pertenece y un conjunto de entidades creadoras asociadas. El subsistema encargado de los mismos debe permitir:
 
 - añadir la información asociada a productos culturales nuevos o existentes,
 - consultar la información asociada a un producto cultural y

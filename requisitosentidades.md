@@ -64,8 +64,8 @@ RF-2.6. Consultar un género por identificador
 RD-2.1. Los datos de una entidad creadora
 : Constará de los datos
 
- - *nombre*, una cadena de hasta 80 caracteres no vacía; y
- - *tipo*, una cadena de hasta 80 caracteres no vacía.
+ - nombre, una cadena de hasta 80 caracteres no vacía; y
+ - tipo, una cadena de hasta 80 caracteres no vacía.
 
 RD-2.2. Los datos de una entidad creadora almacenada
 : Constará de los datos

@@ -25,14 +25,14 @@ RF-3.4. Consultar recomendaciones
 : los usuarios son capaces de consultar recomendaciones dadas por el sistema basadas en sus categorías de interés y sus valoraciones en productos culturales similares
 
     - E: RD-3.5
-    - A/M: RD-3.2 {Falta requisito de las valoraciones asociadas al usuario}
+    - A/M: RD-3.2 y RD-4.2
     - S: RD-3.6
  
 RF-3.5. Notificar de productos interesantes
 : los usuarios recibirán notificaciones de la salida de nuevos productos culturales que podrían interesarles.
 
     - E:
-    - A/M: RD-3.2
+    - A/M: RD-3.2 y RD-1.2
     - S: RD-3.7
 
 RF-3.6. Log in de usuario
@@ -83,7 +83,7 @@ RD-3.2. Datos de un usuario en el sistema
 RD-3.3. Botón darse de baja
 : botón que debe pulsar el usuario para darse de baja del sistema.
 
- - Botón Darse de baja
+ - Botón "Darse de baja"
  
 RD-3.4. Modificar datos de perfil de usuario
 : datos del usuario nuevos.

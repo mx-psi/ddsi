@@ -1,8 +1,6 @@
----
-title: Requisitos del subsistema de entidades creadoras
----
+# Requisitos del subsistema de productos culturales
 
-# Cambios realizados en la descripción durante el establecimiento de los requisitos
+## Cambios realizados en la descripción durante el establecimiento de los requisitos
 
 Inicialmente la descripción de los productos culturales incluía el concepto de edición, versión o instancia de un producto cultural:
 
@@ -12,7 +10,7 @@ Esta descripción se ha modificado de tal forma que las ediciones, versiones o i
 
 > Los **productos culturales** constan de un nombre, fecha de publicación, identificador, productos culturales padre, otros productos culturales asociados, una serie de géneros a las que pertenece y un conjunto de entidades creadoras asociadas.
 
-# Requisitos funcionales
+## Requisitos funcionales
 
 <!--
 RF-1.x
@@ -63,7 +61,7 @@ RF-1.4. Buscar un producto cultural
 - S: RD-1.11
 
 
-# Requisitos de datos
+## Requisitos de datos
 
 <!--El único punto donde se repiten los RD es en Almacenamiento. Si Rdx aparece en entrada/salida, nunca puede aparecer en otro sitio.-->
 
@@ -115,7 +113,7 @@ RD-1.11. Salida de la búsqueda
 : Una lista posiblemente vacía de pares identificador - nombre de los productos culturales que cumplan los criterios de RD-1.9.
 
 
-# Restricciones semánticas
+## Restricciones semánticas
 
 <!--Para las restricciones semánticas, poner RF y RD asociado-->
 

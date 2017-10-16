@@ -1,6 +1,4 @@
----
-title: Requisitos del subsistema de entidades creadoras
----
+# Requisitos del subsistema de entidades creadoras
 
 ## Requisitos funcionales
 

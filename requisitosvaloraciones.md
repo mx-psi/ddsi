@@ -1,8 +1,6 @@
----
-title: Requisitos del subsistema de valoraciones
----
+# Requisitos del subsistema de valoraciones
 
-# Requisitos funcionales
+## Requisitos funcionales
 
 RF-4.1. Escribir valoración
 : Un usuario valora un producto cultural. Con restricción RS-4.1
@@ -37,7 +35,7 @@ RF-4.5. Reportar valoración inapropiada
 - M: RD-4.10
 
  
-# Requisitos de datos
+## Requisitos de datos
 
 RD-4.1. Nueva valoración
 : Proporcionada por el usuario, y consta de:
@@ -107,7 +105,7 @@ RD-4.10. Denuncia de valoración
 - Usuario denunciante
 
 
-# Restricciones semánticas
+## Restricciones semánticas
 
 RS-4.1
 : Un usuario no podrá hacer más de una valoración de un producto cultural. Asociado a: RF-4.1 y RD-4.2

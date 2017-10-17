@@ -1,5 +1,7 @@
 # Requisitos del subsistema de entidades creadoras
 
+El encargado de este subsistema es Mario Román.
+
 ## Requisitos funcionales
 
 RF-2.1. Añadir una entidad creadora

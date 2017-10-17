@@ -1,5 +1,7 @@
 # Requisitos del subsistema de valoraciones
 
+El encargado de este subsistema es José Manuel Muñoz.
+
 ## Requisitos funcionales
 
 RF-4.1. Escribir valoración

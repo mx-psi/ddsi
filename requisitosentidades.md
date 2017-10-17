@@ -66,22 +66,22 @@ RF-2.6. Consultar un género por identificador
 RD-2.1. Los datos de una entidad creadora
 : Constará de los datos
 
- - nombre, una cadena de hasta 80 caracteres no vacía; y
- - tipo, una cadena de hasta 80 caracteres no vacía.
+  - nombre, una cadena de hasta 80 caracteres no vacía; y
+  - tipo, una cadena de hasta 80 caracteres no vacía.
 
 RD-2.2. Los datos de una entidad creadora almacenada
 : Constará de los datos
 
- - nombre, una cadena de hasta 80 caracteres no vacía; y
- - tipo, una cadena de hasta 80 caracteres no vacía.
+  - nombre, una cadena de hasta 80 caracteres no vacía; y
+  - tipo, una cadena de hasta 80 caracteres no vacía.
 
 RD-2.3. Los datos de un premio
 : Constará de los datos que describan a un premio concedido a una entidad
   creadora por un producto cultural concreto
 
- - nombre del premio, una cadena de hasta 100 caracteres no vacía;
- - nombre de entidad creadora, una cadena de hasta 80 caracteres no vacía; y
- - nombre del producto cultural, una cadena de hasta 80 caracteres no vacía.
+  - nombre del premio, una cadena de hasta 100 caracteres no vacía;
+  - nombre de entidad creadora, una cadena de hasta 80 caracteres no vacía; y
+  - nombre del producto cultural, una cadena de hasta 80 caracteres no vacía.
 
 RD-2.4. Los datos almacenados de un premio
 : Constará de los datos almacenados que describan a un premio
@@ -94,39 +94,39 @@ RD-2.4. Los datos almacenados de un premio
 RD-2.5. Los datos de un género
 : Constará de los datos
 
- - nombre, una cadena de hasta 80 caracteres no vacía;
- - identificador, una cadena de hasta 60 caracteres no vacía; y
- - supergénero, una cadena, quizá vacía, de hasta 80 caracteres;
+  - nombre, una cadena de hasta 80 caracteres no vacía;
+  - identificador, una cadena de hasta 60 caracteres no vacía; y
+  - supergénero, una cadena, quizá vacía, de hasta 80 caracteres;
  
- y se le aplicará RS-2.2.
+  y se le aplicará RS-2.2.
 
 RD-2.6. Los datos de un género almacenado
 : Constará de los datos
-
- - nombre, una cadena de hasta 80 caracteres no vacía;
- - identificador, una cadena de hasta 60 caracteres no vacía; y
- - supergénero, una cadena, quizá vacía, de hasta 80 caracteres.
+  
+  - nombre, una cadena de hasta 80 caracteres no vacía;
+  - identificador, una cadena de hasta 60 caracteres no vacía; y
+  - supergénero, una cadena, quizá vacía, de hasta 80 caracteres.
 
 RD-2.7. Los datos de consulta de una entidad creadora
 : Constará del dato
 
- - nombre, una cadena de hasta 80 caracteres no vacía.
+  - nombre, una cadena de hasta 80 caracteres no vacía.
 
 RD-2.8. Los datos de consulta de un género por nombre
 : Constará del dato
 
- - nombre, una cadena de hasta 80 caracteres no vacía.
+  - nombre, una cadena de hasta 80 caracteres no vacía.
 
 RD-2.9. Los datos de consulta de un género por identificador
 : Constará del dato
 
- - identificador, una cadena de hasta 60 caracteres no vacía.
+  - identificador, una cadena de hasta 60 caracteres no vacía.
 
 RD-2.10. Mensaje de confirmación de registro de premio
 : Mensaje que indica que un premio asociado a una entidad creadora por
   un producto cultural se ha añadido correctamente
   
-    - mensaje, una cadena no vacía.
+  - mensaje, una cadena no vacía.
 
 ## Restricciones semánticas
 

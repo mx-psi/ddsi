@@ -75,15 +75,17 @@ RD-2.2. Los datos de una entidad creadora almacenada
  - nombre, una cadena de hasta 80 caracteres no vacía; y
  - tipo, una cadena de hasta 80 caracteres no vacía.
 
-RD-2.3. Los datos de un premio concedido a una entidad por un producto
-: Constará de los datos
+RD-2.3. Los datos de un premio
+: Constará de los datos que describan a un premio concedido a una entidad
+  creadora por un producto cultural concreto
 
  - nombre del premio, una cadena de hasta 100 caracteres no vacía;
  - nombre de entidad creadora, una cadena de hasta 80 caracteres no vacía; y
  - nombre del producto cultural, una cadena de hasta 80 caracteres no vacía.
 
-RD-2.4. Los datos almacenados de un premio concedido a una entidad por un producto
-: Constará de los datos
+RD-2.4. Los datos almacenados de un premio
+: Constará de los datos almacenados que describan a un premio
+  concedido a una entidad creadora por un producto cultural concreto
   
  - nombre del premio, una cadena de hasta 100 caracteres no vacía;
  - nombre de entidad creadora, una cadena de hasta 80 caracteres no vacía; y

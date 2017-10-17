@@ -47,9 +47,9 @@ RF-2.5. Consultar un género por nombre
   identificador, supergénero, subgéneros asociados y productos
   culturales asociados a ese género.
 
-    - E: RD-2.8;
-    - M: RD-2.5, RD-1.2;
-    - S: RD-2.5, RD-1.2.
+   - E: RD-2.8;
+   - M: RD-2.5, RD-1.2;
+   - S: RD-2.5, RD-1.2.
     
 RF-2.6. Consultar un género por identificador
 : Dado el identificador de un género, esta función muestra su nombre,

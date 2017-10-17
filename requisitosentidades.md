@@ -28,8 +28,8 @@ RF-2.3. Consultar una entidad creadora
   esas creaciones, si los hubiere.
 
     - E: RD-2.1;
-    - M: RD-2.2, RD-2.4, [productos culturales];
-    - S: RD-2.2, RD-2.4, [productos culturales].
+    - M: RD-2.2, RD-2.4, RD-1.2;
+    - S: RD-2.2, RD-2.4, RD-1.2.
 
 RF-2.4. Añadir un género
 : Esta función registra un género en el sistema a partir de un nombre,
@@ -48,8 +48,8 @@ RF-2.5. Consultar un género por nombre
   culturales asociados a ese género.
 
     - E: RD-2.8;
-    - M: RD-2.5, [productos];
-    - S: RD-2.5, [productos].
+    - M: RD-2.5, RD-1.2;
+    - S: RD-2.5, RD-1.2.
     
 RF-2.6. Consultar un género por identificador
 : Dado el identificador de un género, esta función muestra su nombre,
@@ -57,8 +57,8 @@ RF-2.6. Consultar un género por identificador
   culturales asociados a ese género.
 
     - E: RD-2.9;
-    - M: RD-2.5, [productos];
-    - S: RD-2.5, [productos].
+    - M: RD-2.5, RD-1.2;
+    - S: RD-2.5, RD-1.2.
 
 
 ## Requisitos de datos
@@ -96,7 +96,9 @@ RD-2.5. Los datos de un género
 
  - nombre, una cadena de hasta 80 caracteres no vacía;
  - identificador, una cadena de hasta 60 caracteres no vacía; y
- - supergénero, una cadena, quizá vacía, de hasta 80 caracteres.
+ - supergénero, una cadena, quizá vacía, de hasta 80 caracteres;
+ 
+ y se le aplicará RS-2.2.
 
 RD-2.6. Los datos de un género almacenado
 : Constará de los datos
@@ -128,10 +130,10 @@ RD-2.10. Mensaje de confirmación de registro de premio
 
 ## Restricciones semánticas
 
-RS2.1
+RS-2.1. La entidad es creadora del producto
 : La entidad creadora debe estar presente en la lista de entidades
   creadoras del producto cultural. Asociado a: RF-2.2, RD-2.2 y RD-2.4.
 
-RS2.2
+RS-2.2. El género no es su propio subgénero
 : Un género no podrá ser su propio supergénero. Asociado a: RF-2.4, RD-2.5 y RD-2.6.
 

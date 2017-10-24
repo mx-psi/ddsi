@@ -1,5 +1,5 @@
 ---
-title: Descripción del sistema
+title: Sistema de valoración de productos culturales
 author: ["Pablo Baeyens", "José Manuel Muñoz", "Mario Román", "Víctor Manuel Cerrato"]
 date: DDSI
 lang: es

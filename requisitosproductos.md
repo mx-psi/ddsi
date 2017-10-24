@@ -1,5 +1,7 @@
 # Requisitos del subsistema de productos culturales
 
+El encargado de este subsistema es Pablo Baeyens.
+
 ## Cambios realizados en la descripción durante el establecimiento de los requisitos
 
 Inicialmente la descripción de los productos culturales incluía el concepto de edición, versión o instancia de un producto cultural:

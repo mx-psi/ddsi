@@ -1,5 +1,7 @@
 # Requisitos del subsistema de valoraciones
 
+El encargado de este subsistema es José Manuel Muñoz.
+
 ## Requisitos funcionales
 
 RF-4.1. Escribir valoración
@@ -85,8 +87,8 @@ RD-4.7. Puntuación de valoración
 - Usuario que efectúa la valoración
 - Útil/no útil
 
-RD-4. Puntuación de valoración
-: Con restricción RS-4.8. Se describe por:
+RD-4.8 Puntuación de valoración
+: Con restricción RS-4.2. Se describe por:
 
 - Valoración
 - Usuario que efectuó la valoración
@@ -99,7 +101,7 @@ RD-4.9. Valoración
 - Usuario denunciante
 
 RD-4.10. Denuncia de valoración
-: Con restricción RS-4.10. Se compone de:
+: Con restricción RS-4.3. Se compone de:
 
 - Valoración
 - Usuario denunciante

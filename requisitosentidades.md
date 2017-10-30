@@ -16,7 +16,7 @@ RF-2.2. Registrar un premio asociado a la creación de una entidad creadora
 : Esta función añade un premio dada una entidad creadora que lo recibe
   y un producto cultural por el cual lo recibe.
   
-    - E: RD-2.3,
+    - E: RD-2.3, RD-1.2,
     - M: RD-2.4,
     - S: RD-2.10.
   

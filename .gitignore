@@ -221,3 +221,6 @@ TSWLatexianTemp*
 
 # temp files
 *~
+
+# images
+*.png

@@ -1,6 +1,8 @@
+SUBFILES:=$(wildcard **.md)
+
 all: practica.pdf
 
-practica.pdf: practica.md requisitosproductos.md requisitosentidades.md requisitosusuario.md requisitosvaloraciones.md
+practica.pdf: practica.md  $(SUBFILES)
 	pandoc --filter pandoc-include $< -o $@
 
 clean:

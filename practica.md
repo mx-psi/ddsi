@@ -11,8 +11,18 @@ geometry: margin=1.4in
 
 ```include
 descripcion.md
-requisitosproductos.md
-requisitosentidades.md
-requisitosusuario.md
-requisitosvaloraciones.md
+Requisitos/productos.md
+Requisitos/entidades.md
+Requisitos/usuario.md
+Requisitos/valoraciones.md
+```
+
+<!--Esquemas-->
+
+```include
+Esquemas/general.md
+Esquemas/productos.md
+Esquemas/entidades.md
+Esquemas/usuario.md
+Esquemas/valoraciones.md
 ```

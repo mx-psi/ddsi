@@ -10,7 +10,7 @@ Inicialmente la descripción de los productos culturales incluía el concepto de
 
 Esta descripción se ha modificado de tal forma que las ediciones, versiones o instancias ahora son productos culturales, de tal manera que se permita la creación de jerarquías de más de dos niveles (por ejemplo, serie de televisión → temporada → episodio):
 
-> Los **productos culturales** constan de un nombre, fecha de publicación, identificador, productos culturales padre, otros productos culturales asociados, una serie de géneros a las que pertenece y un conjunto de entidades creadoras asociadas.
+> Los **productos culturales** constan de un nombre, fecha de publicación, tipo, identificador, productos culturales padre, otros productos culturales asociados, una serie de géneros a las que pertenece y un conjunto de entidades creadoras asociadas.
 
 ## Requisitos funcionales
 
@@ -38,14 +38,14 @@ RF-1.1. Añadir un producto cultural nuevo
 : El sistema permite añadir un producto cultural. Con restricción RS-1.1, RS-1.2 y RS-1.3.
 
 - E: RD-1.1
-- M: RD-1.2 
+- M: RD-1.2, RD-1.12, RD-1.13 
 - S: RD-1.3
 
 RF-1.2. Modificar un producto cultural existente
 : El sistema permite modificar los datos de un producto cultural ya existente. Con restricción RS-1.1, RS-1.2 y RS-1.3.
 
 - E: RD-1.4
-- M: RD-1.5
+- M: RD-1.5, RD-1.12, RD-1.13
 - S: RD-1.6
 
 RF-1.3. Consultar información de un producto cultural
@@ -90,11 +90,10 @@ RD-1.4. Datos a modificar de un producto cultural
 - una lista posiblemente vacía de pares compuestos por el nombre de un producto cultural ya existente y la descripción de su asociación con el producto cultural a añadir (una cadena no vacía).
 - una lista no vacía de los identificadores de los géneros a las que pertenece.
 - una lista no vacía de los nombres de los nuevos productos culturales padre
-- una lista posiblemente vacía de pares compuestos por el nombre de un producto cultural ya existente y la descripción de su asociación con el producto cultural a añadir (una cadena no vacía).
 - una lista no vacía de los identificadores de los géneros a las que pertenece.
 
 RD-1.5. Modificados de producto cultural
-: Los datos proporcionados en RD-1.4. Con restricción RS-1.1, RS-1.2 y RS-1.3.
+: Los datos proporcionados en RD-1.4. Los datos asociados a los géneros a añadir. Con restricción RS-1.1, RS-1.2 y RS-1.3.
 
 RD-1.6. Confirmación de modificación
 : Mensaje de salida que indica si los datos se han introducido correctamente y cuáles son los datos almacenados con las modificaciones (los listados en RD-1.1 con las modificaciones de RD-1.4). Con restricción RS-1.1, RS-1.2 y RS-1.3
@@ -114,6 +113,11 @@ RD-1.10. Búsqueda de productos culturales
 RD-1.11. Salida de la búsqueda
 : Una lista posiblemente vacía de pares identificador - nombre de los productos culturales que cumplan los criterios de RD-1.9.
 
+RD-1.12. Géneros asociados
+Los datos asociados a los géneros a los que pertenece un producto cultural (para comprobar su existencia).
+
+RD-1.13. Entidades creadoras asociadas
+Los datos asociados a las entidades creadoras a los que pertenece un producto cultural (para comprobar su existencia).
 
 ## Restricciones semánticas
 

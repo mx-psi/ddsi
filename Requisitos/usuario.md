@@ -151,7 +151,6 @@ RD-3.15. Datos de perfil de un usuario
  - Nombre de usuario
  - Nombre real
  - Localidad de origen
- - Correo electrónico
  - Lista de géneros de interés 
  - Descripción del usuario
  

@@ -33,3 +33,11 @@ de entidades creadoras y géneros. No se muestra el esquema de los
 almacenes de productos culturales, que está detallado en la sección
 dedicada a su subsistema.
 
+![Esquema externo de requisito funcional 2.1](Diagramas/RF-2.1.png) 
+![Esquema externo de requisito funcional 2.2](Diagramas/RF-2.2.png)
+![Esquema externo de requisito funcional 2.3](Diagramas/RF-2.3.png) 
+![Esquema externo de requisito funcional 2.4](Diagramas/RF-2.4.png) 
+![Esquema externo de requisito funcional 2.5](Diagramas/RF-2.5.png) 
+![Esquema externo de requisito funcional 2.6](Diagramas/RF-2.6.png) 
+![Esquema externo de almacén](Diagramas/A.2.1.png) 
+![Esquema externo de almacén](Diagramas/A.2.2.png) 

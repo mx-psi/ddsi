@@ -25,3 +25,4 @@ siguientes:
 ![Esquema externo del almacén A.4](Diagramas/A.4.png) 
 
 
+El esquema conceptual Entidad-Relación de todo el subsistema se corresponde con el del almacén.

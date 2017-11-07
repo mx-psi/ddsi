@@ -13,8 +13,8 @@ El esquema armazón del sistema puede verse en la siguiente figura:
 
 ![Esquema armazón del sistema](Diagramas/Armazon.png)
 
-# Esquema conceptual Entidad-Relación de todo el sistema
+## Esquema conceptual Entidad-Relación de todo el sistema
 
 El esquema conceptual Entidad-Relación de todo el sistema es la unión de los esquemas Entidad-Relación de cada uno de los subsistemas:
 
-![Esquema conceptual Entidad-Relación de todo el sistema](Diagramas/ERSistema.png) 
+![Esquema conceptual Entidad-Relación de todo el sistema](Diagramas/ER-Completo.png) 

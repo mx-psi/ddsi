@@ -12,6 +12,8 @@ de usuarios. No se muestra el esquema de los
 almacenes de valoraciones, que está detallado en la sección
 dedicada a su subsistema.
 
+El esquema conceptual Entidad-Relación de todo el subsistema se corresponde con el del almacén.
+
 ![Esquema externo de requisito funcional 3.1](Diagramas/RF-3.1.png)
 
 ![Esquema externo de requisito funcional 3.2](Diagramas/RF-3.2.png)
@@ -26,4 +28,4 @@ dedicada a su subsistema.
 
 ![Esquema externo de requisito funcional 3.7](Diagramas/RF-3.7.png)
 
-![Esquema externo de almacén](Diagramas/A.3.png)
+![Esquema externo de almacén A.3](Diagramas/A.3.png)

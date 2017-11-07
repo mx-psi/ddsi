@@ -1,4 +1,4 @@
-SUBFILES:=$(wildcard **.md)
+SUBFILES:=$(shell find -type f -name '*.md')
 DIAS:=$(wildcard Diagramas/*.dia)
 PNGS:=$(patsubst %.dia,%.png,$(DIAS))
 

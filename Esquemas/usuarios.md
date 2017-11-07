@@ -26,4 +26,4 @@ dedicada a su subsistema.
 
 ![Esquema externo de requisito funcional 3.7](Diagramas/RF-3.7.png)
 
-![Esquema externo de almacén](Diagramas/A.3.png)
+![Esquema externo del almacén A.3](Diagramas/A.3.png)

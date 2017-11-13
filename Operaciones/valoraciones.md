@@ -1,8 +1,9 @@
 # Operaciones de datos del subsistema de valoraciones
 
 O4.1
-: Insertar una nueva valoración a partir de un usuario, un
-producto cultural, una reseña y una puntuación
+: Insertar una nueva valoración a partir de su identificador,
+un nombre de usuario, un identificador de un producto cultural,
+una reseña y una puntuación
 
 O4.2
 : Consultar valoraciones relacionadas con un producto cultural

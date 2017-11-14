@@ -30,4 +30,18 @@ de la valoración y el nombre de usuario
 
 # Esquemas de navegación asociados
 
-<!-- TODO -->
+Los esquemas de navegación para las operaciones de datos descritas previamente son:
+
+![Esquema de navegación para la operación de datos 4.1](Diagramas/O4.1.png) 
+
+![Esquema de navegación para la operación de datos 4.2](Diagramas/O4.2.png) 
+
+![Esquema de navegación para la operación de datos 4.3](Diagramas/O4.3.png) 
+
+![Esquema de navegación para la operación de datos 4.4](Diagramas/O4.4.png) 
+
+![Esquema de navegación para la operación de datos 4.5](Diagramas/O4.5.png) 
+
+![Esquema de navegación para la operación de datos 4.6](Diagramas/O4.6.png) 
+
+![Esquema de navegación para la operación de datos 4.7](Diagramas/O4.7.png) 

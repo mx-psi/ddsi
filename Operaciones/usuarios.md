@@ -1,4 +1,4 @@
-# Operaciones de datos del subsistema de usuarios
+## Operaciones de datos del subsistema de usuarios
 
 O-3.1
 : Insertar un usuario a partir de RD-3.1 sin los generenos preferidos.
@@ -41,7 +41,7 @@ Las operación asociada al RF-3.6 es O-3.8
 
 Las operación asociada al RF-3.7 es O-3.8.
 
-# Esquemas de navegación asociados
+### Esquemas de navegación asociados
 
 ![Esquema de navegación de la operación de datos O-3.1](Diagramas/O-3.1.png) 
 

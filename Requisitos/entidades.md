@@ -27,7 +27,7 @@ RF-2.3. Consultar una entidad creadora
   nombre, tipo, productos culturales creados y premios asociados a
   esas creaciones, si los hubiere.
 
-    - E: RD-2.1;
+    - E: RD-2.7;
     - M: RD-2.2, RD-2.4, RD-1.2;
     - S: RD-2.2, RD-2.4, RD-1.2.
 
@@ -128,11 +128,13 @@ RD-2.10. Mensaje de confirmación de registro de premio
   
   - mensaje, una cadena no vacía.
 
+
 ## Restricciones semánticas
 
 RS-2.1. La entidad es creadora del producto
 : La entidad creadora debe estar presente en la lista de entidades
-  creadoras del producto cultural. Asociado a: RF-2.2, RD-2.2 y RD-2.4.
+  creadoras del producto cultural. Asociado a: RF-2.2, RD-2.2, RD-2.4
+  y RD-1.2.
 
 RS-2.2. El género no es su propio subgénero
 : Un género no podrá ser su propio supergénero. Asociado a: RF-2.4, RD-2.5 y RD-2.6.

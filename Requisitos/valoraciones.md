@@ -11,7 +11,7 @@ RF-4.1. Escribir valoración
 - M: RD-4.2
 
 RF-4.2. Consultar resumen de valoraciones
-: Permite obtener un resumen de las valoraciones de un producto cultural, presentando datos estadísticos fáciles de interpretar para el usuario.
+: Permite obtener un resumen de las valoraciones de un producto cultural, presentando un conjunto de valoraciones con alta puntuación y datos estadísticos fáciles de interpretar para el usuario.
 
 - E: RD-4.3
 - M: RD-4.2
@@ -61,10 +61,15 @@ RD-4.3. Producto cultural
 - Producto cultural
 
 RD-4.4. Resumen de valoraciones
-: Se ofrece al usuario un resumen estadístico de valoraciones, provisionalmente en el siguiente formato:
+: Se ofrece al usuario un resumen de las valoraciones de un producto cultural, provisionalmente en el siguiente formato:
 
 - Puntuación media
 - Histograma
+- Conjunto de valoraciones formadas por:
+  - Usuario
+  - Puntuación numérica
+  - Reseña
+  - Puntuación de la propia valoración
 
 RD-4.5. Valoración
 : Pedida por el usuario, se describe por:

@@ -1,8 +1,9 @@
-# Requisitos del subsistema de usuarios
+
+## Requisitos del subsistema de usuarios
 
 El encargado de este subsistema es Víctor Manuel Cerrato.
 
-## Requisitos funcionales
+### Requisitos funcionales
 
 RF-3.1. Alta de usuario
 : un usuario puede de darse de alta en el sistema. Se usan las restricciones RS-3.1, RS-3.2, RS-3.3 y RS-3.4.
@@ -54,7 +55,7 @@ RF-3.7. Consula de un perfil de usuario del sistema
  - A/M: RD-3.2
  - S: RD-3.15
 
-## Requisitos de datos
+### Requisitos de datos
 
 RD-3.1. Datos de entrada de la alta de un usuario
 : datos que debe introducir el usuario que quiera darse de alta en el sistema. Se usan las restricciones RS-3.1, RS-3.2, RS-3.3 y RS-3.4.
@@ -156,7 +157,7 @@ RD-3.15. Datos de perfil de un usuario
  
  Si el nombre de usuario de entrada es incorrecto (no está en el sistema) se mostrara un mensaje que lo indique.
 
-## Requisitos semánticos
+### Requisitos semánticos
 
 RS-3.1
 : El nombre de usuario no podrá ser uno ya registrado en el sistema. Este requisito afecta a RF-3.1, RF-3.3, RD-3.1, RD-3.2 y RD-3.4.

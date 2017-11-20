@@ -9,13 +9,23 @@ fontsize: 12pt
 geometry: margin=1.4in
 ---
 
+\newpage
+
 ```include
 descripcion.md
+```
+
+\newpage
+
+# Requisitos funcionales y de datos
+
+```include
 Requisitos/productos.md
 Requisitos/entidades.md
 Requisitos/usuario.md
 Requisitos/valoraciones.md
 ```
+
 
 <!--Esquemas-->
 
@@ -50,6 +60,8 @@ Esquemas/valoraciones.md
 <!--Operaciones-->
 
 \newpage
+
+# Operaciones de datos y esquemas de navegación
 
 ```include
 Operaciones/productos.md

@@ -1,4 +1,4 @@
-# Operaciones de datos del subsistema de valoraciones
+## Operaciones de datos del subsistema de valoraciones
 
 O4.1
 : Insertar una nueva valoración a partir de su identificador,
@@ -28,7 +28,7 @@ O4.7
 : Insertar reporte de una valoración a partir del identificador
 de la valoración y el nombre de usuario
 
-# Esquemas de navegación asociados
+### Esquemas de navegación asociados
 
 Los esquemas de navegación para las operaciones de datos descritas previamente son:
 

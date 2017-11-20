@@ -1,8 +1,8 @@
-# Requisitos del subsistema de entidades creadoras
+## Requisitos del subsistema de entidades creadoras
 
 El encargado de este subsistema es Mario Román.
 
-## Requisitos funcionales
+### Requisitos funcionales
 
 RF-2.1. Añadir una entidad creadora
 : Esta función registra una entidad creadora dentro del sistema a
@@ -61,7 +61,7 @@ RF-2.6. Consultar un género por identificador
     - S: RD-2.5, RD-1.2.
 
 
-## Requisitos de datos
+### Requisitos de datos
 
 RD-2.1. Los datos de una entidad creadora
 : Constará de los datos
@@ -129,7 +129,7 @@ RD-2.10. Mensaje de confirmación de registro de premio
   - mensaje, una cadena no vacía.
 
 
-## Restricciones semánticas
+### Restricciones semánticas
 
 RS-2.1. La entidad es creadora del producto
 : La entidad creadora debe estar presente en la lista de entidades

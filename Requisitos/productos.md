@@ -1,8 +1,9 @@
-# Requisitos del subsistema de productos culturales
+
+## Requisitos del subsistema de productos culturales
 
 El encargado de este subsistema es Pablo Baeyens.
 
-## Cambios realizados en la descripción durante el establecimiento de los requisitos
+### Cambios realizados en la descripción durante el establecimiento de los requisitos
 
 Inicialmente la descripción de los productos culturales incluía el concepto de edición, versión o instancia de un producto cultural:
 
@@ -12,7 +13,7 @@ Esta descripción se ha modificado de tal forma que las ediciones, versiones o i
 
 > Los **productos culturales** constan de un nombre, fecha de publicación, tipo, identificador, productos culturales padre, otros productos culturales asociados, una serie de géneros a las que pertenece y un conjunto de entidades creadoras asociadas.
 
-## Requisitos funcionales
+### Requisitos funcionales
 
 <!--
 RF-1.x
@@ -63,7 +64,7 @@ RF-1.4. Buscar un producto cultural
 - S: RD-1.11
 
 
-## Requisitos de datos
+### Requisitos de datos
 
 <!--El único punto donde se repiten los RD es en Almacenamiento. Si Rdx aparece en entrada/salida, nunca puede aparecer en otro sitio.-->
 
@@ -117,7 +118,7 @@ RD-1.12. Géneros asociados
 RD-1.13. Entidades creadoras asociadas
 : Los datos asociados a las entidades creadoras a los que pertenece un producto cultural (para comprobar su existencia).
 
-## Restricciones semánticas
+### Restricciones semánticas
 
 <!--Para las restricciones semánticas, poner RF y RD asociado-->
 

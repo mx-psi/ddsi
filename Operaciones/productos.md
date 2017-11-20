@@ -1,4 +1,4 @@
-# Operaciones de datos del subsistema de productos culturales
+## Operaciones de datos del subsistema de productos culturales
 
 Las operaciones de datos asociadas al requisito funcional RF-1.1 (Añadir un producto cultural nuevo) son:
 
@@ -26,7 +26,7 @@ Las operaciones de datos asociadas al requisito funcional RF-1.4 (Buscar un prod
 O-1.6
 : Obtener una lista de productos culturales que coincidan en uno o más de los campos especificados de entre: nombre, lista de padres, lista de géneros, lista de productos asociados, fecha o lista de entidades creadoras.
 
-## Esquemas de navegación asociados
+### Esquemas de navegación asociados
 
 <!--done-->
 ![Esquema de navegación de la operación de datos O-1.1](Diagramas/O-1.1.png) 

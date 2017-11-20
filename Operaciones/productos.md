@@ -13,8 +13,8 @@ O-1.3
 
 Las operaciones de datos asociadas al requisito funcional RF-1.2 (Modificar un producto cultural existente) son O-1.1 y O-1.2 además de:
 
-O-1.4:
-Modificar el producto cultural dado su identificador, una lista de nombres de productos culturales y sus asociaciones, una lista de identificadores de géneros y  una lista de productos culturales padre.
+O-1.4
+: Modificar el producto cultural dado su identificador, una lista de nombres de productos culturales y sus asociaciones, una lista de identificadores de géneros y  una lista de productos culturales padre.
 
 Las operaciones de datos asociadas al requisito funcional RF-1.3 (Consultar información de un producto cultural) son:
 

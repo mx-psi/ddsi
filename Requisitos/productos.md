@@ -70,13 +70,13 @@ RF-1.4. Buscar un producto cultural
 RD-1.1. Datos de un producto cultural
 : Proporcionados al introducir un producto cultural al sistema (con restricción RS-1.1, RS-1.2 y RS-1.3):
 
-- nombre (una cadena no vacía) con restricción RS-1.1
-- identificador (una cadena no vacía) con restricción RS-1.2
-- una lista posiblemente vacía de pares compuestos por el nombre de un producto cultural ya existente y la descripción de su asociación con el producto cultural a añadir (una cadena no vacía).
-- una lista no vacía de los identificadores de los géneros a las que pertenece.
-- una fecha de publicación posiblemente futura
-- una lista no vacía de los nombres de los productos culturales padre
-- una lista no vacía de pares compuestos por el nombre de cada entidad creadora asociada y rol de esa asociación (una cadena no vacía)
+- nombre (una cadena no vacía) con restricción RS-1.1,
+- identificador (una cadena no vacía) con restricción RS-1.2,
+- una lista posiblemente vacía de pares compuestos por el nombre de un producto cultural ya existente y la descripción de su asociación con el producto cultural a añadir (una cadena no vacía),
+- una lista no vacía de los identificadores de los géneros a las que pertenece,
+- una fecha de publicación posiblemente futura,
+- una lista no vacía de los nombres de los productos culturales padre y
+- una lista no vacía de pares compuestos por el nombre de cada entidad creadora asociada y rol de esa asociación (una cadena no vacía).
 
 RD-1.2. Producto cultural
 : Los datos proporcionados en RD-1.1. Con restricción RS-1.1, RS-1.2 y RS-1.3.
@@ -85,12 +85,10 @@ RD-1.3. Confirmación de introducción de producto cultural
 : Mensaje de salida que indica si los datos se han introducido correctamente y cuáles son los datos almacenados (los de RD-1.2). Con restricción RS-1.1, RS-1.2 y RS-1.3
 
 RD-1.4. Datos a modificar de un producto cultural
-: Los datos a modificar son (con restricción RS-1.1, RS-1.2 y RS-1.3):
-
-- una lista posiblemente vacía de pares compuestos por el nombre de un producto cultural ya existente y la descripción de su asociación con el producto cultural a añadir (una cadena no vacía).
-- una lista no vacía de los identificadores de los géneros a las que pertenece.
-- una lista no vacía de los nombres de los nuevos productos culturales padre
-- una lista no vacía de los identificadores de los géneros a las que pertenece.
+: Los datos necesarios son el identificador del producto y los datos a modificar que son (con restricción RS-1.1, RS-1.2 y RS-1.3):
+- una lista posiblemente vacía de pares compuestos por el nombre de un producto cultural ya existente y la descripción de su asociación con el producto cultural a añadir (una cadena no vacía),
+- una lista no vacía de los identificadores de los géneros a las que pertenece y
+- una lista no vacía de los nombres de los nuevos productos culturales padre.
 
 RD-1.5. Modificados de producto cultural
 : Los datos proporcionados en RD-1.4. Los datos asociados a los géneros a añadir. Con restricción RS-1.1, RS-1.2 y RS-1.3.
@@ -114,10 +112,10 @@ RD-1.11. Salida de la búsqueda
 : Una lista posiblemente vacía de pares identificador - nombre de los productos culturales que cumplan los criterios de RD-1.9.
 
 RD-1.12. Géneros asociados
-Los datos asociados a los géneros a los que pertenece un producto cultural (para comprobar su existencia).
+: Los datos asociados a los géneros a los que pertenece un producto cultural (para comprobar su existencia).
 
 RD-1.13. Entidades creadoras asociadas
-Los datos asociados a las entidades creadoras a los que pertenece un producto cultural (para comprobar su existencia).
+: Los datos asociados a las entidades creadoras a los que pertenece un producto cultural (para comprobar su existencia).
 
 ## Restricciones semánticas
 

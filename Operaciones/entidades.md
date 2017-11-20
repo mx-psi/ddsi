@@ -1,4 +1,4 @@
-# Operaciones de datos del subsistema de entidades creadoras y géneros
+## Operaciones de datos del subsistema de entidades creadoras y géneros
 
 O2.1
 : Insertar una nueva entidad creadora a partir de su nombre
@@ -36,3 +36,19 @@ O2.10
 O2.11
 : Consultar productos culturales asociados a un género dado un
   identificador.
+
+## Esquemas de navegación asociados
+
+Los esquemas de navegación para las operaciones de datos descritas previamente son:
+
+![Esquema de navegación para la operación de datos 2.1](Diagramas/O2.1.png) 
+![Esquema de navegación para la operación de datos 2.2](Diagramas/O2.2.png) 
+![Esquema de navegación para la operación de datos 2.3](Diagramas/O2.3.png) 
+![Esquema de navegación para la operación de datos 2.4](Diagramas/O2.4.png) 
+![Esquema de navegación para la operación de datos 2.5](Diagramas/O2.5.png) 
+![Esquema de navegación para la operación de datos 2.6](Diagramas/O2.6.png) 
+![Esquema de navegación para la operación de datos 2.7](Diagramas/O2.7.png) 
+![Esquema de navegación para la operación de datos 2.8](Diagramas/O2.8.png) 
+![Esquema de navegación para la operación de datos 2.9](Diagramas/O2.9.png) 
+![Esquema de navegación para la operación de datos 2.10](Diagramas/O2.10.png) 
+![Esquema de navegación para la operación de datos 2.11](Diagramas/O2.11.png) 

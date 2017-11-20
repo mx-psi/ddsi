@@ -18,6 +18,20 @@ O-3.8. Consultar el perfil de un usuario dado su nombre.
 
 O-3.9. Idéntica a O-3.8.
 
+Las operaciones asociadas al RF-3.1 son O-3.1 y O-3.2.
+
+Las operaciones asociadas al RF-3.2 son O-3.3 y O-3.4.
+
+Las operaciones asociadas al RF-3.3 son O-3.2 y O-3.5.
+
+La operación asociada al RF-3.4 es O-3.6.
+
+Las operación asociada al RF-3.5 es O-3.7.
+
+Las operación asociada al RF-3.6 es O-3.8
+
+Las operación asociada al RF-3.7 es O-3.8.
+
 # Esquemas de navegación asociados
 
 ![Esquema de navegación de la operación de datos O-3.1](Diagramas/O-3.1.png) 

@@ -1,4 +1,4 @@
-## Instalación en ArchLinux
+## Instalación en GNU/Linux
 La instalación requiere aceptar primero la **clave pública** de Cédric
 Krier (<cedric.krier@tryton.org>), que está disponible desde los servidores
 de claves de GNU.
@@ -7,17 +7,19 @@ de claves de GNU.
 gpg --search-keys B7DA61DEEDF05DCF
 ```
 
-Una vez añadida, existen paquetes disponibles para las distintas
-distribuciones de GNU/Linux. En particular, en ArchLinux existen los paquetes `tryton`,
-que proporciona la aplicación de cliente y `trytond`, que proporciona la
-aplicación de servidor.
+Una vez añadida, existen paquetes para las distintas distribuciones de GNU/Linux. En particular:
+
+- **Archlinux**: `tryton` para el cliente, `trytond`, el servidor.
+- **Ubuntu**: `tryton-client` para el cliente, `tryton-server` para el servidor
 
 ``` bash
 sudo aura -A install tryton trytond
+sudo apt install tryton-client tryton-server
 ```
 
 ## Instalación
-Durante la instalación se crean un grupo y un usuario específicos para
+
+Dependiendo del sistema pueden crearse un grupo y un usuario específicos para
 `tryton`,
 
 ``` bash
@@ -25,9 +27,8 @@ Adding tryton group...
 Adding tryton user...
 ```
 
-y se indica que la configuración de servidor estará disponible en el
-fichero `/etc/trytond.conf` y que los módulos pueden instalarse usando
-`pip`
+La configuración de servidor estará disponible en `/etc/trytond.conf` 
+y los módulos pueden instalarse usando `pip` o el gestor de paquetes.
 
 ``` bash
 Note:

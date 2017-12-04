@@ -17,3 +17,10 @@
   
   * Sistema de migración automático entre esquemas de la base de datos
   
+## Ventajas e inconvenientes: uso
+
+  * Traducido a 8 lenguajes incluido español
+  
+  * Soporte limitado en comparación con otros ERPs libres (9 empresas, principalmente B2CK)
+  
+  * Documentación incompleta

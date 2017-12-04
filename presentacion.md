@@ -8,14 +8,13 @@ theme: Frankfurt
 colortheme: beaver
 header-includes:
  - \usepackage[labelformat=empty]{caption}
-#colorlinks: true
 ---
 
 <!--## Subsección
 
 Esto es un ejemplo
 
----
+#---
 
 Esto es otra diapositiva
 -->

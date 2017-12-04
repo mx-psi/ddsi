@@ -84,3 +84,24 @@ Operaciones/usuarios.md
 ```include
 Operaciones/valoraciones.md
 ```
+
+\newpage
+
+# Tablas asociadas al esquema entidad-relación
+
+```include
+Tablas/tablas-mario.md
+```
+
+```include
+Tablas/tablas-pablo.md
+```
+
+```include
+Tablas/tablas-victor.md
+```
+
+```include
+Tablas/tablas-jose-manuel.md
+```
+

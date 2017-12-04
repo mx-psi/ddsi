@@ -1,6 +1,12 @@
 ## Tablas
 
+Las tablas permiten la visualización directa de los datos
+
 ![Mostrando una tabla.](Presentacion/tryton-table.png){width=250px height=250px}
+
+Se permite el tratamiento individual de entradas de la tabla,
+el ejecutar acciones sobre la tabla y añadir notas y adjuntar
+archivos a entradas.
 
 ## Gestión de usuarios
 
@@ -14,7 +20,9 @@
 Tryton puede usarse sobre PostgreSQL, MySQL y SQLite. Para ello usa internamente
 la librería `python-sql`, que es agnóstica respecto a la base de datos utilizada.
 
-El servidor de pruebas utiliza `SQLite`
+![Gestión de grupos de usuario.](Presentacion/usuarios.png){width=250px height=250px}
+
+El servidor de pruebas utiliza `SQLite` y se recomienda para prototipado.
 
 ## Localización
 
@@ -27,11 +35,22 @@ El servidor de pruebas utiliza `SQLite`
  * Gestor de contabilidad adaptado a la legislación del país. Por ejemplo,
    `account-es` crea según el *Plan General Contable Español 2008*, y según
    el *Plan Contable para PYMES 2008*.
+   
+ * Módulo `country` permitiendo ubicarse con subdivisiones en un país
+   (comunidades autónomas, provincias, ...).
 
 
 ## Módulos
 
 La funcionalidad puede extenderse con **módulos** instalables desde
-Python.
+Python; los módulos permiten, por ejemplo,
+
+ * integración con Google Maps;
+ * controlar el tiempo de trabajo;
+ * control de transportistas;
+ * control de cuentas bancarias;
+ * gestión en diferentes proyectos;
+ * guardar contactos y calendarios.
+ 
 
 

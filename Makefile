@@ -2,7 +2,7 @@ SUBFILES:=$(shell find -type f -name '*.md')
 DIAS:=$(wildcard Diagramas/*.dia)
 PNGS:=$(patsubst %.dia,%.png,$(DIAS))
 
-all: practica.pdf presentacion.pdf
+all: presentacion.pdf practica.pdf
 
 %.png: %.dia
 	dia $< --export $@
@@ -10,7 +10,7 @@ all: practica.pdf presentacion.pdf
 practica.pdf: practica.md  $(SUBFILES) $(PNGS)
 	pandoc --filter pandoc-include $< -o $@
 
-presentacion.pdf: presentacion.md Presentacion/instalacion.md
+presentacion.pdf: presentacion.md $(SUBFILES)
 	pandoc --filter pandoc-include -t beamer $< -o $@
 
 clean:

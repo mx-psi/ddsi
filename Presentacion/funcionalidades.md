@@ -10,6 +10,8 @@ archivos a entradas.
 
 ## Gestión de usuarios
 
+![Gestión de grupos de usuario.](Presentacion/usuarios.png){width=250px height=250px}
+
  * Provee mecanismos de autenticación de usuarios al servidor.
  * Control sobre los datos que accede cada usuario.
  * Permite crear grupos de usuario con datos y control particulares.
@@ -19,8 +21,12 @@ archivos a entradas.
 
 Tryton puede usarse sobre PostgreSQL, MySQL y SQLite. Para ello usa internamente
 la librería `python-sql`, que es agnóstica respecto a la base de datos utilizada.
+La base de datos MySQL que se utilizará se decide al lanzar el servidor.
 
-![Gestión de grupos de usuario.](Presentacion/usuarios.png){width=250px height=250px}
+```
+trytond -c /etc/trytond.conf -d <base de datos> --all
+```
+
 
 El servidor de pruebas utiliza `SQLite` y se recomienda para prototipado.
 
@@ -50,6 +56,7 @@ Python; los módulos permiten, por ejemplo,
  * control de transportistas;
  * control de cuentas bancarias;
  * gestión en diferentes proyectos;
+ * acceso desde interfaz web;
  * guardar contactos y calendarios.
  
 

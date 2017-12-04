@@ -39,6 +39,18 @@ Note:
 - See the Tryton documentation at http://doc.tryton.org
 ```
 
+## Instalación
+
+Alternativamente se pueden instalar el cliente y el servidor
+a través de `pip`:
+
+``` bash
+pip install tryton
+pip install trytond
+```
+
+El cliente de Tryton también dispone de instaladores para Windows.
+
 ## Servidor
 La **configuración** del servidor se controla desde `/etc/trytond.conf` y una
 completa descripción de la sintaxis posible puede encontrarse en la

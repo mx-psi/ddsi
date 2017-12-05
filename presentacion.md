@@ -10,20 +10,10 @@ header-includes:
  - \usepackage[labelformat=empty]{caption}
 ---
 
-<!--## Subsección
-
-Esto es un ejemplo
-
-#---
-
-Esto es otra diapositiva
--->
-
-
 # Introducción histórica
 
 ```include
-Presentacion/intro.md
+Presentacion/introduccion.md
 ```
 
 # Instalación

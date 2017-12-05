@@ -1,4 +1,4 @@
-### Empresas que lo han implantado:
+## Empresas que lo han implantado:
 
 - Adiczion (Francia)
 - B2CK (Bélgica)
@@ -10,7 +10,7 @@
 - SISalp (Francia)
 - Virtual Things (Alemania)
 
-### NaN·tic
+## NaN·tic
 
 Comentamos el caso de NaN·tic, empresa catalana que colaboró con OpenERP y que desde 2012 usa Tryton como solución
 de gestión empresarial. Ofrecen a sus clientes implantación, actualización y soporte al usuario de un ERP basado en Tryton

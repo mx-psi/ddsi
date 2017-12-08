@@ -12,10 +12,10 @@ archivos a entradas.
 
 ![Gestión de grupos de usuario.](Presentacion/usuarios.png){width=250px height=250px}
 
- * Provee mecanismos de autenticación de usuarios al servidor.
+ * Mecanismos de autenticación de usuarios al servidor.
  * Control sobre los datos que accede cada usuario.
- * Permite crear grupos de usuario con datos y control particulares.
- * Permite el acceso concurrente a los recursos.
+ * Creación de grupos de usuario con datos y control particulares.
+ * Acceso concurrente a los recursos.
 
 ## Bases de datos
 

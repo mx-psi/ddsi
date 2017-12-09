@@ -1,5 +1,7 @@
 ## Empresas que lo han implantado:
 
+Estas son algunas empresas que hacen uso de Tryton:
+
 - Adiczion (Francia)
 - B2CK (Bélgica)
 - Coopengo (Francia)
@@ -14,7 +16,9 @@
 
 Comentamos el caso de NaN·tic, empresa catalana que colaboró con OpenERP y que desde 2012 usa Tryton como solución
 de gestión empresarial. Ofrecen a sus clientes implantación, actualización y soporte al usuario de un ERP basado en Tryton
-ofreciendo mejoras sobre éste basadas en las necesidades de sus usuarios. Un ejemplo de cliente es Xarxafarma.
+ofreciendo mejoras sobre éste basadas en las necesidades de sus usuarios. 
+
+## Xarxafarma.
 
 Xarxafarma es una agrupación de más de 600 farmacias independientes que ha confiado en NaN·tic para implantar y desarrollar
 su ERP principalmente en el área logística adaptando las siguientes funcionalidades y dando respuesta a:

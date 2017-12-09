@@ -1,4 +1,4 @@
-## Empresas que lo han implantado:
+## Empresas que lo han implantado
 
 Estas son algunas empresas que hacen uso de Tryton:
 

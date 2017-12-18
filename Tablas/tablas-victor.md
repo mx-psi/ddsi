@@ -1,4 +1,4 @@
-- usuarios(_nombreusuario_,_nombrereal_,_localidadorigen_,_correoelectrónico_,_descripciónusuario_,_contraseña_)
+- usuario(_nombreusuario_,nombrereal,localidadorigen,correoelectrónico,descripciónusuario,contraseña)
 - leGusta(_nombreusuario_,_identificador_)
 - reporta(_nombreusuario_,_id_)
 

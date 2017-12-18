@@ -35,7 +35,7 @@ CONSTRAINT clave_primaria PRIMARY KEY (idProducto, rol, nombreCreador)
 
 CREATE TABLE pertenece_a(
   idProducto int NOT NULL FOREIGN KEY REFERENCES productoCultural-Padre(id),
-  Identificador varchar(100) NOT NULL FOREIGN KEY REFERENCES generoSupergenero(identificador),
+  Identificador varchar(100) NOT NULL FOREIGN KEY REFERENCES géneroSupergénero(identificador),
 
   CONSTRAINT clave_primaria_puntua PRIMARY KEY (idProducto, Identificador)
 );
@@ -66,22 +66,11 @@ CREATE TABLE premiadaPor(
   CONSTRAINT clave_primaria PRIMARY KEY (nombre,id,nombrepremio)
 );
 
-
--- Tablas de valoraciones
-
-CREATE TABLE pertenece_a(
-  idProducto int NOT NULL FOREIGN KEY REFERENCES productoCultural-Padre(id),
-  Identificador varchar(100) NOT NULL FOREIGN KEY REFERENCES generoSupergenero(identificador),
-
-  CONSTRAINT clave_primaria_puntua PRIMARY KEY (idProducto, Identificador)
-);
-
-
 -- Tablas de valoraciones
 
 CREATE TABLE valoracion-valora(
   idProducto int NOT NULL FOREIGN KEY REFERENCES productoCultural-Padre(id),
-  nombreUsuario varchar(100) NOT NULL FOREIGN KEY REFERENCES usuario(nombreusuario),
+  nombreUsuario varchar(20) NOT NULL FOREIGN KEY REFERENCES usuario(nombreusuario),
   resena varchar(16384) NOT NULL,
   puntuacion int NOT NULL,
 
@@ -90,11 +79,12 @@ CREATE TABLE valoracion-valora(
 );
 
 CREATE TABLE puntua(
-  nombreUsuarioPuntuador varchar(100) NOT NULL FOREIGN KEY REFERENCES usuario(nombreusuario),
-  nombreUsuarioValorador varchar(100) NOT NULL FOREIGN KEY REFERENCES usuario(nombreusuario),
+  nombreUsuarioPuntuador varchar(20) NOT NULL FOREIGN KEY REFERENCES usuario(nombreusuario),
+  nombreUsuarioValorador varchar(20) NOT NULL FOREIGN KEY REFERENCES usuario(nombreusuario),
   idProducto int NOT NULL FOREIGN KEY REFERENCES productoCultural-Padre(id),
   puntuacion int NOT NULL,
 
   CONSTRAINT clave_primaria_puntua PRIMARY KEY (nombreUsuarioPuntuador, nombreUsuarioValorador, idProducto),
   CONSTRAINT rango_puntuacion CHECK (puntuacion >= 0 AND puntuacion <= 1)
 );
+

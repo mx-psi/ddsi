@@ -3,7 +3,7 @@
 -- Tablas de productos culturales
 
 CREATE TABLE productoCulturalPadre(
-id int,
+id int AUTOINCREMENT,
 nombre varchar(100),
 fechaPublicacion date,
 tipo varchar(100),
@@ -37,7 +37,7 @@ CONSTRAINT clave_primaria PRIMARY KEY (idProducto, rol, nombreCreador)
 -- Tablas de géneros y entidades creadoras
 
 CREATE TABLE géneroSupergénero(
-  identificador varchar(100),
+  identificador int AUTOINCREMENT,
   nombreGenero varchar(100),
   superGenero varchar(100),
   

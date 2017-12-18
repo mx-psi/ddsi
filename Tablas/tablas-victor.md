@@ -27,7 +27,7 @@ CONSTRAINT clave_primaria PRIMARY KEY (nombreusuario)
 
 donde *nombreusuario* es clave externa de la tabla *usuario* e *identificador* de la tabla *géneroSupergénero*.
 
-Solo hay una clave candidata y primaria que es nombreusuario junto identificador por lo tanto está en FNBC.
+Solo hay una clave candidata y primaria que es nombreusuario junto identificador por lo tanto está en **FNBC**.
 
 Sentencia de creación de la tabla en SQL:
 ```sql
@@ -51,7 +51,7 @@ CONSTRAINT clave_primaria PRIMARY KEY (nombreusuario,identificador)
 
 donde *nombreusuarioreportador* es clave externa de la tabla *usuario*, *nombreusuarioreportado* *idproducto* es clave externa de la tabla *valoración-valora*.
 
-Solo hay una clave candidata y primaria que es _nombreusuarioreportador_ _nombreusuarioreportado_ _idproducto_ por lo tanto está en FNBC.
+Solo hay una clave candidata y primaria que es _nombreusuarioreportador_ _nombreusuarioreportado_ _idproducto_ por lo tanto está en **FNBC**.
 
 Sentencia de creación de la tabla en SQL:
 ```sql

@@ -5,7 +5,7 @@ El esquema es:
 
 - productoCultural-Padre(_id_, nombre, fechaPublicacion, tipo, idPadre)
 
-donde *idPadre* es clave externa en productoCultural-Padre (puede ser `null`)
+donde *idPadre* es clave externa en `productoCultural-Padre` (puede ser `null`)
 
 Las dependencias funcionales son las generadas por $\operatorname{id} \to R$.
 
@@ -32,7 +32,7 @@ CONSTRAINT clave_primaria PRIMARY KEY (id)
 
 - asociadoA(_id1_, _id2_, descripcion)
 
-donde *id1*, *id2* son claves externas en productoCultural-Padre
+donde *id1*, *id2* son claves externas en `productoCultural-Padre`
 
 Las dependencias funcionales son las generadas por $\{\operatorname{id}_1, \operatorname{id}_2\} \to R$.
 
@@ -58,7 +58,7 @@ CONSTRAINT clave_primaria PRIMARY KEY (id1,id2)
 
 - creadoPor(_idProducto_, _rol_, _nombreCreador_)
 
-donde *idProducto* es clave externa en productoCultural-Padre y *nombreCreador* es clave externa en entidadCreadora.
+donde *idProducto* es clave externa en `productoCultural-Padre` y *nombreCreador* es clave externa en `entidadCreadora`.
 
 Las dependencias funcionales son las generadas por $\{\operatorname{idProducto}, \operatorname{rol}, \operatorname{nombreCreador}\} \to R$
 

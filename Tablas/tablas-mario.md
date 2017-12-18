@@ -59,6 +59,6 @@ CREATE TABLE géneroSupergénero(
   nombreGenero varchar(100),
   superGenero varchar(100),
   
-  CONSTRAINT clave_primaria PRIMARY KEY (identificador),
+  CONSTRAINT clave_primaria PRIMARY KEY (identificador)
 )
 ```

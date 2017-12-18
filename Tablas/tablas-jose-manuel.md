@@ -10,7 +10,18 @@ La única clave candidata es la clave primaria *idProducto* *nombreUsuario*. Por
 
 Solo hay un determinante, que es la clave primaria. Por ello, no hay dependencias transitivas (**está en 3FN**) y todo determinante es clave candidata: **está en FNBC**.
 
-<!-- TODO: sentencia SQL -->
+```sql
+CREATE TABLE valoracion-valora(
+  idProducto int NOT NULL FOREIGN KEY REFERENCES productoCultural-Padre(id),
+  nombreUsuario varchar(100) NOT NULL FOREIGN KEY REFERENCES usuario(nombreusuario),
+  resena varchar(16384) NOT NULL,
+  puntuacion int NOT NULL,
+
+  CONSTRAINT clave_primaria_valoracion PRIMARY KEY (idProducto, nombreUsuario),
+  CONSTRAINT rango_puntuacion CHECK (puntuacion >= 1 AND puntuacion <= 5)
+);
+```
+
 
 ### **puntúa**
 
@@ -22,11 +33,22 @@ Las dependencias funcionales son las del cierre de $\{\operatorname{nombreUsuari
 
 Solo hay una clave candidata y solo hay un determinante, que es la clave primaria: **está en 2FN** (el único atributo no primo depende de forma completa de la única clave candidata), **está en 3FN** (no hay dependencias transitivas) y **está en FNBC** (el único determinante es clave candidata).
 
-<!-- TODO: sentencia SQL -->
+```sql
+CREATE TABLE puntua(
+  nombreUsuarioPuntuador varchar(100) NOT NULL FOREIGN KEY REFERENCES usuario(nombreusuario),
+  nombreUsuarioValorador varchar(100) NOT NULL FOREIGN KEY REFERENCES usuario(nombreusuario),
+  idProducto int NOT NULL FOREIGN KEY REFERENCES productoCultural-Padre(id),
+  puntuacion int NOT NULL,
+
+  CONSTRAINT clave_primaria_puntua PRIMARY KEY (nombreUsuarioPuntuador, nombreUsuarioValorador, idProducto),
+  CONSTRAINT rango_puntuacion CHECK (puntuacion >= 0 AND puntuacion <= 1)
+);
+```
+
 
 ### **pertenece_a**
 
-- pertenece a(_idProducto_,_Identificador_)
+- pertenece_a(_idProducto_,_Identificador_)
 
 donde *idProducto* es clave externa en `productoCultural-Padre` e *Identificador* es clave externa en `géneroSupergénero`.
 
@@ -34,4 +56,11 @@ Las dependencias funcionales son las triviales.
 
 No hay atributos no primos y solo hay un determinante, por lo que **está en FNBC**.
 
-<!-- TODO: sentencia SQL -->
+```sql
+CREATE TABLE pertenece_a(
+  idProducto int NOT NULL FOREIGN KEY REFERENCES productoCultural-Padre(id),
+  Identificador varchar(100) NOT NULL FOREIGN KEY REFERENCES generoSupergenero(identificador),
+
+  CONSTRAINT clave_primaria_puntua PRIMARY KEY (idProducto, Identificador)
+);
+```

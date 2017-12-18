@@ -33,6 +33,13 @@ nombreCreador CONSTRAINT nombreCreador_ext
 CONSTRAINT clave_primaria PRIMARY KEY (idProducto, rol, nombreCreador)
 );
 
+CREATE TABLE pertenece_a(
+  idProducto int NOT NULL FOREIGN KEY REFERENCES productoCultural-Padre(id),
+  Identificador varchar(100) NOT NULL FOREIGN KEY REFERENCES generoSupergenero(identificador),
+
+  CONSTRAINT clave_primaria_puntua PRIMARY KEY (idProducto, Identificador)
+);
+
 
 -- Tablas de géneros y entidades creadoras
 
@@ -57,4 +64,37 @@ CREATE TABLE premiadaPor(
   nombrepremio varchar(100),
   
   CONSTRAINT clave_primaria PRIMARY KEY (nombre,id,nombrepremio)
+);
+
+
+-- Tablas de valoraciones
+
+CREATE TABLE pertenece_a(
+  idProducto int NOT NULL FOREIGN KEY REFERENCES productoCultural-Padre(id),
+  Identificador varchar(100) NOT NULL FOREIGN KEY REFERENCES generoSupergenero(identificador),
+
+  CONSTRAINT clave_primaria_puntua PRIMARY KEY (idProducto, Identificador)
+);
+
+
+-- Tablas de valoraciones
+
+CREATE TABLE valoracion-valora(
+  idProducto int NOT NULL FOREIGN KEY REFERENCES productoCultural-Padre(id),
+  nombreUsuario varchar(100) NOT NULL FOREIGN KEY REFERENCES usuario(nombreusuario),
+  resena varchar(16384) NOT NULL,
+  puntuacion int NOT NULL,
+
+  CONSTRAINT clave_primaria_valoracion PRIMARY KEY (idProducto, nombreUsuario),
+  CONSTRAINT rango_puntuacion CHECK (puntuacion >= 1 AND puntuacion <= 5)
+);
+
+CREATE TABLE puntua(
+  nombreUsuarioPuntuador varchar(100) NOT NULL FOREIGN KEY REFERENCES usuario(nombreusuario),
+  nombreUsuarioValorador varchar(100) NOT NULL FOREIGN KEY REFERENCES usuario(nombreusuario),
+  idProducto int NOT NULL FOREIGN KEY REFERENCES productoCultural-Padre(id),
+  puntuacion int NOT NULL,
+
+  CONSTRAINT clave_primaria_puntua PRIMARY KEY (nombreUsuarioPuntuador, nombreUsuarioValorador, idProducto),
+  CONSTRAINT rango_puntuacion CHECK (puntuacion >= 0 AND puntuacion <= 1)
 );

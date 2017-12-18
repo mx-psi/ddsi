@@ -32,3 +32,29 @@ nombreCreador CONSTRAINT nombreCreador_ext
 
 CONSTRAINT clave_primaria PRIMARY KEY (idProducto, rol, nombreCreador)
 );
+
+
+-- Tablas de géneros y entidades creadoras
+
+CREATE TABLE géneroSupergénero(
+  identificador varchar(100),
+  nombreGenero varchar(100),
+  superGenero varchar(100),
+  
+  CONSTRAINT clave_primaria PRIMARY KEY (identificador)
+)
+
+CREATE TABLE entidadCreadora(
+  nombre varchar(100),
+  tipo varchar(100),
+  
+  CONSTRAINT clave_primaria PRIMARY KEY (nombre)
+)
+
+CREATE TABLE premiadaPor(
+  nombre varchar(100) CONSTRAINT nombre_ext REFERENCES entidadCreadora(nombre),
+  id int CONSTRAINT id_ext REFERENCES productoCulturalPadre(id),
+  nombrepremio varchar(100),
+  
+  CONSTRAINT clave_primaria PRIMARY KEY (nombre,id,nombrepremio)
+)

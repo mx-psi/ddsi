@@ -42,14 +42,14 @@ CREATE TABLE géneroSupergénero(
   superGenero varchar(100),
   
   CONSTRAINT clave_primaria PRIMARY KEY (identificador)
-)
+);
 
 CREATE TABLE entidadCreadora(
   nombre varchar(100),
   tipo varchar(100),
   
   CONSTRAINT clave_primaria PRIMARY KEY (nombre)
-)
+);
 
 CREATE TABLE premiadaPor(
   nombre varchar(100) CONSTRAINT nombre_ext REFERENCES entidadCreadora(nombre),
@@ -57,4 +57,4 @@ CREATE TABLE premiadaPor(
   nombrepremio varchar(100),
   
   CONSTRAINT clave_primaria PRIMARY KEY (nombre,id,nombrepremio)
-)
+);

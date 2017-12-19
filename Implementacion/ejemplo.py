@@ -2,6 +2,7 @@
 
 # Docs: https://docs.python.org/3.6/library/sqlite3.html
 import sqlite3
+from prompt_toolkit import prompt
 import populate
 
 conn = sqlite3.connect('main.db')
@@ -23,3 +24,10 @@ c.executemany('INSERT INTO perteneceA VALUES (?,?)', perteneceA)
 c.executemany('INSERT INTO premiadaPor VALUES (?,?)', premiadaPor)
 
 conn.close()
+
+
+
+
+if __name__ == '__main__':
+    answer = prompt('Give me some input: ')
+    print('You said: %s' % answer)

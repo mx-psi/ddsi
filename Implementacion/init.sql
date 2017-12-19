@@ -3,24 +3,21 @@
 -- Tablas de productos culturales
 
 CREATE TABLE productoCulturalPadre(
-id int,
-nombre varchar(100),
-fechaPublicacion date,
-tipo varchar(100),
-idPadre CONSTRAINT idPadre_ext
-        REFERENCES productoCulturalPadre(id),
-
-CONSTRAINT clave_primaria PRIMARY KEY (id)
+  id int,
+  nombre varchar(100),
+  fechaPublicacion date,
+  tipo varchar(100),
+  idPadre CONSTRAINT idPadre_ext REFERENCES productoCulturalPadre(id),
+  
+  CONSTRAINT clave_primaria PRIMARY KEY (id)
 );
 
 CREATE TABLE asociadoA(
-id1 CONSTRAINT id1_ext
-    REFERENCES productoCulturalPadre(id),
-id2 CONSTRAINT id2_ext
-    REFERENCES productoCulturalPadre(id),
-descripcion varchar(100),
-
-CONSTRAINT clave_primaria PRIMARY KEY (id1,id2)
+  id1 CONSTRAINT id1_ext REFERENCES productoCulturalPadre(id),
+  id2 CONSTRAINT id2_ext REFERENCES productoCulturalPadre(id),
+  descripcion varchar(100),
+  
+  CONSTRAINT clave_primaria PRIMARY KEY (id1,id2)
 );
 
 CREATE TABLE creadoPor(
@@ -33,9 +30,9 @@ nombreCreador CONSTRAINT nombreCreador_ext
 CONSTRAINT clave_primaria PRIMARY KEY (idProducto, rol, nombreCreador)
 );
 
-CREATE TABLE pertenece_a(
-  idProducto int NOT NULL FOREIGN KEY REFERENCES productoCultural-Padre(id),
-  Identificador varchar(100) NOT NULL FOREIGN KEY REFERENCES géneroSupergénero(identificador),
+CREATE TABLE perteneceA(
+  idProducto int NOT NULL REFERENCES productoCulturalPadre(id),
+  Identificador varchar(100) NOT NULL REFERENCES géneroSupergénero(identificador),
 
   CONSTRAINT clave_primaria_puntua PRIMARY KEY (idProducto, Identificador)
 );
@@ -43,7 +40,7 @@ CREATE TABLE pertenece_a(
 
 -- Tablas de géneros y entidades creadoras
 
-CREATE TABLE géneroSupergénero(
+CREATE TABLE generoSupergenero(
   identificador int,
   nombreGenero varchar(100),
   superGenero varchar(100),
@@ -68,9 +65,9 @@ CREATE TABLE premiadaPor(
 
 -- Tablas de valoraciones
 
-CREATE TABLE valoracion-valora(
-  idProducto int NOT NULL FOREIGN KEY REFERENCES productoCultural-Padre(id),
-  nombreUsuario varchar(20) NOT NULL FOREIGN KEY REFERENCES usuario(nombreusuario),
+CREATE TABLE valoracionValora(
+  idProducto int NOT NULL  REFERENCES productoCulturalPadre(id),
+  nombreUsuario varchar(20) NOT NULL  REFERENCES usuario(nombreusuario),
   resena varchar(16384) NOT NULL,
   puntuacion int NOT NULL,
 
@@ -79,9 +76,9 @@ CREATE TABLE valoracion-valora(
 );
 
 CREATE TABLE puntua(
-  nombreUsuarioPuntuador varchar(20) NOT NULL FOREIGN KEY REFERENCES usuario(nombreusuario),
-  nombreUsuarioValorador varchar(20) NOT NULL FOREIGN KEY REFERENCES usuario(nombreusuario),
-  idProducto int NOT NULL FOREIGN KEY REFERENCES productoCultural-Padre(id),
+  nombreUsuarioPuntuador varchar(20) NOT NULL REFERENCES usuario(nombreusuario),
+  nombreUsuarioValorador varchar(20) NOT NULL REFERENCES usuario(nombreusuario),
+  idProducto int NOT NULL  REFERENCES productoCulturalPadre(id),
   puntuacion int NOT NULL,
 
   CONSTRAINT clave_primaria_puntua PRIMARY KEY (nombreUsuarioPuntuador, nombreUsuarioValorador, idProducto),
@@ -100,31 +97,16 @@ CREATE TABLE usuario(
 );
 
 CREATE TABLE leGusta(
-  nombreusuario varchar(20),
-  identificador varchar(100),
-
-  nombreusuario CONSTRAINT nombreusuario_ext 
-        REFERENCES usuario(nombreusuario),
-		
-  identificador CONSTRAINT identificador_ext 
-        REFERENCES géneroSupergénero(identificador),
+  nombreusuario CONSTRAINT nombreusuario_ext REFERENCES usuario(nombreusuario),
+  identificador CONSTRAINT identificador_ext REFERENCES géneroSupergénero(identificador),
         
   CONSTRAINT clave_primaria PRIMARY KEY (nombreusuario,identificador)
 );
 
 CREATE TABLE reporta(
-  nombreusuarioreportador varchar(20),
-  nombreusuarioreportado varchar(20),
-  idproducto int,
-
-  nombreusuarioreportador CONSTRAINT nombreusuarioreportador_ext 
-        REFERENCES usuario(nombreusuario),
-
-  idproducto CONSTRAINT idproducto_ext 
-        REFERENCES productoCulturalPadre(id),
-		
-  nombreusuarioreportado CONSTRAINT nombreusuarioreportado_ext 
-        REFERENCES valoracion-valora(nombreUsuario),
+  nombreusuarioreportador CONSTRAINT nombreusuarioreportador_ext REFERENCES usuario(nombreusuario),
+  idproducto CONSTRAINT idproducto_ext REFERENCES productoCulturalPadre(id),
+  nombreusuarioreportado CONSTRAINT nombreusuarioreportado_ext REFERENCES valoracionValora(nombreUsuario),
 		
   CONSTRAINT clave_primaria PRIMARY KEY (nombreusuarioreportador,nombreusuarioreportado,idproducto)
 );

@@ -4,7 +4,7 @@ from datetime import date
 
 # Productos culturales
 #  productoCulturalPadre(_id_, nombre, fechaPublicacion, tipo, idPadre)
-productosCulturalPadre = [
+productoCulturalPadre = [
   (1, "Harry Potter y la Piedra Filosofal", date(1997,6,30), "Libro", None),               
   (2, "Harry Potter y la Piedra Filosofal", date(2001,11,4), "Película", 1),               
   (3, "El Señor de los Anillos", date(1954,7,24), "Libro", None),                          

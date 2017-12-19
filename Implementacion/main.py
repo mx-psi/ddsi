@@ -22,6 +22,8 @@ c.executemany('INSERT INTO asociadoA VALUES (?,?,?)', asociadoA)
 c.executemany('INSERT INTO generoSupergenero VALUES (?,?,?)', generoSupergenero)
 c.executemany('INSERT INTO perteneceA VALUES (?,?)', perteneceA)
 c.executemany('INSERT INTO premiadaPor VALUES (?,?,?)', premiadaPor)
+c.executemany('INSERT INTO usuario VALUES (?,?,?,?,?,?)', usuario)
+c.executemany('INSERT INTO leGusta VALUES (?,?)', leGusta)
 
 conn.close()
 

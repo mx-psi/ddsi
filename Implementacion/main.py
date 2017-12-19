@@ -5,7 +5,7 @@ import sqlite3
 from prompt_toolkit import prompt
 import populate
 
-conn = sqlite3.connect('main.db')
+conn = sqlite3.connect(':memory:')
 c = conn.cursor()
 
 # Creación de tablas desde init.sql

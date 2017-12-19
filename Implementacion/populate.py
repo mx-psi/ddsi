@@ -65,3 +65,28 @@ premiadaPor = [
   ("J.R.R. Tolkien", 3, "International Fantasy Award (1957)"),
   ("J.K. Rowling", 1, "National Book Award")
 ] 
+
+# Usuarios
+# usuario(nombreusuario,nombrereal,localidadorigen,correoelectrónico,descripciónusuario,password)
+
+usuario= [ 
+  ("alba23","Alba Muñoz","Andalucia","alba@correo.es","Amante de la literatura","a_123456"),
+  ("cristi23","Cristina Fernandez","Andalucia","cristina@correo.es","Amante del cine","c_123456"),
+  ("alicia22","Alicia Quero","Andalucia","alicia@correo.es","Amante del cine y literatura","ali_123456"),
+  ("alberto23","Alberto Castro","Andalucia","alberto@correo.es","Amante de la musica","alb_123456"),
+  ("nacho23","Ignacio Sanchez","Andalucia","nacho@correo.es","Amante de la musica y el cine","n_123456"),
+  ("fede33","Federico Cerrato","Andalucia","fede@correo.es","Amante de la literatura y la musica","f_123456")
+]
+
+# leGusta
+# leGusta(nombreusuario,identificador)
+
+leGusta =[ 
+  ("alba23","Ficción"),
+  ("cristi23","Fantasía"),
+  ("alicia22","Magia"),
+  ("alberto23","Juvenil"),
+  ("nacho23","Magia"),
+  ("fede33","Ficción"),
+  ("fede33","Fantasía")
+]

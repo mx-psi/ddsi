@@ -3,7 +3,7 @@
 -- Tablas de productos culturales
 
 CREATE TABLE productoCulturalPadre(
-id int AUTOINCREMENT,
+id int,
 nombre varchar(100),
 fechaPublicacion date,
 tipo varchar(100),
@@ -44,7 +44,7 @@ CREATE TABLE pertenece_a(
 -- Tablas de géneros y entidades creadoras
 
 CREATE TABLE géneroSupergénero(
-  identificador int AUTOINCREMENT,
+  identificador int,
   nombreGenero varchar(100),
   superGenero varchar(100),
   

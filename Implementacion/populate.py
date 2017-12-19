@@ -42,9 +42,9 @@ asociadoA = []
 # Géneros
 # géneroSupergénero(_identificador_, nombreGénero, supergénero)
 generoSupergenero = [
-  ("Ficción", None)
+  ("Ficción", None),
   ("Fantasía", "Ficción"),
-  ("Magia", "Fantasía")
+  ("Magia", "Fantasía"),
   ("Juvenil", None)
 ]
 
@@ -56,7 +56,7 @@ perteneceA = [
   (2, 3), # Harry Potter (película) - Magia
   (2, 4), # Harry Potter (película) - Juvenil
   (3, 2), # Señor de los Anillos - Fantasía
-  (4, 2), # Señor de los Anillos (película) - Fantasía
+  (4, 2)  # Señor de los Anillos (película) - Fantasía
 ]
 
 # Premios

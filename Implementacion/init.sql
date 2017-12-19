@@ -88,3 +88,43 @@ CREATE TABLE puntua(
   CONSTRAINT rango_puntuacion CHECK (puntuacion >= 0 AND puntuacion <= 1)
 );
 
+CREATE TABLE usuario(
+  nombreusuario varchar(20),
+  nombrereal varchar(60),
+  localidadorigen varchar(20),
+  correoelectronico varchar(40),
+  descripcionusuario varchar(300),
+  password varchar(20),
+        
+  CONSTRAINT clave_primaria PRIMARY KEY (nombreusuario)
+);
+
+CREATE TABLE leGusta(
+  nombreusuario varchar(20),
+  identificador varchar(100),
+
+  nombreusuario CONSTRAINT nombreusuario_ext 
+        REFERENCES usuario(nombreusuario),
+		
+  identificador CONSTRAINT identificador_ext 
+        REFERENCES géneroSupergénero(identificador),
+        
+  CONSTRAINT clave_primaria PRIMARY KEY (nombreusuario,identificador)
+);
+
+CREATE TABLE reporta(
+  nombreusuarioreportador varchar(20),
+  nombreusuarioreportado varchar(20),
+  idproducto int,
+
+  nombreusuarioreportador CONSTRAINT nombreusuarioreportador_ext 
+        REFERENCES usuario(nombreusuario),
+
+  idproducto CONSTRAINT idproducto_ext 
+        REFERENCES productoCulturalPadre(id),
+		
+  nombreusuarioreportado CONSTRAINT nombreusuarioreportado_ext 
+        REFERENCES valoracion-valora(nombreUsuario),
+		
+  CONSTRAINT clave_primaria PRIMARY KEY (nombreusuarioreportador,nombreusuarioreportado,idproducto)
+);

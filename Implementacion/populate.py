@@ -5,10 +5,10 @@ from datetime import date
 # Productos culturales
 #  productoCulturalPadre(_id_, nombre, fechaPublicacion, tipo, idPadre)
 productosCulturalPadre = [
-  ("Harry Potter y la Piedra Filosofal", date(1997,6,30), "Libro", None),                # 1
-  ("Harry Potter y la Piedra Filosofal", date(2001,11,4), "Película", 1),                # 2
-  ("El Señor de los Anillos", date(1954,7,24), "Libro", None),                           # 3
-  ("El Señor de los Anillos: la Comunidad del Anillo", date(2001,12,19), "Película", 3)  # 4
+  (1, "Harry Potter y la Piedra Filosofal", date(1997,6,30), "Libro", None),               
+  (2, "Harry Potter y la Piedra Filosofal", date(2001,11,4), "Película", 1),               
+  (3, "El Señor de los Anillos", date(1954,7,24), "Libro", None),                          
+  (4, "El Señor de los Anillos: la Comunidad del Anillo", date(2001,12,19), "Película", 3)  
 ]
 
 # Entidades creadoras
@@ -42,10 +42,10 @@ asociadoA = []
 # Géneros
 # géneroSupergénero(_identificador_, nombreGénero, supergénero)
 generoSupergenero = [
-  ("Ficción", None),
-  ("Fantasía", "Ficción"),
-  ("Magia", "Fantasía"),
-  ("Juvenil", None)
+  (1, "Ficción", None),
+  (2, "Fantasía", "Ficción"),
+  (3, "Magia", "Fantasía"),
+  (4, "Juvenil", None)
 ]
 
 # Pertenece a género

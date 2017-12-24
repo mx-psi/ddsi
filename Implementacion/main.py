@@ -5,14 +5,19 @@ import sqlite3
 from prompt_toolkit import prompt
 from populate import *
 
+def load(conn, filename):
+  with open(filename,'r') as f:
+    data = f.read()
+    c = conn.cursor()
+    c.executescript(data)
+    conn.commit()
+
 conn = sqlite3.connect(':memory:')
 c = conn.cursor()
 
-# Creación de tablas desde init.sql
-with open("init.sql",'r') as init:
-  init_data = init.read()
-  c.executescript(init_data)
-  conn.commit()
+# Carga creación de tablas y disparadores
+load(conn,"init.sql")
+load(conn, "triggers.sql")
 
 # Rellena la tabla con los datos de populate.py
 c.executemany('INSERT INTO productoCulturalPadre VALUES (?,?,?,?,?)', productoCulturalPadre)
@@ -26,9 +31,6 @@ c.executemany('INSERT INTO usuario VALUES (?,?,?,?,?,?)', usuario)
 c.executemany('INSERT INTO leGusta VALUES (?,?)', leGusta)
 
 conn.close()
-
-
-
 
 if __name__ == '__main__':
     answer = prompt('Give me some input: ')

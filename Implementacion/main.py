@@ -5,7 +5,9 @@ import sqlite3
 from prompt_toolkit import prompt
 from prompt_toolkit.contrib.completers import WordCompleter
 from prompt_toolkit.shortcuts import prompt
+from tabulate import tabulate
 from populate import *
+
 
 def load(conn, filename):
   with open(filename,'r') as f:
@@ -32,19 +34,48 @@ c.executemany('INSERT INTO premiadaPor VALUES (?,?,?)', premiadaPor)
 c.executemany('INSERT INTO usuario VALUES (?,?,?,?,?,?)', usuario)
 c.executemany('INSERT INTO leGusta VALUES (?,?)', leGusta)
 
-conn.close()
+
 
 
 commands_completer = WordCompleter([
     'Ver-Productos',
     'Ver-Creadores',
+    'Añadir-Productos',
+    'Salir',
   ], ignore_case=True)
 
 
 if __name__ == '__main__':
-  # Input command
-  ic = prompt('Comando: ', completer=commands_completer)
-  if ic == "Ver-Products":
-    c.execute("")
+  quitar = False
+
+  while not quitar:
+    # Bucle de lectura de comandos
+    print('')
+    ic = prompt('Comando: ', completer=commands_completer)
+    print('')
+
+    if ic == "Salir":
+      quitar = True
   
-  print('Comando: %s' % inputcommand)
+    elif ic == "Ver-Productos":
+      c.execute("SELECT * FROM productoCulturalPadre")
+      print(tabulate(c.fetchall(), headers=['Id','Título','Fecha','Tipo','Inspirado en']))
+  
+  
+    elif ic == "Ver-Creadores":
+      c.execute("SELECT * FROM entidadCreadora")
+      print(tabulate(c.fetchall(), headers=['Nombre','Tipo']))
+
+    elif ic == "Añadir-Productos":
+      print('Añadiendo un producto cultural.')
+      prod_nombre = prompt('Nombre del producto: ')
+      prod_fecha = prompt('Fecha de creación: ')
+      prod_tipo = prompt('Tipo del producto: ')
+      prod_inspirado = prompt('Inspirado en: ')
+      c.execute('INSERT INTO productoCulturalPadre VALUES (?, ?, ?, ?, ?)',
+                (12,prod_nombre,prod_fecha,prod_tipo,prod_inspirado))
+      
+    else:
+      print('El comando introducido no es válido')
+
+  conn.close()

@@ -3,6 +3,8 @@
 # Docs: https://docs.python.org/3.6/library/sqlite3.html
 import sqlite3
 from prompt_toolkit import prompt
+from prompt_toolkit.contrib.completers import WordCompleter
+from prompt_toolkit.shortcuts import prompt
 from populate import *
 
 conn = sqlite3.connect(':memory:')
@@ -27,7 +29,15 @@ conn.close()
 
 
 
+commands_completer = WordCompleter([
+    'Ver-Productos',
+    'Ver-Creadores',
+  ], ignore_case=True)
 
 if __name__ == '__main__':
-    answer = prompt('Give me some input: ')
-    print('You said: %s' % answer)
+  # Input command
+  ic = prompt('Comando: ', completer=commands_completer)
+  if ic == "Ver-Products":
+    c.execute("")
+  
+  print('Comando: %s' % inputcommand)

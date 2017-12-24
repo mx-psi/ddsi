@@ -68,8 +68,7 @@ premiadaPor = [
 
 # Usuarios
 # usuario(nombreusuario,nombrereal,localidadorigen,correoelectrónico,descripciónusuario,password)
-
-usuario= [ 
+usuario = [ 
   ("alba23","Alba Muñoz","Andalucia","alba@correo.es","Amante de la literatura","a_123456"),
   ("cristi23","Cristina Fernandez","Andalucia","cristina@correo.es","Amante del cine","c_123456"),
   ("alicia22","Alicia Quero","Andalucia","alicia@correo.es","Amante del cine y literatura","ali_123456"),
@@ -80,8 +79,7 @@ usuario= [
 
 # leGusta
 # leGusta(nombreusuario,identificador)
-
-leGusta =[ 
+leGusta = [
   ("alba23","Ficción"),
   ("cristi23","Fantasía"),
   ("alicia22","Magia"),

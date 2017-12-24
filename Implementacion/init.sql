@@ -21,13 +21,11 @@ CREATE TABLE asociadoA(
 );
 
 CREATE TABLE creadoPor(
-idProducto CONSTRAINT idProducto_ext
-    REFERENCES productoCulturalPadre(id),
-rol varchar(100),
-nombreCreador CONSTRAINT nombreCreador_ext
-    REFERENCES entidadCreadora(nombre),
+  idProducto CONSTRAINT idProducto_ext REFERENCES productoCulturalPadre(id),
+  rol varchar(100),
+  nombreCreador CONSTRAINT nombreCreador_ext REFERENCES entidadCreadora(nombre),
 
-CONSTRAINT clave_primaria PRIMARY KEY (idProducto, rol, nombreCreador)
+  CONSTRAINT clave_primaria PRIMARY KEY (idProducto, rol, nombreCreador)
 );
 
 CREATE TABLE perteneceA(

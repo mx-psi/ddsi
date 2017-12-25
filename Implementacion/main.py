@@ -5,8 +5,12 @@ import sqlite3
 from prompt_toolkit import prompt
 from prompt_toolkit.contrib.completers import WordCompleter
 from prompt_toolkit.shortcuts import prompt
+from colorama import Fore
+import colorama
+import sphinx.quickstart
 from tabulate import tabulate
 from populate import *
+colorama.init()
 
 
 def load(conn, filename):
@@ -35,20 +39,28 @@ c.executemany('INSERT INTO usuario VALUES (?,?,?,?,?,?)', usuario)
 c.executemany('INSERT INTO leGusta VALUES (?,?)', leGusta)
 
 
-
-
 commands_completer = WordCompleter([
     'Ver-Productos',
     'Ver-Creadores',
     'Añadir-Productos',
     'Añadir-Premios',
     'Consultar-Creadores',
+    'Añadir-Género',
+    'Consultar-Género',
     'Salir',
   ], ignore_case = True)
 
-def leerEntidad():
+def leerEntidad(text):
   c.execute("SELECT nombre FROM entidadCreadora")
-  return prompt("Nombre: ", completer=WordCompleter([t[0] for t in c.fetchall()], ignore_case = True))
+  return prompt(text, completer=WordCompleter([t[0] for t in c.fetchall()], ignore_case = True))
+
+def leerGenero(text):
+  c.execute("SELECT nombreGenero FROM generoSupergenero")
+  return prompt(text, completer=WordCompleter([t[0] for t in c.fetchall()], ignore_case = True))
+
+def leerProducto(text):
+  c.execute("SELECT nombre FROM productoCulturalPadre")
+  return prompt(text, completer=WordCompleter([t[0] for t in c.fetchall()], ignore_case = True))
 
 
 if __name__ == '__main__':
@@ -108,7 +120,7 @@ if __name__ == '__main__':
       # entidad creadora, esta función muestra el nombre, tipo,
       # productos culturales creados y premios asociados a esas
       # creaciones, si los hubiere.
-      ent = leerEntidad()
+      ent = leerEntidad("Nombre: ")
       c.execute('SELECT * FROM entidadCreadora WHERE nombre=?', (ent,))
       print(tabulate(c.fetchall(), headers=['Nombre','Tipo']))
       c.execute(
@@ -117,7 +129,43 @@ if __name__ == '__main__':
         WHERE (idProducto=id AND nombreCreador=?)""", (ent,))
       print(tabulate(c.fetchall(), headers=['Rol','ID','Nombre', 'Tipo', 'Fecha']))
 
-      
+    elif ic == "Añadir-Género":
+      # RF-2.4. Añadir un género
+      # Esta función registra un género en el sistema a partir de un nombre,
+      # un identificador, y, opcionalmente, un supergénero al que pertenece
+      # como subgénero.
+      gen_nombre = prompt("Nombre del género: ")
+      gen_id = prompt("Identificador de género: ")
+      gen_supg = prompt("Supergénero: ")
+
+      c.execute('INSERT INTO generoSupergenero VALUES (?, ?, ?)',
+                (gen_id, gen_nombre, gen_supg))
+
+      # TODO: Restricción semántica
+
+    elif ic == "Consultar-Género":
+      # RF-2.5. Consultar un género por nombre.  Dado el nombre de un
+      # género, esta función muestra su nombre, identificador,
+      # supergénero, subgéneros asociados y productos culturales
+      # asociados a ese género.
+      gen_nombre = leerGenero("Nombre del género: ")
+
+      # Datos
+      c.execute('SELECT * FROM generoSupergenero WHERE nombreGenero = ?', (gen_nombre,))
+      print('\nDatos del género')
+      print(tabulate(c.fetchall(), headers=['ID', 'Nombre', 'Supergénero']))
+
+      # Subgéneros
+      c.execute(
+        """SELECT genero.nombreGenero, subgenero.nombreGenero
+        FROM generoSupergenero genero, generoSupergenero subgenero
+        WHERE (subgenero.superGenero = ? AND genero.nombreGenero = ?)""",
+        (gen_nombre, gen_nombre))
+      print('\nSubgéneros')
+      print(tabulate(c.fetchall(), headers=['Género','Subgénero']))
+
+      # TODO: Productos del género
+
     else:
       print('El comando introducido no es válido')
 

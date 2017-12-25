@@ -55,8 +55,94 @@ def list_all_entidad(c):
   print(tabulate(c.fetchall(), headers=['Nombre','Tipo']))
 
 
+def add_genero(c):
+  # RF-2.4. Añadir un género
+  # Esta función registra un género en el sistema a partir de un nombre,
+  # un identificador, y, opcionalmente, un supergénero al que pertenece
+  # como subgénero.
+  gen_nombre = prompt("Nombre del género: ")
+  gen_id = prompt("Identificador de género: ")
+  gen_supg = leer(c, "generoSupergenero", "nombreGenero", "Supergénero: ")
+  
+  c.execute('INSERT INTO generoSupergenero VALUES (?, ?, ?)',
+    (gen_id, gen_nombre, gen_supg))  
+ 
+  # TODO: Restricción semántica
+
+def view_genero(c):
+  # RF-2.5. Consultar un género por nombre.  Dado el nombre de un
+  # género, esta función muestra su nombre, identificador,
+  # supergénero, subgéneros asociados y productos culturales
+  # asociados a ese género.
+  gen_nombre = leer(c, "generoSupergenero", "nombreGenero", "Nombre del género: ")
+
+  # Datos
+  c.execute('SELECT * FROM generoSupergenero WHERE nombreGenero = ?', (gen_nombre,))
+  print('\nDatos del género')
+  print(tabulate(c.fetchall(), headers=['ID', 'Nombre', 'Supergénero']))
+
+  # Subgéneros
+  c.execute(
+    """SELECT genero.nombreGenero, subgenero.nombreGenero
+    FROM generoSupergenero genero, generoSupergenero subgenero
+    WHERE (subgenero.superGenero = ? AND genero.nombreGenero = ?)""",
+    (gen_nombre, gen_nombre))
+  print('\nSubgéneros')
+  print(tabulate(c.fetchall(), headers=['Género','Subgénero']))
+
+  # Productos del género
+  c.execute(
+    """SELECT id, nombre, fechaPublicacion, tipo, idPadre
+    FROM productoCulturalPadre productos, perteneceA pertenece, generoSupergenero generos
+    WHERE (
+      generos.nombreGenero = ? AND
+      pertenece.Identificador = generos.identificador AND
+      pertenece.idProducto = productos.id
+    )""", (gen_nombre,))
+  print('\nProductos del género')
+  print(tabulate(c.fetchall(), headers=['Id','Nombre','Fecha','Tipo','IdPadre']))
+
+  
+def view_genero_id(c):
+  # RF-2.6. Consultar un género por ID. Dado el identificador de un
+  # género, esta función muestra su nombre, identificador,
+  # supergénero, subgéneros asociados y productos culturales asociados
+  # a ese género.
+  gen_id = leer(c, "generoSupergenero", "identificador", "Nombre del género: ")
+
+  # Datos
+  c.execute('SELECT * FROM generoSupergenero WHERE identificador = ?', (str(gen_id),))
+  print('\nDatos del género')
+  print(tabulate(c.fetchall(), headers=['ID', 'Nombre', 'Supergénero']))
+
+  # Subgéneros
+  c.execute(
+    """SELECT genero.nombreGenero, subgenero.nombreGenero
+    FROM generoSupergenero genero, generoSupergenero subgenero
+    WHERE (subgenero.superGenero = genero.nombreGenero AND genero.identificador = ?)""",
+    (str(gen_id),))
+  print('\nSubgéneros')
+  print(tabulate(c.fetchall(), headers=['Género','Subgénero']))
+
+  # Productos del género
+  c.execute(
+    """SELECT id, nombre, fechaPublicacion, tipo, idPadre
+    FROM productoCulturalPadre productos, perteneceA pertenece
+    WHERE (
+      pertenece.Identificador = ? AND
+      pertenece.idProducto = productos.id
+    )""", (str(gen_id),))
+  print('\nProductos del género')
+  print(tabulate(c.fetchall(), headers=['Id','Nombre','Fecha','Tipo','IdPadre']))
+  
+  # TODO: Restricciones semánticas
+  
+  
 comandos = {
   'Ver-Creadores': list_all_entidad,
   'Añadir-Premios': add_premio,
-  'Consultar-Creadores': view_entidad
+  'Consultar-Creadores': view_entidad,
+  'Añadir-Género': add_genero,
+  'Consultar-Género': view_genero,
+  'Consultar-Id-Género': view_genero_id,
 }

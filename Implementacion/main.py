@@ -8,6 +8,9 @@ from prompt_toolkit.shortcuts import prompt
 from tabulate import tabulate
 from populate import *
 
+# Subsistemas
+import productos
+
 
 def load(conn, filename):
   with open(filename,'r') as f:
@@ -36,11 +39,10 @@ c.executemany('INSERT INTO leGusta VALUES (?,?)', leGusta)
 
 
 
-
 commands_completer = WordCompleter([
-    'Ver-Productos',
-    'Ver-Creadores',
+    'Listar-Productos',
     'Añadir-Productos',
+    'Ver-Creadores',
     'Añadir-Premios',
     'Consultar-Creadores',
     'Salir',
@@ -60,26 +62,14 @@ if __name__ == '__main__':
     ic = prompt('Comando: ', completer=commands_completer)
     print('')
 
-    if ic == "Salir":
-      quitar = True
-  
-    elif ic == "Ver-Productos":
-      c.execute("SELECT * FROM productoCulturalPadre")
-      print(tabulate(c.fetchall(), headers=['Id','Título','Fecha','Tipo','Inspirado en']))
-  
-  
+    if ic == "Salir":  quitar = True
+
+    elif ic == "Listar-Productos": productos.list_all(c)
+    elif ic == "Añadir-Productos": productos.add(c)
+
     elif ic == "Ver-Creadores":
       c.execute("SELECT * FROM entidadCreadora")
       print(tabulate(c.fetchall(), headers=['Nombre','Tipo']))
-
-    elif ic == "Añadir-Productos":
-      print('Añadiendo un producto cultural.')
-      prod_nombre = prompt('Nombre del producto: ')
-      prod_fecha = prompt('Fecha de creación: ')
-      prod_tipo = prompt('Tipo del producto: ')
-      prod_inspirado = prompt('Inspirado en: ')
-      c.execute('INSERT INTO productoCulturalPadre VALUES (?, ?, ?, ?, ?)',
-                (12,prod_nombre,prod_fecha,prod_tipo,prod_inspirado))
 
     elif ic == "Añadir-Entidades":
       # RF-2.1. Añadir entidad creadora.  Esta función registra una
@@ -112,12 +102,12 @@ if __name__ == '__main__':
       c.execute('SELECT * FROM entidadCreadora WHERE nombre=?', (ent,))
       print(tabulate(c.fetchall(), headers=['Nombre','Tipo']))
       c.execute(
-        """SELECT rol, idProducto, nombre, tipo, fechaPublicacion 
+        """SELECT rol, idProducto, nombre, tipo, fechaPublicacion
         FROM creadoPor, productoCulturalPadre
         WHERE (idProducto=id AND nombreCreador=?)""", (ent,))
       print(tabulate(c.fetchall(), headers=['Rol','ID','Nombre', 'Tipo', 'Fecha']))
 
-      
+
     else:
       print('El comando introducido no es válido')
 

@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 
 import sqlite3 #Interacción base de datos
-from prompt_toolkit import prompt #CLI
 from prompt_toolkit.contrib.completers import WordCompleter #CLI
 from prompt_toolkit.shortcuts import prompt #CLI
+from prompt_toolkit.history import InMemoryHistory # Historia
 from tabulate import tabulate #Tabulado de datos
 
 from populate import * # Inicialización de la base de datos
@@ -41,7 +41,7 @@ c.executemany('INSERT INTO leGusta VALUES (?,?)', leGusta)
 
 def ayuda(c):
   """Muestra posibles comandos"""
-  l = sorted(map(lambda c: [c, comandos[c].__doc__], comandos.keys()))
+  l = sorted(map(lambda nom: [nom, comandos[nom].__doc__], comandos.keys()))
   print(tabulate(l))
 
 def salir(c):
@@ -54,11 +54,12 @@ comandos.update(entidades.comandos)
 commands_completer = WordCompleter(comandos.keys(), ignore_case = True)
 
 if __name__ == '__main__':
+  history = InMemoryHistory()
   try:
     while True:
       # Bucle de lectura de comandos
       print('')
-      ic = prompt('Comando: ', completer=commands_completer)
+      ic = prompt('Comando: ', completer=commands_completer, history=history)
       print('')
       if ic in comandos: comandos[ic](c)
       else: print('Comando no válido. Introduce \"Ayuda\" para ver los posibles comandos')

@@ -56,6 +56,7 @@ def list_all_entidad(c):
 
 
 def add_genero(c):
+  """Añade un género"""
   # RF-2.4. Añadir un género
   # Esta función registra un género en el sistema a partir de un nombre,
   # un identificador, y, opcionalmente, un supergénero al que pertenece
@@ -70,6 +71,7 @@ def add_genero(c):
   # TODO: Restricción semántica
 
 def view_genero(c):
+  """Consulta datos y productos de un género"""
   # RF-2.5. Consultar un género por nombre.  Dado el nombre de un
   # género, esta función muestra su nombre, identificador,
   # supergénero, subgéneros asociados y productos culturales
@@ -104,6 +106,7 @@ def view_genero(c):
 
   
 def view_genero_id(c):
+  """Consulta datos de un ID de género específico"""
   # RF-2.6. Consultar un género por ID. Dado el identificador de un
   # género, esta función muestra su nombre, identificador,
   # supergénero, subgéneros asociados y productos culturales asociados

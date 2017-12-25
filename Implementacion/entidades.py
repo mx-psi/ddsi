@@ -26,8 +26,8 @@ def add_premio(c):
   # entidad creadora que lo recibe y un producto cultural por el
   # cual lo recibe.
   print('Añadiendo un premio')
-  prm_entidad = prompt("Entidad que recibe el premio: ")
-  prm_producto = prompt("ID del producto por el que recibe el premio: ")
+  prm_entidad = leer(c, "entidadCreadora", "nombre", "Entidad que recibe el premio: ")
+  prm_producto = leer(c, "productoCulturalPadre", "id", "ID del producto por el que recibe el premio: ")
   prm_nombre = prompt("Nombre del premio: ")
   c.execute('INSERT INTO premiadaPor VALUES (?, ?, ?)',
             (prm_entidad, prm_producto, prm_nombre))

@@ -16,7 +16,7 @@ END;
 -- cultural. Asociado a: RF-2.2, RD-2.2, RD-2.4 y RD-1.2.
 CREATE TRIGGER creadora_producto_premiado
 BEFORE INSERT ON premiadaPor
-WHEN NEW.nombre IN (SELECT nombreCreador FROM creadoPor WHERE idProducto = NEW.id)
+WHEN NEW.id NOT IN (SELECT idProducto FROM creadoPor WHERE nombreCreador = NEW.nombre)
 BEGIN
 SELECT RAISE(ABORT, 'La entidad premiada debe figurar entre las creadoras del producto');
 END;

@@ -1,13 +1,10 @@
 #!/usr/bin/python3
+
 from prompt_toolkit.shortcuts import prompt
 from tabulate import tabulate
 from prompt_toolkit.contrib.completers import WordCompleter #CLI
+from auxiliar import *
 
-
-def leerEntidad(c):
-  """Auxiliar: lee entidad con autocompletado"""
-  c.execute("SELECT nombre FROM entidadCreadora")
-  return prompt("Nombre: ", completer=WordCompleter([t[0] for t in c.fetchall()], ignore_case = True))
 
 
 def add_entidad(c):
@@ -42,7 +39,7 @@ def view_entidad(c):
   # entidad creadora, esta función muestra el nombre, tipo,
   # productos culturales creados y premios asociados a esas
   # creaciones, si los hubiere.
-  ent = leerEntidad(c)
+  ent = leer(c, "entidadCreadora", "nombre", "Nombre: ")
   c.execute('SELECT * FROM entidadCreadora WHERE nombre=?', (ent,))
   print(tabulate(c.fetchall(), headers=['Nombre','Tipo']))
   c.execute(

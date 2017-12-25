@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 
 
-import sqlite3 #Interacción base de datos
-from prompt_toolkit.contrib.completers import WordCompleter #CLI
-from prompt_toolkit.shortcuts import prompt #CLI
+import sqlite3 # Interacción base de datos
+from prompt_toolkit.contrib.completers import WordCompleter # Interfaz
+from prompt_toolkit.shortcuts import prompt # Interfaz
 from prompt_toolkit.history import InMemoryHistory # Historia
-from tabulate import tabulate #Tabulado de datos
+from tabulate import tabulate # Tabulado de datos
 
 from populate import * # Inicialización de la base de datos
 

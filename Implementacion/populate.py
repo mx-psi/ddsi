@@ -62,8 +62,8 @@ perteneceA = [
 # Premios
 #  premiadaPor(_nombre_, _id_, _nombrepremio_)
 premiadaPor = [
-  ("J.R.R. Tolkien", 3, "International Fantasy Award (1957)"),
-  ("J.K. Rowling", 1, "National Book Award")
+  #("J.R.R. Tolkien", 3, "International Fantasy Award (1957)"),
+  #("J.K. Rowling", 1, "National Book Award")
 ] 
 
 # Usuarios

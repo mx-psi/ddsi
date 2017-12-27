@@ -35,8 +35,8 @@ def add(c):
   c.executemany('INSERT INTO creadoPor VALUES (?, ?, ?)', creadores)
 
   print("Géneros asociados al producto (\"q\" para terminar): ")
-  generos = lee_list(lambda: (ident,) + leer(c, "generoSupergenero", "nombreGenero", "Género: "))
-  c.executemany('INSERT INTO perteneceA VALUES (?,?)' generos)
+  generos = lee_lista(lambda: (ident,) + leer(c, "generoSupergenero", "nombreGenero", "Género: "))
+  c.executemany('INSERT INTO perteneceA VALUES (?,?)', generos)
 
   print("Productos asociados (\"q\" para terminar): ")
   def lee_asociado():

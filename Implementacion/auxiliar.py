@@ -63,7 +63,7 @@ def leer(c, tabla, campo, texto):
     c.execute("SELECT {campo} FROM {tabla}".format(campo = campo, tabla = tabla))
 
     val_campo =  prompt(texto,
-                  completer=WordCompleter([str(t[0]) for t in c.fetchall()], ignore_case = True),
+                  completer=WordCompleter(set(str(t[0]) for t in c.fetchall()), ignore_case = True),
                   validator=FieldValidator(c, tabla, campo))
 
     if val_campo == "q":

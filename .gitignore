@@ -1,4 +1,6 @@
 *.db
+__pycache__/*
+Implementacion/__pycache__/*
 
 ## Core latex/pdflatex auxiliary files:
 *.aux

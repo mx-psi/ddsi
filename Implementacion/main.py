@@ -57,6 +57,7 @@ commands_completer = WordCompleter(comandos.keys(), ignore_case = True)
 
 if __name__ == '__main__':
   history = InMemoryHistory()
+  print("Introduce \"Ayuda\" para ver los posibles comandos")
   try:
     while True:
       # Bucle de lectura de comandos

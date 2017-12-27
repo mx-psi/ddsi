@@ -27,10 +27,10 @@ def add_premio(c):
   # cual lo recibe.
   print('Añadiendo un premio')
   prm_entidad = leer(c, "entidadCreadora", "nombre", "Entidad que recibe el premio: ")
-  prm_producto = leer(c, "productoCulturalPadre", "id", "ID del producto por el que recibe el premio: ")
+  prm_producto = leer(c, "productoCulturalPadre", "nombre", "Producto por el que recibe el premio: ")
   prm_nombre = prompt("Nombre del premio: ")
   c.execute('INSERT INTO premiadaPor VALUES (?, ?, ?)',
-            (prm_entidad, prm_producto, prm_nombre))
+            prm_entidad + prm_producto + (prm_nombre,))
 
 
 def view_entidad(c):
@@ -40,12 +40,12 @@ def view_entidad(c):
   # productos culturales creados y premios asociados a esas
   # creaciones, si los hubiere.
   ent = leer(c, "entidadCreadora", "nombre", "Nombre: ")
-  c.execute('SELECT * FROM entidadCreadora WHERE nombre=?', (ent,))
+  c.execute('SELECT * FROM entidadCreadora WHERE nombre=?', ent)
   print(tabulate(c.fetchall(), headers=['Nombre','Tipo']))
   c.execute(
     """SELECT rol, idProducto, nombre, tipo, fechaPublicacion
     FROM creadoPor, productoCulturalPadre
-    WHERE (idProducto=id AND nombreCreador=?)""", (ent,))
+    WHERE (idProducto=id AND nombreCreador=?)""", ent)
   print(tabulate(c.fetchall(), headers=['Rol','ID','Nombre', 'Tipo', 'Fecha']))
 
 
@@ -64,10 +64,10 @@ def add_genero(c):
   gen_nombre = prompt("Nombre del género: ")
   gen_id = prompt("Identificador de género: ")
   gen_supg = leer(c, "generoSupergenero", "nombreGenero", "Supergénero: ")
-  
+
   c.execute('INSERT INTO generoSupergenero VALUES (?, ?, ?)',
-    (gen_id, gen_nombre, gen_supg))  
- 
+    (gen_id, gen_nombre) + gen_supg)
+
   # TODO: Restricción semántica
 
 def view_genero(c):
@@ -104,7 +104,7 @@ def view_genero(c):
   print('\nProductos del género')
   print(tabulate(c.fetchall(), headers=['Id','Nombre','Fecha','Tipo','IdPadre']))
 
-  
+
 def view_genero_id(c):
   """Consulta datos de un ID de género específico"""
   # RF-2.6. Consultar un género por ID. Dado el identificador de un
@@ -137,10 +137,10 @@ def view_genero_id(c):
     )""", (str(gen_id),))
   print('\nProductos del género')
   print(tabulate(c.fetchall(), headers=['Id','Nombre','Fecha','Tipo','IdPadre']))
-  
+
   # TODO: Restricciones semánticas
-  
-  
+
+
 comandos = {
   'Ver-Creadores': list_all_entidad,
   'Añadir-Premios': add_premio,

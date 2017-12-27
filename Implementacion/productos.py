@@ -2,8 +2,7 @@
 
 from prompt_toolkit.shortcuts import prompt
 from tabulate import tabulate
-import auxiliar
-
+from auxiliar import lee_fecha, lee_lista, lee_no_vacio, leer
 
 n = 5
 def get_valid_id():
@@ -18,32 +17,36 @@ def add(c):
   """Añade un producto"""
   print('Añadiendo un producto cultural.')
   ident  = get_valid_id()
-  nombre = auxiliar.lee_no_vacio('Nombre: ')
-  fecha  = auxiliar.lee_fecha('Fecha de creación: ')
-  tipo   = auxiliar.lee_no_vacio('Tipo: ')
-  padre  = auxiliar.lee_no_vacio("id del Padre: ")
+  nombre = lee_no_vacio('Nombre: ')
+  fecha  = lee_fecha('Fecha de creación: ')
+  tipo   = lee_no_vacio('Tipo: ')
+  padre  = leer(c, "productoCulturalPadre", "nombre", "Padre: ")
 
   c.execute('INSERT INTO productoCulturalPadre VALUES (?, ?, ?, ?, ?)',
-            (ident,nombre,fecha,tipo,padre))
-
-  def lee_creador():
-    nombre = auxiliar.leer(c, "entidadCreadora", "nombre", "Nombre: ")
-    if nombre == "q":     return None
-    rol    = auxiliar.lee_no_vacio("Rol: ")
-    if rol == "q":      return None
-    return (ident, rol, nombre)
+            (ident,nombre,fecha,tipo) + padre)
 
   print("Creadores del producto (\"q\" para terminar): ")
-  creadores = auxiliar.lee_list(lee_creador)
+
+  def lee_creador():
+    nombre = leer(c, "entidadCreadora", "nombre", "Nombre: ")
+    rol    = lee_no_vacio("Rol: ")
+    return (ident, rol) + nombre
+  creadores = lee_lista(lee_creador)
   c.executemany('INSERT INTO creadoPor VALUES (?, ?, ?)', creadores)
 
   print("Géneros asociados al producto (\"q\" para terminar): ")
-  generos = auxiliar.lee_list(lambda: leer(c, "generoSupergenero", "nombreGenero", "Género: "))
+  generos = lee_list(lambda: (ident,) + leer(c, "generoSupergenero", "nombreGenero", "Género: "))
+  c.executemany('INSERT INTO perteneceA VALUES (?,?)' generos)
+
+  print("Productos asociados (\"q\" para terminar): ")
+  def lee_asociado():
+    asociado    = leer(c, "productoCulturalPadre", "nombre", "Producto asociado: ")
+    descripcion = lee_no_vacio("Descripción de la asociación: ")
+    return (ident,) + asociado + (descripcion,)
+  asociados = lee_lista(lee_asociado)
+  c.executemany('INSERT INTO asociadoA VALUES (?, ?, ?)', asociados)
 
 
-  # TODO:
-# una lista posiblemente vacía de pares compuestos por el nombre de un producto cultural ya existente y la descripción de su asociación con el producto cultural a añadir (una cadena no vacía),
-# una lista no vacía de los identificadores de los géneros a las que pertenece,
 
 def list_all(c):
   """Lista todos los productos"""
@@ -53,6 +56,8 @@ def list_all(c):
 def view(c):
   """Muestra la información asociada a un producto"""
   pass
+
+
 
 def modify(c):
   """Modifica un producto cultural existente"""

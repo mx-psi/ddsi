@@ -46,17 +46,41 @@ def add(c):
   asociados = lee_lista(lee_asociado)
   c.executemany('INSERT INTO asociadoA VALUES (?, ?, ?)', asociados)
 
+  print("Datos introducidos correctamente")
+
 
 
 def list_all(c):
   """Lista todos los productos"""
   c.execute("SELECT * FROM productoCulturalPadre")
-  print(tabulate(c.fetchall(), headers=['Id','Título','Fecha','Tipo','Inspirado en']))
+  print(tabulate(c.fetchall(), headers=['Id','Título','Fecha','Tipo','Padre'], tablefmt="plain"))
+
+
 
 def view(c):
   """Muestra la información asociada a un producto"""
-  pass
+  ident  = leer(c, "productoCulturalPadre", "id", "Id del producto: ")
+  c.execute("SELECT * FROM productoCulturalPadre WHERE id={ident}".format(ident = ident[0]))
 
+  print("\nDatos básicos:\n")
+  print(tabulate(c.fetchall(), headers=['Id','Título','Fecha','Tipo','Padre']))
+
+  c.execute("SELECT id, nombre, tipo FROM asociadoA, productoCulturalPadre WHERE (id1={ident} AND id2=id) OR (id2={ident} AND id1=id)".format(ident = ident[0]))
+  asociados = c.fetchall()
+  if len(asociados) > 0:
+    print("\nProductos asociados: \n")
+    print(tabulate(c.fetchall(), headers=['Id','Nombre','Tipo']))
+
+  c.execute("SELECT nombreGenero FROM perteneceA, generoSupergenero WHERE idProducto={ident} AND perteneceA.Identificador=generoSupergenero.identificador".format(ident = ident[0]))
+  generos = c.fetchall()
+  if len(generos) > 0:
+    print("\nGéneros: {generos}".format(generos = ", ".join(x[0] for x in generos)))
+
+  c.execute("SELECT nombreCreador, rol FROM creadoPor WHERE idProducto={ident}".format(ident = ident[0]))
+  creadores = c.fetchall()
+  if len(creadores) > 0:
+    print("\nCreadores:\n")
+    print(tabulate(creadores, headers=['Nombre','Rol']))
 
 
 def modify(c):

@@ -44,7 +44,7 @@ c.executemany('INSERT INTO leGusta VALUES (?,?)', leGusta)
 def ayuda(c):
   """Muestra posibles comandos"""
   l = sorted(map(lambda nom: [nom, comandos[nom].__doc__], comandos.keys()))
-  print(tabulate(l))
+  print(tabulate(l, tablefmt="plain"))
 
 def salir(c):
   """Termina la ejecución"""
@@ -63,7 +63,6 @@ if __name__ == '__main__':
       # Bucle de lectura de comandos
       print('')
       ic = prompt('Comando: ', completer=commands_completer, history=history)
-      print('')
       if ic in comandos: comandos[ic](c)
       else: print('Comando no válido. Introduce \"Ayuda\" para ver los posibles comandos')
   except (KeyboardInterrupt, EOFError):

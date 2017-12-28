@@ -7,13 +7,6 @@ from prompt_toolkit.contrib.completers import WordCompleter #CLI
 from prompt_toolkit.validation import Validator, ValidationError
 from datetime import datetime
 
-class EndInputError(Exception):
-  """Error que indica el fin de la entrada."""
-  def __init__(self,message):
-    self.message = message
-  def __str__(self):
-    return self.message
-
 def get_pk(c, tabla):
   """Obtiene lista de atributos que forman parte de la clave primaria."""
 
@@ -29,18 +22,19 @@ def get_pk(c, tabla):
 class FieldValidator(Validator):
   """Validación de campos"""
 
-  def __init__(self, c, tabla, campo):
+  def __init__(self, c, tabla, campo, vacio):
     super().__init__()
     self.c = c
     self.tabla = tabla
     self.campo = campo
+    self.vacio = vacio
 
   def validate(self, document):
     self.c.execute("SELECT {campo} FROM {tabla} WHERE {campo} = \'{text}\'"
                    .format(campo = self.campo, tabla = self.tabla, text =  document.text))
 
-    if len(self.c.fetchall()) == 0 and document.text != "q":
-      raise ValidationError(message="El valor no existe en la base de datos")
+    if len(self.c.fetchall()) == 0 and not (self.vacio and document.text == ""):
+      raise ValidationError(message="No existe en la base de datos: \"{}\"".format(document.text))
 
 
 class IterValidator(Validator):
@@ -52,22 +46,30 @@ class IterValidator(Validator):
 
   def validate(self, document):
     for x in self.iterable:
-      if str(x) == document.text:
-        return None
-    raise ValidationError(message="El valor no es válido")
+      if str(x) == document.text: return None
+    raise ValidationError(message="No es válido")
 
+def leer(c, tabla, campo, texto, vacio = True):
+    """Función auxiliar: lee de la entrada un elemento de la base de datos.
 
-def leer(c, tabla, campo, texto):
-    """Función auxiliar: lee de la entrada un elemento de la base de datos."""
+       c → Cursor a la base de datos
+       tabla → Nombre de la tabla a consultar
+       campo → Campo a autocompletar
+       texto → Texto del prompt
+       vacio → Si el campo puede estar vacío
+
+       La función pregunta al usuario por un elemento válido de campo en tabla o un valor vacío
+       en caso de que pueda estarlo. Resuelve ambigüedades en campos que no son clave primaria con una lista
+    """
 
     c.execute("SELECT {campo} FROM {tabla}".format(campo = campo, tabla = tabla))
 
     val_campo =  prompt(texto,
                   completer=WordCompleter(set(str(t[0]) for t in c.fetchall()), ignore_case = True),
-                  validator=FieldValidator(c, tabla, campo))
-
-    if val_campo == "q":
-      raise EndInputError("Fin de entrada: Leer")
+                  validator=FieldValidator(c, tabla, campo, vacio))
+    pks = get_pk(c,tabla)
+    if val_campo == "":
+      return tuple(None for k in pks)
 
     c.execute("SELECT * FROM {tabla} WHERE {campo}=\'{val_campo}\'"
               .format(campo = campo, tabla = tabla, val_campo = val_campo))
@@ -85,7 +87,6 @@ def leer(c, tabla, campo, texto):
                      validator = IterValidator(range(len(opciones)))))
       elegido = opciones[n]
 
-    pks = get_pk(c,tabla)
     return tuple(elegido[k] for k in pks)
 
 
@@ -118,11 +119,12 @@ def lee_fecha(texto='Fecha: '):
 
 
 
-def lee_lista(lector):
+def lee_lista(mensaje, lector):
   """Lee lista con lector"""
+  print(mensaje + " (Ctrl+D para terminar): ")
   l = []
   try:
     while True:
       l.append(lector())
-  except EndInputError:
+  except EOFError:
     return l

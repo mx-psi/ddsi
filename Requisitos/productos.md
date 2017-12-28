@@ -11,7 +11,7 @@ Inicialmente la descripción de los productos culturales incluía el concepto de
 
 Esta descripción se ha modificado de tal forma que las ediciones, versiones o instancias ahora son productos culturales, de tal manera que se permita la creación de jerarquías de más de dos niveles (por ejemplo, serie de televisión → temporada → episodio):
 
-> Los **productos culturales** constan de un nombre, fecha de publicación, tipo, identificador, productos culturales padre, otros productos culturales asociados, una serie de géneros a las que pertenece y un conjunto de entidades creadoras asociadas.
+> Los **productos culturales** constan de un nombre, fecha de publicación, tipo, identificador, un producto cultural padre, otros productos culturales asociados, una serie de géneros a las que pertenece y un conjunto de entidades creadoras asociadas.
 
 ### Requisitos funcionales
 
@@ -76,32 +76,31 @@ RD-1.1. Datos de un producto cultural
 - una lista posiblemente vacía de pares compuestos por el nombre de un producto cultural ya existente y la descripción de su asociación con el producto cultural a añadir (una cadena no vacía),
 - una lista no vacía de los identificadores de los géneros a las que pertenece,
 - una fecha de publicación posiblemente futura,
-- una lista no vacía de los nombres de los productos culturales padre y
+- el identificador del producto cultural padre si lo hubiera y
 - una lista no vacía de pares compuestos por el nombre de cada entidad creadora asociada y rol de esa asociación (una cadena no vacía).
 
 RD-1.2. Producto cultural
 : Los datos proporcionados en RD-1.1. Con restricción RS-1.1, RS-1.2 y RS-1.3.
 
 RD-1.3. Confirmación de introducción de producto cultural
-: Mensaje de salida que indica si los datos se han introducido correctamente y cuáles son los datos almacenados (los de RD-1.2). Con restricción RS-1.1, RS-1.2 y RS-1.3
+: Mensaje de salida que indica si los datos se han introducido correctamente. Con restricción RS-1.1, RS-1.2 y RS-1.3
 
 RD-1.4. Datos a modificar de un producto cultural
 : Los datos necesarios son el identificador del producto y los datos a modificar que son (con restricción RS-1.1, RS-1.2 y RS-1.3):
-- una lista posiblemente vacía de pares compuestos por el nombre de un producto cultural ya existente y la descripción de su asociación con el producto cultural a añadir (una cadena no vacía),
-- una lista no vacía de los identificadores de los géneros a las que pertenece y
-- una lista no vacía de los nombres de los nuevos productos culturales padre.
+- una lista posiblemente vacía de pares compuestos por el nombre de un producto cultural ya existente y la descripción de su asociación con el producto cultural a añadir (una cadena no vacía) y
+- una lista no vacía de los identificadores de los géneros a las que pertenece.
 
 RD-1.5. Modificados de producto cultural
 : Los datos proporcionados en RD-1.4. Los datos asociados a los géneros a añadir. Con restricción RS-1.1, RS-1.2 y RS-1.3.
 
 RD-1.6. Confirmación de modificación
-: Mensaje de salida que indica si los datos se han introducido correctamente y cuáles son los datos almacenados con las modificaciones (los listados en RD-1.1 con las modificaciones de RD-1.4). Con restricción RS-1.1, RS-1.2 y RS-1.3
+: Mensaje de salida que indica si los datos se han introducido correctamente. Con restricción RS-1.1, RS-1.2 y RS-1.3
 
 RD-1.7. Producto a consultar
 : Identificador del producto a consultar
 
 RD-1.8. Salida de consulta de productos cultural
-: Los datos del producto cultural con el identificador de RD-1.7 incluyendo todos los datos listados de RD-1.1 así como una lista de todos las entidades creadoras que han participado en alguno de los descendientes del producto cultural (describiendo su rol sólo si están directamente relacionados con el producto cultural consultado) y una lista de los géneros de todos los descendientes del producto cultural.
+: Los datos del producto cultural con el identificador de RD-1.7 incluyendo todos los datos listados de RD-1.1.
 
 RD-1.9. Datos de búsqueda de productos culturales
 : Alguno de los datos del listado de RD-1.1 o una combinación lógica (con operadores OR, AND, NOT) de los datos. Con restricción RS-1.4.

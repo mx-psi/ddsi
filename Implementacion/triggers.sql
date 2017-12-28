@@ -1,11 +1,12 @@
 -- Script para creación de disparadores
 
+-- RS-1.2. Un producto cultural no podrá estar asociado a sí mismo.
+-- Asociado a: RD-1.1, RD-1.6, RF-1.1 y RF-1.2
 CREATE TRIGGER inserta_producto
-BEFORE UPDATE OF idPadre ON productoCulturalPadre
-WHEN NEW.idPadre = old.id
+BEFORE INSERT ON asociadoA
+WHEN NEW.id1 = NEW.id2
 BEGIN
--- TODO?:  Evitar que un nodo tenga como padre a uno de sus hijos/nietos...
-SELECT RAISE(ABORT, 'Un producto cultural no puede ser su propio padre');
+SELECT RAISE(ABORT, 'Un producto cultural no puede estar relacionado con sí mismo');
 END;
 
 
@@ -29,5 +30,3 @@ WHEN NEW.superGenero = NEW.nombreGenero
 BEGIN
 SELECT RAISE(ABORT, 'Un género no puede llamarse como su propio supergénero');
 END;
-
-

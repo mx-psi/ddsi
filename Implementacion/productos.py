@@ -98,7 +98,7 @@ def view(c):
     print("\nProductos asociados: \n")
     print(tabulate(c.fetchall(), headers=['Id','Nombre','Tipo']))
 
-  c.execute("SELECT nombreGenero FROM perteneceA, generoSupergenero WHERE idProducto={idProd} AND perteneceA.IdProdificador=generoSupergenero.idProdificador".format(idProd = idProd[0]))
+  c.execute("SELECT nombreGenero FROM perteneceA, generoSupergenero WHERE idProducto={idProd} AND perteneceA.identificador=generoSupergenero.identificador".format(idProd = idProd[0]))
   generos = c.fetchall()
   if len(generos) > 0:
     print("\nGéneros: {generos}".format(generos = ", ".join(x[0] for x in generos)))

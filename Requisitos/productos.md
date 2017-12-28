@@ -87,6 +87,7 @@ RD-1.3. Confirmación de introducción de producto cultural
 
 RD-1.4. Datos a modificar de un producto cultural
 : Los datos necesarios son el identificador del producto y los datos a modificar que son (con restricción RS-1.1, RS-1.2 y RS-1.3):
+
 - una lista posiblemente vacía de pares compuestos por el nombre de un producto cultural ya existente y la descripción de su asociación con el producto cultural a añadir (una cadena no vacía) y
 - una lista no vacía de los identificadores de los géneros a las que pertenece.
 

@@ -39,9 +39,9 @@ CREATE TABLE perteneceA(
 -- Tablas de géneros y entidades creadoras
 
 CREATE TABLE generoSupergenero(
-  identificador int,
+  identificador varchar(100),
   nombreGenero varchar(100),
-  superGenero varchar(100),
+  superGenero varchar(100) CONSTRAINT super_ext REFERENCES identificador,
 
   CONSTRAINT clave_primaria PRIMARY KEY (identificador)
 );

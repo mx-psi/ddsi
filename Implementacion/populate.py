@@ -43,8 +43,8 @@ asociadoA = []
 # géneroSupergénero(_identificador_, nombreGénero, supergénero)
 generoSupergenero = [
   ("L-FIC0", "Ficción", None),
-  ("L-FIC1", "Fantasía", "Ficción"),
-  ("L-FIC3", "Magia", "Fantasía"),
+  ("L-FIC1", "Fantasía", "L-FIC0"),
+  ("L-FIC3", "Magia", "L-FIC1"),
   ("L-JUV0", "Juvenil", None)
 ]
 

@@ -86,16 +86,19 @@ def view_genero(c):
   gen_nombre = leer2(c, "generoSupergenero", "nombreGenero", "Nombre del género: ")
 
   # Datos
-  c.execute('SELECT * FROM generoSupergenero WHERE nombreGenero = ?', (gen_nombre,))
+  c.execute("""
+    SELECT genero.identificador, genero.nombreGenero, superg.identificador, superg.nombreGenero FROM generoSupergenero genero, generoSupergenero superg
+    WHERE (genero.nombreGenero = ? AND superg.identificador = genero.superGenero)
+  """, (gen_nombre,))
   print('\nDatos del género')
-  print(tabulate(c.fetchall(), headers=['ID', 'Nombre', 'Supergénero']))
+  print(tabulate(c.fetchall(), headers=['ID', 'Nombre', 'ID-Sup', 'Supergénero']))
 
   # Subgéneros
   c.execute(
     """SELECT genero.nombreGenero, subgenero.nombreGenero
     FROM generoSupergenero genero, generoSupergenero subgenero
-    WHERE (subgenero.superGenero = ? AND genero.nombreGenero = ?)""",
-    (gen_nombre, gen_nombre))
+    WHERE (subgenero.superGenero = genero.Identificador AND genero.nombreGenero = ?)""",
+    (gen_nombre,))
   print('\nSubgéneros')
   print(tabulate(c.fetchall(), headers=['Género','Subgénero']))
 

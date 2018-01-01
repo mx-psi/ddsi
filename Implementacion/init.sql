@@ -64,19 +64,20 @@ CREATE TABLE premiadaPor(
 -- Tablas de valoraciones
 
 CREATE TABLE valoracionValora(
-  idProducto int NOT NULL  REFERENCES productoCulturalPadre(id),
-  nombreUsuario varchar(20) NOT NULL  REFERENCES usuario(nombreusuario),
+  idProducto int NOT NULL REFERENCES productoCulturalPadre(id),
+  nombreUsuario varchar(20) NOT NULL REFERENCES usuario(nombreusuario),
   resena varchar(16384) NOT NULL,
   puntuacion int NOT NULL,
 
   CONSTRAINT clave_primaria_valoracion PRIMARY KEY (idProducto, nombreUsuario),
-  CONSTRAINT rango_puntuacion CHECK (puntuacion >= 1 AND puntuacion <= 5)
+  CONSTRAINT rango_puntuacion CHECK (puntuacion >= 1 AND puntuacion <= 5),
+  CONSTRAINT resena_no_vacia CHECK (TRIM(resena) NOT LIKE '')
 );
 
 CREATE TABLE puntua(
   nombreUsuarioPuntuador varchar(20) NOT NULL REFERENCES usuario(nombreusuario),
   nombreUsuarioValorador varchar(20) NOT NULL REFERENCES usuario(nombreusuario),
-  idProducto int NOT NULL  REFERENCES productoCulturalPadre(id),
+  idProducto int NOT NULL REFERENCES productoCulturalPadre(id),
   puntuacion int NOT NULL,
 
   CONSTRAINT clave_primaria_puntua PRIMARY KEY (nombreUsuarioPuntuador, nombreUsuarioValorador, idProducto),

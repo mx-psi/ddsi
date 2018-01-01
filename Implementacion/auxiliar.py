@@ -130,6 +130,24 @@ def lee_lista(mensaje, lector):
     return l
 
 
+def lee_texto(mensaje):
+  """Lee texto con posibles saltos de línea"""
+  print(mensaje + " (línea en blanco para terminar): ")
+  t = ""
+  while True:
+    l = input()
+    if l.strip() == "":
+      break
+    t += "\n" + l
+
+  return t[1:]
+
+
+def lee_entero(mensaje):
+  """Lee un número entero"""
+  return int(input(mensaje))
+  
+
 def leer2(c, tabla, campo, texto):
     """Función auxiliar: lee de la entrada un elemento de la base de datos."""
     c.execute("SELECT " + campo + " FROM " + tabla)

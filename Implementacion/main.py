@@ -12,6 +12,7 @@ from populate import * # Inicialización de la base de datos
 # Subsistemas
 import productos
 import entidades
+import valoraciones
 
 
 
@@ -39,6 +40,9 @@ c.executemany('INSERT INTO perteneceA VALUES (?,?)', perteneceA)
 c.executemany('INSERT INTO premiadaPor VALUES (?,?,?)', premiadaPor)
 c.executemany('INSERT INTO usuario VALUES (?,?,?,?,?,?)', usuario)
 c.executemany('INSERT INTO leGusta VALUES (?,?)', leGusta)
+c.executemany('INSERT INTO ValoracionValora VALUES (?,?,?,?)', valoracionValora)
+c.executemany('INSERT INTO puntua VALUES (?,?,?,?)', puntua)
+c.executemany('INSERT INTO reporta VALUES (?,?,?)', reporta)
 
 
 def ayuda(c):
@@ -53,6 +57,7 @@ def salir(c):
 comandos = {"Ayuda": ayuda, "Salir": salir}
 comandos.update(productos.comandos)
 comandos.update(entidades.comandos)
+comandos.update(valoraciones.comandos)
 commands_completer = WordCompleter(comandos.keys(), ignore_case = True)
 
 if __name__ == '__main__':

@@ -93,7 +93,7 @@ leGusta = [
 
 # Valoraciones
 #  valoracion-valora(_idProducto_, _nombreUsuario_, resena, puntuacion)
-valoracion-valora = [
+valoracionValora = [
   (1, "alicia22", """[reseña con gran entusiasmo; tal vez demasiado]""", 5),
   (3, "alba23", """[reseña bastante bien hecha]""", 3),
   (3, "fede33", """vaya tocho infumable""", 1),

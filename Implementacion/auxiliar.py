@@ -128,3 +128,9 @@ def lee_lista(mensaje, lector):
       l.append(lector())
   except EOFError:
     return l
+
+
+def leer2(c, tabla, campo, texto):
+    """Función auxiliar: lee de la entrada un elemento de la base de datos."""
+    c.execute("SELECT " + campo + " FROM " + tabla)
+    return prompt(texto, completer=WordCompleter([str(t[0]) for t in c.fetchall()], ignore_case = True))

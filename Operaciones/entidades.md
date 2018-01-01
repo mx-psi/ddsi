@@ -36,7 +36,7 @@ Las operaciones asociadas a RF-2.5 son O-2.8, O-2.9, O-2.10 y O-2.11; mientras
 que las asociadas a RF-2.6 son O-2.9, O-2.10 y O-2.11.
 
 O-2.8
-: Consultar identificador de género dado un nombre.
+: Consultar identificadores de género dado un nombre.
 
 O-2.9
 : Consultar nombre de un género dado un identificador.

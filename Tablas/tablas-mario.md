@@ -79,7 +79,7 @@ CREATE TABLE géneroSupergénero(
 
 
 Al añadir a esta tabla se activará el siguiente disparador que implementa
-la restricción semántica RS-2.1.
+la restricción semántica RS-2.2.
 
 ```sql
 CREATE TRIGGER supergenero_de_si_mismo

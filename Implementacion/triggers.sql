@@ -26,7 +26,7 @@ END;
 -- su propio supergénero. Asociado a: RF-2.4, RD-2.5 y RD-2.6.
 CREATE TRIGGER supergenero_de_si_mismo
 BEFORE INSERT ON generoSupergenero
-WHEN NEW.superGenero = NEW.nombreGenero
+WHEN NEW.superGenero = NEW.identificador
 BEGIN
-SELECT RAISE(ABORT, 'Un género no puede llamarse como su propio supergénero');
+SELECT RAISE(ABORT, 'Un género no puede ser su propio supergénero');
 END;

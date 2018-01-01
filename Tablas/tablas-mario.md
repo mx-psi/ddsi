@@ -20,6 +20,18 @@ CREATE TABLE premiadaPor(
 )
 ```
 
+Al añadir a esta tabla se activará el siguiente disparador que implementa
+la restricción semántica RS-2.1.
+
+```sql
+CREATE TRIGGER creadora_producto_premiado
+BEFORE INSERT ON premiadaPor
+WHEN NEW.id NOT IN (SELECT idProducto FROM creadoPor WHERE nombreCreador = NEW.nombre)
+BEGIN
+SELECT RAISE(ABORT, 'La entidad premiada debe figurar entre las creadoras del producto');
+END;
+```
+
 ## entidadCreadora
 El esquema de la tabla es
 
@@ -63,4 +75,17 @@ CREATE TABLE géneroSupergénero(
   
   CONSTRAINT clave_primaria PRIMARY KEY (identificador)
 )
+```
+
+
+Al añadir a esta tabla se activará el siguiente disparador que implementa
+la restricción semántica RS-2.1.
+
+```sql
+CREATE TRIGGER supergenero_de_si_mismo
+BEFORE INSERT ON generoSupergenero
+WHEN NEW.superGenero = NEW.identificador
+BEGIN
+SELECT RAISE(ABORT, 'Un género no puede ser su propio supergénero');
+END;
 ```

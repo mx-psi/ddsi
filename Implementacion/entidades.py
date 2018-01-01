@@ -67,7 +67,7 @@ def add_genero(c):
   # como subgénero.
   gen_nombre = prompt("Nombre del género: ")
   gen_id = prompt("Identificador de género: ")
-  gen_supg = leer2(c, "generoSupergenero", "nombreGenero", "Supergénero: ")
+  gen_supg = leer2(c, "generoSupergenero", "identificador", "Supergénero: ")
 
   try:
     c.execute('INSERT INTO generoSupergenero VALUES (?, ?, ?)',
@@ -121,7 +121,7 @@ def view_genero_id(c):
   # género, esta función muestra su nombre, identificador,
   # supergénero, subgéneros asociados y productos culturales asociados
   # a ese género.
-  gen_id = leer2(c, "generoSupergenero", "identificador", "Nombre del género: ")
+  gen_id = leer2(c, "generoSupergenero", "identificador", "ID del género: ")
 
   # Datos
   c.execute('SELECT * FROM generoSupergenero WHERE identificador = ?', (str(gen_id),))
@@ -132,7 +132,7 @@ def view_genero_id(c):
   c.execute(
     """SELECT genero.nombreGenero, subgenero.nombreGenero
     FROM generoSupergenero genero, generoSupergenero subgenero
-    WHERE (subgenero.superGenero = genero.nombreGenero AND genero.identificador = ?)""",
+    WHERE (subgenero.superGenero = genero.identificador AND genero.identificador = ?)""",
     (str(gen_id),))
   print('\nSubgéneros')
   print(tabulate(c.fetchall(), headers=['Género','Subgénero']))

@@ -104,8 +104,8 @@ CREATE TABLE leGusta(
 
 CREATE TABLE reporta(
   nombreusuarioreportador CONSTRAINT nombreusuarioreportador_ext REFERENCES usuario(nombreusuario),
-  idproducto CONSTRAINT idproducto_ext REFERENCES productoCulturalPadre(id),
   nombreusuarioreportado CONSTRAINT nombreusuarioreportado_ext REFERENCES valoracionValora(nombreUsuario),
+  idproducto CONSTRAINT idproducto_ext REFERENCES productoCulturalPadre(id),
 
   CONSTRAINT clave_primaria PRIMARY KEY (nombreusuarioreportador,nombreusuarioreportado,idproducto)
 );

@@ -40,7 +40,7 @@ c.executemany('INSERT INTO perteneceA VALUES (?,?)', perteneceA)
 c.executemany('INSERT INTO premiadaPor VALUES (?,?,?)', premiadaPor)
 c.executemany('INSERT INTO usuario VALUES (?,?,?,?,?,?)', usuario)
 c.executemany('INSERT INTO leGusta VALUES (?,?)', leGusta)
-c.executemany('INSERT INTO ValoracionValora VALUES (?,?,?,?)', valoracionValora)
+c.executemany('INSERT INTO valoracionValora VALUES (?,?,?,?)', valoracionValora)
 c.executemany('INSERT INTO puntua VALUES (?,?,?,?)', puntua)
 c.executemany('INSERT INTO reporta VALUES (?,?,?)', reporta)
 

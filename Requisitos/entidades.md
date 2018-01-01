@@ -43,9 +43,9 @@ RF-2.4. Añadir un género
   Debe cumplirse la restricción semántica RS2.2.
 
 RF-2.5. Consultar un género por nombre
-: Dado el nombre de un género, esta función muestra su nombre,
-  identificador, supergénero, subgéneros asociados y productos
-  culturales asociados a ese género.
+: Dado el nombre de un género, esta función muestra todos los géneros
+  asociados a ese nombre, dando identificador, supergénero, subgéneros
+  asociados y productos culturales asociados a ellos.
 
    - E: RD-2.8;
    - M: RD-2.5, RD-1.2;

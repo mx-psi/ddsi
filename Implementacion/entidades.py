@@ -73,9 +73,9 @@ def add_genero(c):
 def view_genero(c):
   """Consulta datos y productos de un género"""
   # RF-2.5. Consultar un género por nombre.  Dado el nombre de un
-  # género, esta función muestra su nombre, identificador,
-  # supergénero, subgéneros asociados y productos culturales
-  # asociados a ese género.
+  # género, esta función muestra todos los géneros con ese nombre,
+  # dando identificador, supergénero, subgéneros asociados y productos
+  # culturales asociados a ellos.
   gen_nombre = leer2(c, "generoSupergenero", "nombreGenero", "Nombre del género: ")
 
   # Datos

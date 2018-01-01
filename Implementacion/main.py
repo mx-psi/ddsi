@@ -26,6 +26,9 @@ def load(conn, filename):
 conn = sqlite3.connect(':memory:')
 c = conn.cursor()
 
+# Activa comprobación de claves externas
+c.execute("PRAGMA foreign_keys = ON")
+
 # Carga creación de tablas y disparadores
 load(conn,"init.sql")
 load(conn, "triggers.sql")

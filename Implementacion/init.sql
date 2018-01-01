@@ -41,7 +41,7 @@ CREATE TABLE perteneceA(
 CREATE TABLE generoSupergenero(
   identificador varchar(100),
   nombreGenero varchar(100),
-  superGenero varchar(100) CONSTRAINT super_ext REFERENCES identificador,
+  superGenero varchar(100) CONSTRAINT super_ext REFERENCES generoSupergenero(identificador),
 
   CONSTRAINT clave_primaria PRIMARY KEY (identificador)
 );
@@ -75,11 +75,12 @@ CREATE TABLE valoracionValora(
 );
 
 CREATE TABLE puntua(
-  nombreUsuarioPuntuador varchar(20) NOT NULL REFERENCES usuario(nombreusuario),
-  nombreUsuarioValorador varchar(20) NOT NULL REFERENCES usuario(nombreusuario),
+  nombreUsuarioPuntuador varchar(20) NOT NULL,
+  nombreUsuarioValorador varchar(20) NOT NULL,
   idProducto int NOT NULL REFERENCES productoCulturalPadre(id),
   puntuacion int NOT NULL,
 
+  CONSTRAINT puntua_ext FOREIGN KEY(idProducto, nombreUsuarioValorador) REFERENCES valoracionValora(idProducto, nombreUsuario),
   CONSTRAINT clave_primaria_puntua PRIMARY KEY (nombreUsuarioPuntuador, nombreUsuarioValorador, idProducto),
   CONSTRAINT rango_puntuacion CHECK (puntuacion >= 0 AND puntuacion <= 1)
 );
@@ -97,15 +98,16 @@ CREATE TABLE usuario(
 
 CREATE TABLE leGusta(
   nombreusuario varchar(20) NOT NULL CONSTRAINT nombreusuario_ext REFERENCES usuario(nombreusuario),
-  identificador varchar(100) NOT NULL CONSTRAINT identificador_ext REFERENCES géneroSupergénero(identificador),
+  identificador varchar(100) NOT NULL CONSTRAINT identificador_ext REFERENCES generoSupergenero(identificador),
 
   CONSTRAINT clave_primaria PRIMARY KEY (nombreusuario,identificador)
 );
 
 CREATE TABLE reporta(
-  nombreusuarioreportador varchar(20) NOT NULL CONSTRAINT nombreusuarioreportador_ext REFERENCES usuario(nombreusuario),
-  nombreusuarioreportado varchar(20) NOT NULL CONSTRAINT nombreusuarioreportado_ext REFERENCES valoracionValora(nombreUsuario),
+  nombreusuarioreportador varchar(20) NOT NULL,
+  nombreusuarioreportado varchar(20) NOT NULL,
   idproducto int NOT NULL CONSTRAINT idproducto_ext REFERENCES productoCulturalPadre(id),
 
+  CONSTRAINT reporta_ext FOREIGN KEY(idProducto, nombreUsuarioReportado) REFERENCES valoracionValora(idProducto, nombreUsuario),
   CONSTRAINT clave_primaria PRIMARY KEY (nombreusuarioreportador,nombreusuarioreportado,idproducto)
 );

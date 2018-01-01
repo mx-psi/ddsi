@@ -85,7 +85,7 @@ CREATE TABLE puntua(
 );
 
 CREATE TABLE usuario(
-  nombreusuario varchar(20),
+  nombreusuario varchar(20) NOT NULL,
   nombrereal varchar(60),
   localidadorigen varchar(20),
   correoelectronico varchar(40),
@@ -96,16 +96,16 @@ CREATE TABLE usuario(
 );
 
 CREATE TABLE leGusta(
-  nombreusuario CONSTRAINT nombreusuario_ext REFERENCES usuario(nombreusuario),
-  identificador CONSTRAINT identificador_ext REFERENCES géneroSupergénero(identificador),
+  nombreusuario varchar(20) NOT NULL CONSTRAINT nombreusuario_ext REFERENCES usuario(nombreusuario),
+  identificador varchar(100) NOT NULL CONSTRAINT identificador_ext REFERENCES géneroSupergénero(identificador),
 
   CONSTRAINT clave_primaria PRIMARY KEY (nombreusuario,identificador)
 );
 
 CREATE TABLE reporta(
-  nombreusuarioreportador CONSTRAINT nombreusuarioreportador_ext REFERENCES usuario(nombreusuario),
-  nombreusuarioreportado CONSTRAINT nombreusuarioreportado_ext REFERENCES valoracionValora(nombreUsuario),
-  idproducto CONSTRAINT idproducto_ext REFERENCES productoCulturalPadre(id),
+  nombreusuarioreportador varchar(20) NOT NULL CONSTRAINT nombreusuarioreportador_ext REFERENCES usuario(nombreusuario),
+  nombreusuarioreportado varchar(20) NOT NULL CONSTRAINT nombreusuarioreportado_ext REFERENCES valoracionValora(nombreUsuario),
+  idproducto int NOT NULL CONSTRAINT idproducto_ext REFERENCES productoCulturalPadre(id),
 
   CONSTRAINT clave_primaria PRIMARY KEY (nombreusuarioreportador,nombreusuarioreportado,idproducto)
 );

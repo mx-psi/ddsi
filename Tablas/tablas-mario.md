@@ -45,13 +45,15 @@ El esquema de la tabla es
  
  - géneroSupergénero(_identificador_, nombreGénero, supergénero).
 
-donde *supergénero* puede ser `null` y las dependencias funcionales
-son las generadas por `identificador → nombreGénero` y `identificador → supergénero`.
-Nótese que permitimos que pudieran existir dos géneros con el mismo nombre
-pero distinto identificador, que podrían tener supergéneros distintos.
-La tabla está en **2FN**, porque cada atributo no primo depende de forma
-completa de la única clave candidata; además, está en **FNBC** porque 
-de nuevo la clave candidata es el único determinante.
+donde *supergénero* puede ser `null` y tiene a identificador en esta
+misma tabla como clave externa; las dependencias funcionales son las
+generadas por `identificador → nombreGénero` y `identificador →
+supergénero`.  Nótese que permitimos que pudieran existir dos géneros
+con el mismo nombre pero distinto identificador, que podrían tener
+supergéneros distintos.  La tabla está en **2FN**, porque cada
+atributo no primo depende de forma completa de la única clave
+candidata; además, está en **FNBC** porque de nuevo la clave candidata
+es el único determinante.
 
 ```sql
 CREATE TABLE géneroSupergénero(

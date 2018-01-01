@@ -95,7 +95,7 @@ RD-2.5. Los datos de un género
 : Constará de los datos
 
   - nombre, una cadena de hasta 80 caracteres no vacía;
-  - identificador, una cadena de hasta 60 caracteres no vacía; y
+  - identificador, una cadena de hasta 80 caracteres no vacía; y
   - supergénero, una cadena, quizá vacía, de hasta 80 caracteres;
  
   y se le aplicará RS-2.2.
@@ -104,7 +104,7 @@ RD-2.6. Los datos de un género almacenado
 : Constará de los datos
   
   - nombre, una cadena de hasta 80 caracteres no vacía;
-  - identificador, una cadena de hasta 60 caracteres no vacía; y
+  - identificador, una cadena de hasta 80 caracteres no vacía; y
   - supergénero, una cadena, quizá vacía, de hasta 80 caracteres.
 
 RD-2.7. Los datos de consulta de una entidad creadora
@@ -137,5 +137,6 @@ RS-2.1. La entidad es creadora del producto
   y RD-1.2.
 
 RS-2.2. El género no es su propio subgénero
-: Un género no podrá ser su propio supergénero. Asociado a: RF-2.4, RD-2.5 y RD-2.6.
+: Un género no podrá llamarse como su propio supergénero. Asociado a:
+  RF-2.4, RD-2.5 y RD-2.6.
 

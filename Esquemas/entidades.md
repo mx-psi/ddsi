@@ -3,7 +3,7 @@
 ### Refinamientos del diagrama de flujo de datos
 
 Se han realizado un total de 4 refinamientos que se muestran a
-continuación. en el refinamiento menos detallado simplemente se
+continuación. En el refinamiento menos detallado simplemente se
 describe el uso del subsistema por parte del usuario
 
 ![Primer nivel de refinamiento del diagrama de flujo de datos del subsistema de entidades y géneros](Diagramas/EntidadesRef1.png)

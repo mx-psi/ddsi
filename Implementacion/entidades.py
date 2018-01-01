@@ -29,8 +29,12 @@ def add_premio(c):
   prm_entidad = leer2(c, "entidadCreadora", "nombre", "Entidad que recibe el premio: ")
   prm_producto = leer2(c, "productoCulturalPadre", "id", "ID del producto por el que recibe el premio: ")
   prm_nombre = prompt("Nombre del premio: ")
-  c.execute('INSERT INTO premiadaPor VALUES (?, ?, ?)',
-            (prm_entidad, prm_producto, prm_nombre))
+
+  try: 
+    c.execute('INSERT INTO premiadaPor VALUES (?, ?, ?)',
+              (prm_entidad, prm_producto, prm_nombre))
+  except sqlite3.IntegrityError as err:
+    print('SQL IntegrityError: ' + str(err))
 
 
 def view_entidad(c):
@@ -64,9 +68,12 @@ def add_genero(c):
   gen_nombre = prompt("Nombre del género: ")
   gen_id = prompt("Identificador de género: ")
   gen_supg = leer2(c, "generoSupergenero", "nombreGenero", "Supergénero: ")
-  
-  c.execute('INSERT INTO generoSupergenero VALUES (?, ?, ?)',
-    (gen_id, gen_nombre, gen_supg))  
+
+  try:
+    c.execute('INSERT INTO generoSupergenero VALUES (?, ?, ?)',
+              (gen_id, gen_nombre, gen_supg))
+  except sqlite3.IntegrityError as err:
+    print('SQL IntegrityError: ' + str(err))
  
   # TODO: Restricción semántica
 
@@ -142,9 +149,10 @@ def view_genero_id(c):
   
   
 comandos = {
-  'Ver-Creadores': list_all_entidad,
+  'Añadir-Creadores': add_entidad,
   'Añadir-Premios': add_premio,
   'Consultar-Creadores': view_entidad,
+  'Ver-Creadores': list_all_entidad,
   'Añadir-Género': add_genero,
   'Consultar-Género': view_genero,
   'Consultar-Id-Género': view_genero_id,

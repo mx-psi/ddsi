@@ -74,7 +74,8 @@ usuario = [
   ("alicia22","Alicia Quero","Andalucia","alicia@correo.es","Amante del cine y literatura","ali_123456"),
   ("alberto23","Alberto Castro","Andalucia","alberto@correo.es","Amante de la musica","alb_123456"),
   ("nacho23","Ignacio Sanchez","Andalucia","nacho@correo.es","Amante de la musica y el cine","n_123456"),
-  ("fede33","Federico Cerrato","Andalucia","fede@correo.es","Amante de la literatura y la musica","f_123456")
+  ("fede33","Federico Cerrato","Andalucia","fede@correo.es","Amante de la literatura y la musica","f_123456"),
+  ("msaracchi","Mauricio Saracchi","Rosario","msaracchi@correo.com.ar","Visionario y exigente, le cae mal a toda la gente","messipechofriomaradonaeselmejor")
 ]
 
 # leGusta
@@ -86,5 +87,36 @@ leGusta = [
   ("alberto23","Juvenil"),
   ("nacho23","Magia"),
   ("fede33","Ficción"),
-  ("fede33","Fantasía")
+  ("fede33","Fantasía"),
+  ("msaracchi","Ficción")
+]
+
+# Valoraciones
+#  valoracion-valora(_idProducto_, _nombreUsuario_, resena, puntuacion)
+valoracion-valora = [
+  (1, "alicia22", """[reseña con gran entusiasmo; tal vez demasiado]""", 5),
+  (3, "alba23", """[reseña bastante bien hecha]""", 3),
+  (3, "fede33", """vaya tocho infumable""", 1),
+  (2, "nacho23", """[reseña estándar]""", 4),
+  (4, "nacho23", """[reseña con spoilers]""", 4),
+  (3, "msaracchi", """[reseña muy larga y detallada que desafía los límites de almacenamiento del sistema, del ancho de banda del sitio web y de la paciencia humana]""", 4)
+]
+
+# Puntúa valoración
+#  puntua(_nombreUsuarioPuntuador_, _nombreUsuarioValorador_, _idProducto_, puntuacion)
+puntua = [
+  ("nacho23", "alba23", 3, 1),
+  ("alicia22", "nacho23", 2, 1),
+  ("alba23", "nacho23", 4, 0),
+  ("alberto23", "alba23", 3, 1)
+]
+
+# Reporta valoración
+#  reporta(_nombreusuarioreportador_, _nombreusuarioreportado_, _idproducto_)
+reporta = [
+  ("alba23", "fede33", 3),
+  ("nacho23", "fede33", 3),
+  ("alberto23", "fede33", 3),
+  ("cristi23", "fede33", 3),
+  ("alba23", "nacho23", 4)
 ]

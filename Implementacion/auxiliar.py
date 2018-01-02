@@ -40,14 +40,15 @@ class FieldValidator(Validator):
 class IterValidator(Validator):
   """Validación de iterable"""
 
-  def __init__(self, iterable):
+  def __init__(self, iterable, mensaje="No es valido"):
     super().__init__()
     self.iterable = iterable
+    self.mensaje  = mensaje
 
   def validate(self, document):
     for x in self.iterable:
       if str(x) == document.text: return None
-    raise ValidationError(message="No es válido")
+    raise ValidationError(message=self.mensaje)
 
 def leer(c, tabla, campo, texto, vacio = True):
     """Función auxiliar: lee de la entrada un elemento de la base de datos.
@@ -146,7 +147,7 @@ def lee_texto(mensaje):
 def lee_entero(mensaje):
   """Lee un número entero"""
   return int(input(mensaje))
-  
+
 
 def leer2(c, tabla, campo, texto):
     """Función auxiliar: lee de la entrada un elemento de la base de datos."""

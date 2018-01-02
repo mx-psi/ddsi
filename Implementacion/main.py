@@ -8,6 +8,7 @@ from prompt_toolkit.history import InMemoryHistory # Historia
 from tabulate import tabulate # Tabulado de datos
 
 from populate import * # Inicialización de la base de datos
+from auxiliar import IterValidator
 
 # Subsistemas
 import productos
@@ -57,7 +58,21 @@ def salir(c):
   """Termina la ejecución"""
   raise EOFError
 
-comandos = {"Ayuda": ayuda, "Salir": salir}
+def debug(c):
+  """Ejecuta comandos SQL"""
+  print("Ctrl+D para terminar")
+  try:
+    while True:
+      try:
+        c.execute(prompt("> "))
+        print(tabulate(c.fetchall()))
+      except sqlite3.Error as e:
+        print("Error", e.args[0])
+  except EOFError:
+    pass
+
+
+comandos = {"Ayuda": ayuda, "Salir": salir, "Debug": debug}
 comandos.update(productos.comandos)
 comandos.update(entidades.comandos)
 comandos.update(valoraciones.comandos)
@@ -70,9 +85,9 @@ if __name__ == '__main__':
     while True:
       # Bucle de lectura de comandos
       print('')
-      ic = prompt('Comando: ', completer=commands_completer, history=history)
-      if ic in comandos: comandos[ic](c)
-      else: print('Comando no válido. Introduce \"Ayuda\" para ver los posibles comandos')
+      ic = prompt('Comando: ', completer=commands_completer, history=history,
+                  validator = IterValidator(comandos.keys(), '\"Ayuda\" para ver los posibles comandos'))
+      comandos[ic](c)
   except (KeyboardInterrupt, EOFError):
     pass
   finally:

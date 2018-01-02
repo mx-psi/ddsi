@@ -26,13 +26,13 @@ RF-4.3. Consultar valoración
 - S: RD-4.6
 
 RF-4.4. Puntuar una valoración
-: Permite que el usuario indique si una valoración es útil. Con restricción RS-4.2
+: Permite que el usuario indique si una valoración es útil. Con restricciones RS-4.2 y RS-4.4
 
 - E: RD-4.7
 - M: RD-4.8
 
 RF-4.5. Reportar valoración inapropiada
-: Un usuario reporta una valoración que considere inapropiada. Con restricción RS-4.3
+: Un usuario reporta una valoración que considere inapropiada. Con restricciones RS-4.3 y RS-4.5
 
 - E: RD-4.9
 - M: RD-4.10
@@ -94,7 +94,7 @@ RD-4.7. Puntuación de valoración
 - Útil/no útil
 
 RD-4.8 Puntuación de valoración
-: Con restricción RS-4.2. Se describe por:
+: Con restricciones RS-4.2 y RS-4.4. Se describe por:
 
 - Valoración
 - Usuario que efectuó la valoración
@@ -107,7 +107,7 @@ RD-4.9. Valoración
 - Usuario denunciante
 
 RD-4.10. Denuncia de valoración
-: Con restricción RS-4.3. Se compone de:
+: Con restricciones RS-4.3 y RS-4.5. Se compone de:
 
 - Valoración
 - Usuario denunciante
@@ -124,3 +124,8 @@ RS-4.2
 RS-4.3
 : Un usuario no podrá reportar una valoración que ya ha sido reportada por el mismo usuario. Asociado a: RF-4.5 y RD-4.10
 
+RS-4.4
+: Un usuario no podrá puntuar sus propias valoraciones. Asociado a: RF-4.4 y RD-4.8
+
+RS-4.5
+: Un usuario no podrá reportar sus propias valoraciones. Asociado a: RF-4.5 y RD-4.10

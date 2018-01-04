@@ -133,15 +133,8 @@ def lee_lista(mensaje, lector):
 
 def lee_texto(mensaje):
   """Lee texto con posibles saltos de línea"""
-  print(mensaje + " (línea en blanco para terminar): ")
-  t = ""
-  while True:
-    l = input()
-    if l.strip() == "":
-      break
-    t += "\n" + l
-
-  return t[1:]
+  print(mensaje + " (Escape seguido de Intro para terminar):")
+  return prompt('> ', multiline=True)
 
 
 def lee_entero(mensaje):

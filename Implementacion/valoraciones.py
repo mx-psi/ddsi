@@ -14,7 +14,7 @@ def add_valoracion(c):
   print('Añadiendo una valoración de un producto cultural.')
   idProd = leer2(c, "productoCulturalPadre", "id", "ID del producto cultural valorado: ")
   user   = leer2(c, "usuario", "nombreusuario", "Nombre del usuario valorador: ")
-  texto  = lee_texto("Valoración")
+  texto  = lee_texto("Reseña")
   puntos = lee_entero("Puntuación: ")
 
   c.execute('INSERT INTO valoracionValora VALUES (?, ?, ?, ?)',

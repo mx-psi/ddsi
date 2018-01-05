@@ -2,6 +2,7 @@
 
 
 import sqlite3 # Interacción base de datos
+import re # Expresiones regulares
 from prompt_toolkit.contrib.completers import WordCompleter # Interfaz
 from prompt_toolkit.shortcuts import prompt # Interfaz
 from prompt_toolkit.history import InMemoryHistory # Historia
@@ -14,6 +15,7 @@ from auxiliar import IterValidator
 import productos
 import entidades
 import valoraciones
+import usuarios
 
 
 
@@ -24,7 +26,14 @@ def load(conn, filename):
     c.executescript(data)
     conn.commit()
 
+# Definición de la función para comprobar expresiones regulares
+def regexp(expr, item):
+    reg = re.compile(expr)
+    return reg.search(item) is not None
+
 conn = sqlite3.connect(':memory:')
+# Implementación del operador REGEXP en las sentencias SQL
+conn.create_function("REGEXP", 2, regexp)
 c = conn.cursor()
 
 # Activa comprobación de claves externas
@@ -76,6 +85,7 @@ comandos = {"Ayuda": ayuda, "Salir": salir, "Debug": debug}
 comandos.update(productos.comandos)
 comandos.update(entidades.comandos)
 comandos.update(valoraciones.comandos)
+comandos.update(usuarios.comandos)
 commands_completer = WordCompleter(comandos.keys(), ignore_case = True)
 
 if __name__ == '__main__':

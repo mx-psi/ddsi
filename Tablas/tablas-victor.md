@@ -72,3 +72,14 @@ nombreusuarioreportado CONSTRAINT nombreusuarioreportado_ext
 CONSTRAINT clave_primaria PRIMARY KEY (nombreusuarioreportador,nombreusuarioreportado,idproducto)
 );
 ```
+
+Al insertar tuplas en esta tabla se lanza este disparador, que implementa la restricción semántica RS-4.5.
+
+```sql
+CREATE TRIGGER reportar_propias_valoraciones
+BEFORE INSERT ON reporta
+WHEN NEW.nombreUsuarioReportador = NEW.nombreUsuarioReportado
+BEGIN
+SELECT RAISE(ABORT, 'Un usuario no puede reportar sus propias valoraciones');
+END;
+```

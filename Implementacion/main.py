@@ -32,6 +32,7 @@ def regexp(expr, item):
     return reg.search(item) is not None
 
 conn = sqlite3.connect(':memory:')
+conn.isolation_level = None
 # Implementación del operador REGEXP en las sentencias SQL
 conn.create_function("REGEXP", 2, regexp)
 c = conn.cursor()
@@ -86,7 +87,10 @@ comandos.update(productos.comandos)
 comandos.update(entidades.comandos)
 comandos.update(valoraciones.comandos)
 comandos.update(usuarios.comandos)
+
+
 commands_completer = WordCompleter(comandos.keys(), ignore_case = True)
+validator = IterValidator(comandos.keys(), '\"Ayuda\" para ver los posibles comandos')
 
 if __name__ == '__main__':
   history = InMemoryHistory()
@@ -95,9 +99,14 @@ if __name__ == '__main__':
     while True:
       # Bucle de lectura de comandos
       print('')
-      ic = prompt('Comando: ', completer=commands_completer, history=history,
-                  validator = IterValidator(comandos.keys(), '\"Ayuda\" para ver los posibles comandos'))
-      comandos[ic](c)
+      ic = prompt('Comando: ', completer=commands_completer, history=history, validator=validator)
+      try:
+        c.execute("begin")
+        comandos[ic](c)
+        c.execute("commit")
+      except sqlite3.IntegrityError as e:
+        print("Error de integridad: ", e.args[0])
+        c.execute("rollback")
   except (KeyboardInterrupt, EOFError):
     pass
   finally:

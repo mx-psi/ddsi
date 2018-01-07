@@ -46,11 +46,7 @@ def add(c):
     descripcion = lee_no_vacio("Descripción de la asociación: ")
     return (idProd,) + asociado + (descripcion,)
   asociados = lee_lista("Productos asociados", lee_asociado)
-  try:
-    c.executemany('INSERT INTO asociadoA VALUES (?, ?, ?)', asociados)
-  except sqlite3.IntegrityError as e:
-    print("Error:", e)
-    return None
+  c.executemany('INSERT INTO asociadoA VALUES (?, ?, ?)', asociados)
 
   print("Datos introducidos correctamente. La id de su producto es {idProd}".format(idProd = idProd))
 
@@ -75,11 +71,7 @@ def modify(c):
     descripcion = lee_no_vacio("Descripción de la asociación: ")
     return (idProd,) + asociado + (descripcion,)
   asociados = lee_lista("Nuevos productos asociados", lee_asociado)
-  try:
-    c.executemany('INSERT INTO asociadoA VALUES (?, ?, ?)', asociados)
-  except sqlite3.IntegrityError as e:
-    print("Error ", e)
-    return None
+  c.executemany('INSERT INTO asociadoA VALUES (?, ?, ?)', asociados)
 
   generos = lee_lista("Nuevos géneros",
                       lambda: (idProd,) + leer(c, "generoSupergenero", "nombreGenero", "Género: "))

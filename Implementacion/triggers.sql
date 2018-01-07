@@ -34,7 +34,7 @@ END;
 -- RS-3.2. El correo electrónico debe estar en un formato válido. Este requisito afecta a RF-3.1, RF-3.3, RD-3.1, RD-3.2 y RD-3.4.
 CREATE TRIGGER inserta_usuario
 BEFORE INSERT ON usuario
-WHEN NEW.correoelectronico NOT REGEXP '[(a-z0-9\_\-\.)]+@[(a-z0-9\_\-\.)]+\.[(a-z)]{2,15}$'
+WHEN NEW.correoelectronico NOT REGEXP '[(a-z)]+[(a-z0-9\_\-\.)]*@([(a-z)]+\.)*[(a-z)]+\.[(a-z)]{2,15}$'
 BEGIN
 SELECT RAISE(ABORT, 'El formáto de correo electrónico no es válido.');
 END;

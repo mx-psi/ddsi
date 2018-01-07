@@ -72,7 +72,7 @@ RD-1.1. Datos de un producto cultural
 : Proporcionados al introducir un producto cultural al sistema (con restricción RS-1.1, RS-1.2 y RS-1.3):
 
 - nombre (una cadena no vacía) con restricción RS-1.1,
-- identificador (una cadena no vacía) con restricción RS-1.2,
+- identificador (un entero) con restricción RS-1.2,
 - una lista posiblemente vacía de pares compuestos por el nombre de un producto cultural ya existente y la descripción de su asociación con el producto cultural a añadir (una cadena no vacía),
 - una lista no vacía de los identificadores de los géneros a las que pertenece,
 - una fecha de publicación posiblemente futura,

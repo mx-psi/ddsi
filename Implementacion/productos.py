@@ -69,13 +69,13 @@ def modify(c):
   def lee_asociado():
     asociado    = leer(c, "productoCulturalPadre", "nombre", "Producto asociado: ")
     descripcion = lee_no_vacio("Descripción de la asociación: ")
-    return (idProd,) + asociado + (descripcion,)
+    return idProd + asociado + (descripcion,)
   asociados = lee_lista("Nuevos productos asociados", lee_asociado)
   c.executemany('INSERT INTO asociadoA VALUES (?, ?, ?)', asociados)
 
   generos = lee_lista("Nuevos géneros",
-                      lambda: (idProd,) + leer(c, "generoSupergenero", "nombreGenero", "Género: "))
-  c.execute('DELETE  FROM perteneceA WHERE idProducto={idProd}'.format(idProd = idProd[0]))
+                      lambda: idProd + leer(c, "generoSupergenero", "nombreGenero", "Género: "))
+  c.execute('DELETE  FROM perteneceA WHERE idProducto = ?', idProd)
   c.executemany('INSERT INTO perteneceA VALUES (?,?)', generos)
   print("Datos modificados correctamente")
 
@@ -114,6 +114,6 @@ def view(c):
 comandos = {
   'Listar-Productos':  list_all,
   'Ver-Producto':      view,
-  'Modifica-Producto': modify,
+  'Modificar-Producto': modify,
   'Añadir-Productos':  add
 }

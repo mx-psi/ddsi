@@ -138,8 +138,8 @@ def view_genero_id(c):
   # Subgéneros
   c.execute(
     """SELECT subgenero.nombreGenero, subgenero.identificador
-    FROM generoSupergenero genero, generoSupergenero subgenero
-    WHERE (subgenero.superGenero = genero.identificador AND genero.identificador = ?)""",
+    FROM generoSupergenero subgenero
+    WHERE (subgenero.superGenero = ?)""",
     (str(gen_id),))
   print('\nSubgéneros')
   print(tabulate(c.fetchall(), headers=['Subgénero', 'ID-Sub']))
@@ -154,8 +154,6 @@ def view_genero_id(c):
     )""", (str(gen_id),))
   print('\nProductos del género')
   print(tabulate(c.fetchall(), headers=['Id','Nombre','Fecha','Tipo','IdPadre']))
-
-  # TODO: Restricciones semánticas
 
 
 comandos = {

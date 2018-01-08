@@ -19,7 +19,7 @@ Una **entidad creadora** es una persona, colectivo u organización que ha partic
 
 Los **géneros** constan de un nombre y un identificador y tienen una serie de subgéneros asociados. Pueden consultarse todos los productos culturales asociados a un género o a una combinación de los mismos. El subsistema encargado de géneros y entidades creadoras debe permitir:
 
-- añadir la información asociada a géneros o entidades creadoras nuevas o existentes,
+- añadir la información asociada a géneros o entidades creadoras,
 - consultar los productos culturales asociados a un género o entidad creadora,
 - mostrar datos agregados sobre las valoraciones de los productos culturales asociados a un género o entidad,
 - consultar los premios de una entidad creadora concreta y

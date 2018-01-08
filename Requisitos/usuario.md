@@ -48,7 +48,7 @@ RF-3.6. Consulta de perfil de usuario
  - A/M: RD-3.2
  - S: RD-3.13
 
-RF-3.7. Consula de un perfil de usuario del sistema
+RF-3.7. Consulta de un perfil de usuario del sistema
 : el usuario es capaz de consultar otros perfiles introduciendo el nombre de usuario de éstos.
 
  - E: RD-3.14

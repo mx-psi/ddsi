@@ -40,7 +40,8 @@ def view_resumen_valoraciones(c):
   print("Puntuación media: " + str(c.fetchall()[0][0]).replace(".", ","))
 
   print("\nAlgunas valoraciones:\n")
-  c.execute("SELECT nombreUsuario, v.puntuacion, CASE WHEN LENGTH(resena) > 40 THEN substr(resena, 0, 40) || '...' ELSE resena END,COALESCE(sum(p.puntuacion), 0), -COALESCE(sum(1 - p.puntuacion), 0) FROM valoracionValora v LEFT JOIN puntua p on (p.nombreUsuarioValorador = v.nombreUsuario AND p.idProducto = v.idProducto) WHERE v.idProducto = ? GROUP BY nombreUsuario,v.idProducto ORDER BY COALESCE(sum(2*p.puntuacion-1), 0) DESC LIMIT 3;", (idProd,))
+  limite = 3
+  c.execute("SELECT nombreUsuario, v.puntuacion, CASE WHEN LENGTH(resena) > 40 THEN substr(resena, 0, 40) || '...' ELSE resena END,COALESCE(sum(p.puntuacion), 0), -COALESCE(sum(1 - p.puntuacion), 0) FROM valoracionValora v LEFT JOIN puntua p on (p.nombreUsuarioValorador = v.nombreUsuario AND p.idProducto = v.idProducto) WHERE v.idProducto = ? GROUP BY nombreUsuario,v.idProducto ORDER BY COALESCE(sum(2*p.puntuacion-1), 0) DESC LIMIT ?;", (idProd, limite))
   print(tabulate(c.fetchall(), headers=['Valorador', 'Puntos', 'Reseña', '+', '-']))
 
 def print_histograma(h):

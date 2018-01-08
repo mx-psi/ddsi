@@ -95,9 +95,11 @@ leGusta = [
 #  valoracion-valora(_idProducto_, _nombreUsuario_, resena, puntuacion)
 valoracionValora = [
   (1, "alicia22", """[reseña con gran entusiasmo; tal vez demasiado]""", 5),
+  (3, "alberto23", """[reseña corta]""", 4),
   (3, "alba23", """[reseña bastante bien hecha]""", 3),
   (3, "fede33", """vaya tocho infumable""", 1),
   (2, "nacho23", """[reseña estándar]""", 4),
+  (2, "alberto23", """el libro está mucho mejor""", 3),
   (4, "nacho23", """[reseña con spoilers]""", 4),
   (3, "msaracchi", """[reseña muy larga y detallada que desafía los límites de almacenamiento del sistema, del ancho de banda del sitio web y de la paciencia humana]""", 4)
 ]
@@ -108,7 +110,14 @@ puntua = [
   ("nacho23", "alba23", 3, 1),
   ("alicia22", "nacho23", 2, 1),
   ("alba23", "nacho23", 4, 0),
-  ("alberto23", "alba23", 3, 1)
+  ("alberto23", "alba23", 3, 1),
+  ("nacho23", "alberto23", 3, 1),
+  ("alba23", "alberto23", 3, 0),
+  ("nacho23", "fede33", 3, 0),
+  ("alba23", "alberto23", 2, 1),
+  ("nacho23", "alberto23", 2, 1),
+  ("alicia22", "alberto23", 2, 0),
+  ("cristi23", "alberto23", 2, 0)
 ]
 
 # Reporta valoración

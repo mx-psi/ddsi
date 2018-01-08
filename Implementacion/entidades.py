@@ -81,20 +81,21 @@ def view_genero(c):
 
   # Datos
   c.execute("""
-    SELECT genero.identificador, genero.nombreGenero, superg.identificador, superg.nombreGenero FROM generoSupergenero genero, generoSupergenero superg
-    WHERE (genero.nombreGenero = ? AND superg.identificador = genero.superGenero)
+    SELECT genero.identificador, genero.nombreGenero, genero.superGenero
+    FROM generoSupergenero genero
+    WHERE (genero.nombreGenero = ?)
   """, (gen_nombre,))
   print('\nDatos del género')
-  print(tabulate(c.fetchall(), headers=['ID', 'Nombre', 'ID-Sup', 'Supergénero']))
+  print(tabulate(c.fetchall(), headers=['ID', 'Nombre', 'ID-Sup']))
 
   # Subgéneros
   c.execute(
-    """SELECT genero.nombreGenero, subgenero.nombreGenero
+    """SELECT genero.identificador, genero.nombreGenero, subgenero.identificador, subgenero.nombreGenero
     FROM generoSupergenero genero, generoSupergenero subgenero
     WHERE (subgenero.superGenero = genero.Identificador AND genero.nombreGenero = ?)""",
     (gen_nombre,))
   print('\nSubgéneros')
-  print(tabulate(c.fetchall(), headers=['Género','Subgénero']))
+  print(tabulate(c.fetchall(), headers=['ID','Género','ID-Sub','Subgénero']))
 
   # Productos del género
   c.execute(

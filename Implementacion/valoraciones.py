@@ -32,7 +32,7 @@ def view_resumen_valoraciones(c):
   c.execute("SELECT puntuacion, COUNT(*) FROM valoracionValora WHERE idProducto = ? GROUP BY puntuacion ORDER BY puntuacion", (idProd, ))
   histograma = c.fetchall()
   if len(histograma) == 0:
-    print("\nTodavía no hay valoraciones del producto " + idProd)
+    print("\nTodavía no hay valoraciones del producto " + str(idProd))
     return
   print_histograma(histograma)
   
@@ -68,7 +68,7 @@ def view_valoracion(c):
   c.execute("SELECT nombre, nombreUsuario, puntuacion, resena FROM valoracionValora JOIN productoCulturalPadre ON (id=? AND idProducto=id AND nombreUsuario=?)", (idProd, user))
   res = c.fetchall()
   if len(res) == 0:
-    print("\n" + user + " no ha valorado el producto " + idProd)
+    print("\n" + user + " no ha valorado el producto " + str(idProd))
     return
 
   print("\nValoración de {producto} por {usuario}: {pts} puntos\nReseña:\n".format(producto = res[0][0], usuario = res[0][1], pts = res[0][2]))

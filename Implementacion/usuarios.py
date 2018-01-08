@@ -7,7 +7,7 @@ from auxiliar import lee_no_vacio
 
 #####################################
 # RF-3.1.                           #
-# Alta de usuario		                #
+# Alta de usuario                   #
 #####################################
 
 def add_usuario(c):

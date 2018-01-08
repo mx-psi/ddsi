@@ -51,7 +51,8 @@ def view_entidad(c):
     """SELECT rol, idProducto, nombre, tipo, fechaPublicacion
     FROM creadoPor, productoCulturalPadre
     WHERE (idProducto=id AND nombreCreador=?)""", (ent,))
-  print('\n' + tabulate(c.fetchall(), headers=['Rol','ID','Nombre', 'Tipo', 'Fecha']))
+  print('\nProductos culturales creados\n'
+        + tabulate(c.fetchall(), headers=['Rol','ID','Nombre', 'Tipo', 'Fecha']))
 
   # Premios
   c.execute(
@@ -101,12 +102,12 @@ def view_genero(c):
 
   # Subgéneros
   c.execute(
-    """SELECT genero.identificador, genero.nombreGenero, subgenero.identificador, subgenero.nombreGenero
+    """SELECT subgenero.nombreGenero, subgenero.identificador, genero.identificador
     FROM generoSupergenero genero, generoSupergenero subgenero
     WHERE (subgenero.superGenero = genero.Identificador AND genero.nombreGenero = ?)""",
     (gen_nombre,))
   print('\nSubgéneros')
-  print(tabulate(c.fetchall(), headers=['ID','Género','ID-Sub','Subgénero']))
+  print(tabulate(c.fetchall(), headers=['Subgénero','ID-Sub','ID']))
 
   # Productos del género
   c.execute(
@@ -136,12 +137,12 @@ def view_genero_id(c):
 
   # Subgéneros
   c.execute(
-    """SELECT genero.nombreGenero, subgenero.nombreGenero
+    """SELECT subgenero.nombreGenero, subgenero.identificador
     FROM generoSupergenero genero, generoSupergenero subgenero
     WHERE (subgenero.superGenero = genero.identificador AND genero.identificador = ?)""",
     (str(gen_id),))
   print('\nSubgéneros')
-  print(tabulate(c.fetchall(), headers=['Género','Subgénero']))
+  print(tabulate(c.fetchall(), headers=['Subgénero', 'ID-Sub']))
 
   # Productos del género
   c.execute(

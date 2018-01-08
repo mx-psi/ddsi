@@ -142,6 +142,21 @@ def lee_entero(mensaje):
   return int(input(mensaje))
 
 
+usuario_sesion = None
+def set_usuario(nombre):
+  global usuario_sesion
+  usuario_sesion = nombre
+
+
+def lee_usuario(c, mensaje):
+  """Lee el usuario que realiza una acción salvo si este está prefijado"""
+  global usuario_sesion
+  if usuario_sesion is None:
+    return leer(c, "usuario", "nombreusuario", mensaje)[0]
+
+  return usuario_sesion
+
+
 def leer2(c, tabla, campo, texto):
     """Función auxiliar: lee de la entrada un elemento de la base de datos."""
     c.execute("SELECT " + campo + " FROM " + tabla)

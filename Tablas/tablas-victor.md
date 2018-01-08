@@ -2,10 +2,12 @@
 
 - usuario(_nombreusuario_,nombrereal,localidadorigen,correoelectrónico,descripciónusuario,contraseña)
 
-La única clave candidata es _nombreusuario_, luego cualquier atributo no primo depende de forma completa de ésta y por lo tanto está
+Las dependencias funcionales son las generadas por *nombreusuario → R*.
+
+La única clave candidata es *nombreusuario*, luego los atributos no primos dependen de forma completa de ésta y por lo tanto está
 en **segunda forma normal**.
 
-El determinante de la relación es la única clave candidata luego **está en FNBC**.
+El único determinante de la relación es la única clave candidata luego **está en FNBC**.
 
 Sentencia de creación de la tabla en SQL:
 ```sql
@@ -21,13 +23,24 @@ CONSTRAINT clave_primaria PRIMARY KEY (nombreusuario)
 );
 ```
 
+Al insertar tuplas en esta tabla se lanza este disparador, que implementa la restricción semántica RS-3.2.
+
+```sql
+CREATE TRIGGER inserta_usuario
+BEFORE INSERT ON usuario
+WHEN NEW.correoelectronico NOT REGEXP '[(a-z)]+[(a-z0-9\_\-\.)]*@([(a-z)]+\.)*[(a-z)]+\.[(a-z)]{2,15}$'
+BEGIN
+SELECT RAISE(ABORT, 'El formáto de correo electrónico no es válido.');
+END;
+```
+
 ### leGusta
 
 - leGusta(_nombreusuario_,_identificador_)
 
 donde *nombreusuario* es clave externa de la tabla *usuario* e *identificador* de la tabla *géneroSupergénero*.
 
-Solo hay una clave candidata y primaria que es nombreusuario junto identificador por lo tanto está en **FNBC**.
+Solo hay una clave candidata y primaria que es *nombreusuario* junto *identificador* por lo tanto está en **FNBC**.
 
 Sentencia de creación de la tabla en SQL:
 ```sql

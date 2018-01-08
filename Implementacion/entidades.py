@@ -41,14 +41,26 @@ def view_entidad(c):
   # productos culturales creados y premios asociados a esas
   # creaciones, si los hubiere.
   ent = leer2(c, "entidadCreadora", "nombre", "Nombre: ")
+
+  # Datos de la entidad creadora
   c.execute('SELECT * FROM entidadCreadora WHERE nombre=?', (ent,))
-  print(tabulate(c.fetchall(), headers=['Nombre','Tipo']))
+  print('\n' + tabulate(c.fetchall(), headers=['Nombre','Tipo']))
+
+  # Creaciones culturales
   c.execute(
     """SELECT rol, idProducto, nombre, tipo, fechaPublicacion
     FROM creadoPor, productoCulturalPadre
     WHERE (idProducto=id AND nombreCreador=?)""", (ent,))
-  print(tabulate(c.fetchall(), headers=['Rol','ID','Nombre', 'Tipo', 'Fecha']))
+  print('\n' + tabulate(c.fetchall(), headers=['Rol','ID','Nombre', 'Tipo', 'Fecha']))
 
+  # Premios
+  c.execute(
+    """SELECT prem.nombrepremio, prod.nombre
+    FROM premiadaPor prem, productoCulturalPadre prod
+    WHERE (prem.nombre = ? AND prod.id = prem.id)
+    """, (ent,))
+  print('\n' + tabulate(c.fetchall(), headers=['Premio','Por']))
+  
 
 def list_all_entidad(c):
   """Lista entidades"""

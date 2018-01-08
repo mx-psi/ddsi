@@ -93,7 +93,7 @@ RD-3.4. Modificar datos de perfil de usuario
  - Correo electrónico (una cadena de hasta 40 caracteres no vacía).
  - Lista de géneros de interés.
  - Descripción del usuario (una cadena de hasta 300 caracteres).
- - Contraseña (una cadena de al menos 6 caracteres y de hasta 20 como máximo).
+ - Contraseña (una cadena de hasta 20 caracteres no vacía).
  
  Solo se modificarán los datos rellenados con las restricciones.
 

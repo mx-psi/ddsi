@@ -13,7 +13,8 @@ Solo hay un determinante, que es la clave primaria. Por ello, no hay dependencia
 ```sql
 CREATE TABLE valoracion-valora(
   idProducto int NOT NULL FOREIGN KEY REFERENCES productoCultural-Padre(id),
-  nombreUsuario varchar(100) NOT NULL FOREIGN KEY REFERENCES usuario(nombreusuario),
+  nombreUsuario varchar(100) NOT NULL FOREIGN KEY
+  REFERENCES usuario(nombreusuario),
   resena varchar(16384) NOT NULL,
   puntuacion int NOT NULL,
 
@@ -29,18 +30,23 @@ CREATE TABLE valoracion-valora(
 
 donde *idProducto* es clave externa en `productoCultural-Padre`, y *nombreUsuarioPuntuador* y *nombreUsuarioValorador* son ambos clave externa en `usuario`.
 
-Las dependencias funcionales son las del cierre de $\{\operatorname{nombreUsuarioPuntuador}, \operatorname{nombreUsuarioValorador}, \operatorname{idProducto}\} \to R$.
+Las dependencias funcionales son las del cierre de 
+
+$\{\operatorname{nombreUsuarioPuntuador}, \operatorname{nombreUsuarioValorador}, \operatorname{idProducto}\} \to R$.
 
 Solo hay una clave candidata y solo hay un determinante, que es la clave primaria: **está en 2FN** (el único atributo no primo depende de forma completa de la única clave candidata), **está en 3FN** (no hay dependencias transitivas) y **está en FNBC** (el único determinante es clave candidata).
 
 ```sql
 CREATE TABLE puntua(
-  nombreUsuarioPuntuador varchar(100) NOT NULL FOREIGN KEY REFERENCES usuario(nombreusuario),
-  nombreUsuarioValorador varchar(100) NOT NULL FOREIGN KEY REFERENCES usuario(nombreusuario),
-  idProducto int NOT NULL FOREIGN KEY REFERENCES productoCultural-Padre(id),
+  nombreUsuarioPuntuador varchar(100) NOT NULL 
+  FOREIGN KEY REFERENCES usuario(nombreusuario),
+  nombreUsuarioValorador varchar(100) NOT NULL
+  FOREIGN KEY REFERENCES usuario(nombreusuario),
+  idProducto int NOT NULL FOREIGN KEY REFERENCES productoCulturalPadre(id),
   puntuacion int NOT NULL,
 
-  CONSTRAINT clave_primaria_puntua PRIMARY KEY (nombreUsuarioPuntuador, nombreUsuarioValorador, idProducto),
+  CONSTRAINT clave_primaria_puntua PRIMARY KEY 
+  (nombreUsuarioPuntuador, nombreUsuarioValorador, idProducto),
   CONSTRAINT rango_puntuacion CHECK (puntuacion >= 0 AND puntuacion <= 1)
 );
 ```
@@ -70,7 +76,8 @@ No hay atributos no primos y solo hay un determinante, por lo que **está en FNB
 ```sql
 CREATE TABLE pertenece_a(
   idProducto int NOT NULL FOREIGN KEY REFERENCES productoCultural-Padre(id),
-  Identificador varchar(100) NOT NULL FOREIGN KEY REFERENCES generoSupergenero(identificador),
+  Identificador varchar(100) NOT NULL FOREIGN KEY
+  REFERENCES generoSupergenero(identificador),
 
   CONSTRAINT clave_primaria_puntua PRIMARY KEY (idProducto, Identificador)
 );

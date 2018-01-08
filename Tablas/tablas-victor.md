@@ -1,6 +1,7 @@
 ### Usuario
 
-- usuario(_nombreusuario_,nombrereal,localidadorigen,correoelectrónico,descripciónusuario,contraseña)
+- usuario(_nombreusuario_, nombrereal, localidadorigen,
+         correoelectrónico, descripciónusuario, contraseña)
 
 Las dependencias funcionales son las generadas por *nombreusuario → R*.
 
@@ -28,7 +29,8 @@ Al insertar tuplas en esta tabla se lanza este disparador, que implementa la res
 ```sql
 CREATE TRIGGER inserta_usuario
 BEFORE INSERT ON usuario
-WHEN NEW.correoelectronico NOT REGEXP '[(a-z)]+[(a-z0-9\_\-\.)]*@([(a-z)]+\.)*[(a-z)]+\.[(a-z)]{2,15}$'
+WHEN NEW.correoelectronico NOT REGEXP
+'[(a-z)]+[(a-z0-9\_\-\.)]*@([(a-z)]+\.)*[(a-z)]+\.[(a-z)]{2,15}$'
 BEGIN
 SELECT RAISE(ABORT, 'El formáto de correo electrónico no es válido.');
 END;
@@ -82,7 +84,8 @@ idproducto CONSTRAINT idproducto_ext
 nombreusuarioreportado CONSTRAINT nombreusuarioreportado_ext 
         REFERENCES valoracion-valora(nombreUsuario),
 		
-CONSTRAINT clave_primaria PRIMARY KEY (nombreusuarioreportador,nombreusuarioreportado,idproducto)
+CONSTRAINT clave_primaria PRIMARY KEY 
+(nombreusuarioreportador,nombreusuarioreportado,idproducto)
 );
 ```
 

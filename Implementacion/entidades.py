@@ -80,8 +80,7 @@ def add_genero(c):
 
   c.execute('INSERT INTO generoSupergenero VALUES (?, ?, ?)',
             (gen_id, gen_nombre, gen_supg))
-
-  # TODO: Restricción semántica
+  
 
 def view_genero(c):
   """Consulta datos y productos de un género"""

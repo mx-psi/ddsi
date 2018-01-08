@@ -8,15 +8,17 @@ from prompt_toolkit.shortcuts import prompt # Interfaz
 from prompt_toolkit.history import InMemoryHistory # Historia
 from tabulate import tabulate # Tabulado de datos
 
+import sys
+import getpass
+
 from populate import * # Inicialización de la base de datos
-from auxiliar import IterValidator
+from auxiliar import IterValidator, set_usuario
 
 # Subsistemas
 import productos
 import entidades
 import valoraciones
 import usuarios
-
 
 
 def load(conn, filename):
@@ -92,7 +94,29 @@ comandos.update(usuarios.comandos)
 commands_completer = WordCompleter(comandos.keys(), ignore_case = True)
 validator = IterValidator(comandos.keys(), '\"Ayuda\" para ver los posibles comandos')
 
+
 if __name__ == '__main__':
+  if len(sys.argv) == 2:
+    if sys.argv[1] == "-n":
+      try:
+        c.execute("begin")
+        usuarios.add_usuario(c)
+        c.execute("commit")
+        print("\nUsuario registrado con éxito. Ahora puedes acceder")
+      except sqlite3.IntegrityError as e:
+        print("\nUsuario ya existente")
+        c.execute("rollback")
+        exit()
+
+    if sys.argv[1] == "-u" or sys.argv[1] == "-n":
+      usuario = prompt('Usuario: ')
+      password = getpass.getpass('Contraseña: ')
+      c.execute("SELECT * FROM usuario WHERE nombreusuario = ? AND password = ?", (usuario, password))
+      if len(c.fetchall()) != 1:
+        print("\nUsuario inexistente o contraseña incorrecta")
+        exit()
+      set_usuario(usuario)
+
   history = InMemoryHistory()
   print("Introduce \"Ayuda\" para ver los posibles comandos")
   try:

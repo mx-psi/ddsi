@@ -2,7 +2,7 @@
 
 from prompt_toolkit.shortcuts import prompt
 from tabulate import tabulate
-from auxiliar import lee_texto, lee_entero, leer
+from auxiliar import lee_texto, lee_entero, lee_usuario, leer
 
 ###################################################
 # RF-4.1.                                         #
@@ -13,7 +13,7 @@ def add_valoracion(c):
   """Añade una valoración de un producto cultural"""
   print('Añadiendo una valoración de un producto cultural.')
   idProd = leer(c, "productoCulturalPadre", "id", "ID del producto cultural valorado: ")[0]
-  user   = leer(c, "usuario", "nombreusuario", "Nombre del usuario valorador: ")[0]
+  user   = lee_usuario(c, "Nombre del usuario valorador: ")
   texto  = lee_texto("Reseña")
   puntos = lee_entero("Puntuación: ")
 
@@ -40,7 +40,8 @@ def view_resumen_valoraciones(c):
   print("Puntuación media: " + str(c.fetchall()[0][0]).replace(".", ","))
 
   print("\nAlgunas valoraciones:\n")
-  c.execute("SELECT nombreUsuario, v.puntuacion, CASE WHEN LENGTH(resena) > 40 THEN substr(resena, 0, 40) || '...' ELSE resena END,COALESCE(sum(p.puntuacion), 0), -COALESCE(sum(1 - p.puntuacion), 0) FROM valoracionValora v LEFT JOIN puntua p on (p.nombreUsuarioValorador = v.nombreUsuario AND p.idProducto = v.idProducto) WHERE v.idProducto = ? GROUP BY nombreUsuario,v.idProducto ORDER BY COALESCE(sum(2*p.puntuacion-1), 0) DESC LIMIT 3;", (idProd,))
+  limite = 3
+  c.execute("SELECT nombreUsuario, v.puntuacion, CASE WHEN LENGTH(resena) > 40 THEN substr(resena, 0, 40) || '...' ELSE resena END,COALESCE(sum(p.puntuacion), 0), -COALESCE(sum(1 - p.puntuacion), 0) FROM valoracionValora v LEFT JOIN puntua p on (p.nombreUsuarioValorador = v.nombreUsuario AND p.idProducto = v.idProducto) WHERE v.idProducto = ? GROUP BY nombreUsuario,v.idProducto ORDER BY COALESCE(sum(2*p.puntuacion-1), 0) DESC LIMIT ?;", (idProd, limite))
   print(tabulate(c.fetchall(), headers=['Valorador', 'Puntos', 'Reseña', '+', '-']))
 
 def print_histograma(h):
@@ -85,7 +86,7 @@ def view_valoracion(c):
 def add_puntuacion(c):
   """Añade una puntuación a una valoración"""
   print('Puntuando una valoración.')
-  userP  = leer(c, "usuario", "nombreusuario", "Nombre del usuario puntuador: ")[0]
+  userP  = lee_usuario(c, "Nombre del usuario puntuador: ")
   userV  = leer(c, "usuario", "nombreusuario", "Nombre del usuario valorador: ")[0]
   idProd = leer(c, "productoCulturalPadre", "id", "ID del producto cultural valorado: ")[0]
   puntos = lee_entero("Puntuación: ")
@@ -102,7 +103,7 @@ def add_puntuacion(c):
 def add_reporte(c):
   """Reporta una valoración"""
   print('Reportando una valoración.')
-  userR  = leer(c, "usuario", "nombreusuario", "Nombre del usuario reportador: ")[0]
+  userR  = lee_usuario(c, "Nombre del usuario reportador: ")
   userV  = leer(c, "usuario", "nombreusuario", "Nombre del usuario valorador: ")[0]
   idProd = leer(c, "productoCulturalPadre", "id", "ID del producto cultural valorado: ")[0]
 

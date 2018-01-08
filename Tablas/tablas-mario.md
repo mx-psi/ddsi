@@ -27,9 +27,12 @@ la restricción semántica RS-2.1.
 ```sql
 CREATE TRIGGER creadora_producto_premiado
 BEFORE INSERT ON premiadaPor
-WHEN NEW.id NOT IN (SELECT idProducto FROM creadoPor WHERE nombreCreador = NEW.nombre)
+WHEN NEW.id NOT IN (
+	SELECT idProducto FROM creadoPor
+	WHERE nombreCreador = NEW.nombre)
 BEGIN
-SELECT RAISE(ABORT, 'La entidad premiada debe figurar entre las creadoras del producto');
+SELECT RAISE(ABORT, 
+	'La entidad premiada debe figurar entre las creadoras del producto');
 END;
 ```
 

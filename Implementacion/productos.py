@@ -1,16 +1,16 @@
 #!/usr/bin/python3
+# Autor: Pablo Baeyens
 
 from prompt_toolkit.shortcuts import prompt
 from tabulate import tabulate
+import sqlite3
 from auxiliar import lee_fecha, lee_lista, lee_no_vacio, leer
 
-n = 5
-def get_valid_id():
+def get_valid_id(c):
   """Devuelve una id válida para un producto cultural"""
-  global n
-  m = n
-  n = n + 1
-  return m
+  c.execute("SELECT max(id) from productoCulturalPadre")
+  return c.fetchall()[0][0] + 1
+
 
 #####################################
 # RF-1.1.                           #
@@ -20,7 +20,7 @@ def get_valid_id():
 def add(c):
   """Añade un producto"""
   print('Añadiendo un producto cultural.')
-  idProd = get_valid_id()
+  idProd = get_valid_id(c)
   nombre = lee_no_vacio('Nombre: ')
   fecha  = lee_fecha('Fecha de creación: ')
   tipo   = lee_no_vacio('Tipo: ')
@@ -35,6 +35,7 @@ def add(c):
     return (idProd, rol) + nombre
   creadores = lee_lista("Creadores del producto", lee_creador)
   c.executemany('INSERT INTO creadoPor VALUES (?, ?, ?)', creadores)
+
 
   generos = lee_lista("Géneros asociados",
                       lambda: (idProd,) + leer(c, "generoSupergenero", "nombreGenero", "Género: "))
@@ -92,11 +93,11 @@ def view(c):
   print("\nDatos básicos:\n")
   print(tabulate(c.fetchall(), headers=['Id','Título','Fecha','Tipo','Padre']))
 
-  c.execute("SELECT id, nombre, tipo FROM asociadoA, productoCulturalPadre WHERE (id1={idProd} AND id2=id) OR (id2={idProd} AND id1=id)".format(idProd = idProd[0]))
+  c.execute("SELECT id, nombre, tipo, descripcion FROM asociadoA, productoCulturalPadre WHERE (id2={idProd} AND id1=id) OR (id1={idProd} AND id2=id)".format(idProd = idProd[0]))
   asociados = c.fetchall()
   if len(asociados) > 0:
     print("\nProductos asociados: \n")
-    print(tabulate(c.fetchall(), headers=['Id','Nombre','Tipo']))
+    print(tabulate(asociados, headers=['Id','Nombre','Tipo', 'Asociación']))
 
   c.execute("SELECT nombreGenero FROM perteneceA, generoSupergenero WHERE idProducto={idProd} AND perteneceA.identificador=generoSupergenero.identificador".format(idProd = idProd[0]))
   generos = c.fetchall()

@@ -81,14 +81,14 @@ usuario = [
 # leGusta
 # leGusta(nombreusuario,identificador)
 leGusta = [
-  ("alba23","Ficción"),
-  ("cristi23","Fantasía"),
-  ("alicia22","Magia"),
-  ("alberto23","Juvenil"),
-  ("nacho23","Magia"),
-  ("fede33","Ficción"),
-  ("fede33","Fantasía"),
-  ("msaracchi","Ficción")
+  ("alba23","L-FIC0"),
+  ("cristi23","L-FIC1"),
+  ("alicia22","L-FIC3"),
+  ("alberto23","L-JUV0"),
+  ("nacho23","L-FIC3"),
+  ("fede33","L-FIC0"),
+  ("fede33","L-FIC1"),
+  ("msaracchi","L-FIC0")
 ]
 
 # Valoraciones

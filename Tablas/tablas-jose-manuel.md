@@ -45,6 +45,17 @@ CREATE TABLE puntua(
 );
 ```
 
+La inserción en esta tabla provoca la ejecución del siguiente disparador, que implementa la restricción semántica RS-4.4.
+
+```sql
+CREATE TRIGGER puntuar_propias_valoraciones
+BEFORE INSERT ON puntua
+WHEN NEW.nombreUsuarioPuntuador = NEW.nombreUsuarioValorador
+BEGIN
+SELECT RAISE(ABORT, 'Un usuario no puede puntuar sus propias valoraciones');
+END;
+```
+
 
 ### **pertenece_a**
 

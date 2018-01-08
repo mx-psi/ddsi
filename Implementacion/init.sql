@@ -41,7 +41,7 @@ CREATE TABLE perteneceA(
 CREATE TABLE generoSupergenero(
   identificador varchar(100),
   nombreGenero varchar(100),
-  superGenero varchar(100) CONSTRAINT super_ext REFERENCES identificador,
+  superGenero varchar(100) CONSTRAINT super_ext REFERENCES generoSupergenero(identificador),
 
   CONSTRAINT clave_primaria PRIMARY KEY (identificador)
 );
@@ -64,27 +64,29 @@ CREATE TABLE premiadaPor(
 -- Tablas de valoraciones
 
 CREATE TABLE valoracionValora(
-  idProducto int NOT NULL  REFERENCES productoCulturalPadre(id),
-  nombreUsuario varchar(20) NOT NULL  REFERENCES usuario(nombreusuario),
+  idProducto int NOT NULL REFERENCES productoCulturalPadre(id),
+  nombreUsuario varchar(20) NOT NULL REFERENCES usuario(nombreusuario),
   resena varchar(16384) NOT NULL,
   puntuacion int NOT NULL,
 
   CONSTRAINT clave_primaria_valoracion PRIMARY KEY (idProducto, nombreUsuario),
-  CONSTRAINT rango_puntuacion CHECK (puntuacion >= 1 AND puntuacion <= 5)
+  CONSTRAINT rango_puntuacion CHECK (puntuacion >= 1 AND puntuacion <= 5),
+  CONSTRAINT resena_no_vacia CHECK (TRIM(resena) NOT LIKE '')
 );
 
 CREATE TABLE puntua(
-  nombreUsuarioPuntuador varchar(20) NOT NULL REFERENCES usuario(nombreusuario),
-  nombreUsuarioValorador varchar(20) NOT NULL REFERENCES usuario(nombreusuario),
-  idProducto int NOT NULL  REFERENCES productoCulturalPadre(id),
+  nombreUsuarioPuntuador varchar(20) NOT NULL,
+  nombreUsuarioValorador varchar(20) NOT NULL,
+  idProducto int NOT NULL REFERENCES productoCulturalPadre(id),
   puntuacion int NOT NULL,
 
+  CONSTRAINT puntua_ext FOREIGN KEY(idProducto, nombreUsuarioValorador) REFERENCES valoracionValora(idProducto, nombreUsuario),
   CONSTRAINT clave_primaria_puntua PRIMARY KEY (nombreUsuarioPuntuador, nombreUsuarioValorador, idProducto),
   CONSTRAINT rango_puntuacion CHECK (puntuacion >= 0 AND puntuacion <= 1)
 );
 
 CREATE TABLE usuario(
-  nombreusuario varchar(20),
+  nombreusuario varchar(20) NOT NULL,
   nombrereal varchar(60),
   localidadorigen varchar(20),
   correoelectronico varchar(40),
@@ -95,16 +97,17 @@ CREATE TABLE usuario(
 );
 
 CREATE TABLE leGusta(
-  nombreusuario CONSTRAINT nombreusuario_ext REFERENCES usuario(nombreusuario),
-  identificador CONSTRAINT identificador_ext REFERENCES géneroSupergénero(identificador),
+  nombreusuario varchar(20) NOT NULL CONSTRAINT nombreusuario_ext REFERENCES usuario(nombreusuario),
+  identificador varchar(100) NOT NULL CONSTRAINT identificador_ext REFERENCES generoSupergenero(identificador),
 
   CONSTRAINT clave_primaria PRIMARY KEY (nombreusuario,identificador)
 );
 
 CREATE TABLE reporta(
-  nombreusuarioreportador CONSTRAINT nombreusuarioreportador_ext REFERENCES usuario(nombreusuario),
-  idproducto CONSTRAINT idproducto_ext REFERENCES productoCulturalPadre(id),
-  nombreusuarioreportado CONSTRAINT nombreusuarioreportado_ext REFERENCES valoracionValora(nombreUsuario),
+  nombreusuarioreportador varchar(20) NOT NULL,
+  nombreusuarioreportado varchar(20) NOT NULL,
+  idproducto int NOT NULL CONSTRAINT idproducto_ext REFERENCES productoCulturalPadre(id),
 
+  CONSTRAINT reporta_ext FOREIGN KEY(idProducto, nombreUsuarioReportado) REFERENCES valoracionValora(idProducto, nombreUsuario),
   CONSTRAINT clave_primaria PRIMARY KEY (nombreusuarioreportador,nombreusuarioreportado,idproducto)
 );

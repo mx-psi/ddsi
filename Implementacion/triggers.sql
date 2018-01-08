@@ -30,3 +30,32 @@ WHEN NEW.superGenero = NEW.identificador
 BEGIN
 SELECT RAISE(ABORT, 'Un género no puede ser su propio supergénero');
 END;
+
+-- RS-3.2. El correo electrónico debe estar en un formato válido. Este requisito afecta a RF-3.1, RF-3.3, RD-3.1, RD-3.2 y RD-3.4.
+CREATE TRIGGER inserta_usuario
+BEFORE INSERT ON usuario
+WHEN NEW.correoelectronico NOT REGEXP '[(a-z)]+[(a-z0-9\_\-\.)]*@([(a-z)]+\.)*[(a-z)]+\.[(a-z)]{2,15}$'
+BEGIN
+SELECT RAISE(ABORT, 'El formáto de correo electrónico no es válido.');
+END;
+
+
+-- Disparadores del sistema de valoraciones
+
+-- RS-4.4. Un usuario no puede puntuar sus propias valoraciones.
+-- Asociado a: RF-4.4 y RD-4.8
+CREATE TRIGGER puntuar_propias_valoraciones
+BEFORE INSERT ON puntua
+WHEN NEW.nombreUsuarioPuntuador = NEW.nombreUsuarioValorador
+BEGIN
+SELECT RAISE(ABORT, 'Un usuario no puede puntuar sus propias valoraciones');
+END;
+
+-- RS-4.5. Un usuario no puede reportar sus propias valoraciones.
+-- Asociado a: RF-4.5 y RD-4.10
+CREATE TRIGGER reportar_propias_valoraciones
+BEFORE INSERT ON reporta
+WHEN NEW.nombreUsuarioReportador = NEW.nombreUsuarioReportado
+BEGIN
+SELECT RAISE(ABORT, 'Un usuario no puede reportar sus propias valoraciones');
+END;

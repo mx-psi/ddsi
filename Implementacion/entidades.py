@@ -30,11 +30,8 @@ def add_premio(c):
   prm_producto = leer2(c, "productoCulturalPadre", "id", "ID del producto por el que recibe el premio: ")
   prm_nombre = prompt("Nombre del premio: ")
 
-  try: 
-    c.execute('INSERT INTO premiadaPor VALUES (?, ?, ?)',
-              (prm_entidad, prm_producto, prm_nombre))
-  except sqlite3.IntegrityError as err:
-    print('SQL IntegrityError: ' + str(err))
+  c.execute('INSERT INTO premiadaPor VALUES (?, ?, ?)',
+            (prm_entidad, prm_producto, prm_nombre))
 
 
 def view_entidad(c):
@@ -69,12 +66,9 @@ def add_genero(c):
   gen_id = prompt("Identificador de género: ")
   gen_supg = leer2(c, "generoSupergenero", "identificador", "Supergénero: ")
 
-  try:
-    c.execute('INSERT INTO generoSupergenero VALUES (?, ?, ?)',
-              (gen_id, gen_nombre, gen_supg))
-  except sqlite3.IntegrityError as err:
-    print('SQL IntegrityError: ' + str(err))
- 
+  c.execute('INSERT INTO generoSupergenero VALUES (?, ?, ?)',
+            (gen_id, gen_nombre, gen_supg))
+
   # TODO: Restricción semántica
 
 def view_genero(c):
@@ -114,7 +108,7 @@ def view_genero(c):
   print('\nProductos del género')
   print(tabulate(c.fetchall(), headers=['Id','Nombre','Fecha','Tipo','IdPadre']))
 
-  
+
 def view_genero_id(c):
   """Consulta datos de un ID de género específico"""
   # RF-2.6. Consultar un género por ID. Dado el identificador de un
@@ -147,10 +141,10 @@ def view_genero_id(c):
     )""", (str(gen_id),))
   print('\nProductos del género')
   print(tabulate(c.fetchall(), headers=['Id','Nombre','Fecha','Tipo','IdPadre']))
-  
+
   # TODO: Restricciones semánticas
-  
-  
+
+
 comandos = {
   'Añadir-Creadores': add_entidad,
   'Añadir-Premios': add_premio,

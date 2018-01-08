@@ -54,6 +54,19 @@ CONSTRAINT clave_primaria PRIMARY KEY (id1,id2)
 );
 ```
 
+Al añadir a esta tabla se activará el siguiente disparador que implementa
+la restricción semántica RS-1.2.
+
+```sql
+CREATE TRIGGER inserta_producto
+BEFORE INSERT ON asociadoA
+WHEN NEW.id1 = NEW.id2
+BEGIN
+SELECT RAISE(ABORT, 'Un producto cultural no puede estar relacionado con sí mismo');
+END;
+```
+
+
 ### **creadoPor**
 
 - creadoPor(_idProducto_, _rol_, _nombreCreador_)

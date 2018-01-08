@@ -29,8 +29,7 @@ Cada **usuario** estará representado en el sistema por un nombre de usuario, da
 
 - darse de alta o de baja en el sistema,
 - modificar sus datos,
-- consultar las recomendaciones dadas por el sistema basadas en sus categorías de interés y sus valoraciones en productos culturales similares y
-- ser notificado de la salida de nuevos productos culturales que podrían interesarle.
+- consultar las recomendaciones dadas por el sistema basadas en sus categorías de interés y sus valoraciones en productos culturales similares.
 
 Una **valoración** estará compuesta de una puntuación numérica y una reseña en texto opcional que justifique tal puntuación. Tendrá asociada una puntuación basada en la opinión del resto de usuarios sobre su utilidad. Este subsistema permitirá que los usuarios:
 
